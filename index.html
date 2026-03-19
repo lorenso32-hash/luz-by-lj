@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Luz by LJ — Portrait, Commercial & Event Photography. Albuquerque, NM. Portraits after dark.">
+  <title>Luz by LJ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* =====================
+       RESET & TOKENS
+    ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #050121;
+      --navy-mid:   #080230;
+      --navy-light: #0d0535;
+      --pink:       #E21056;
+      --pink-glow:  rgba(226, 16, 86, 0.35);
+      --teal:       #00B4CC;
+      --teal-glow:  rgba(0, 180, 204, 0.35);
+      --white:      #FFFFFF;
+      --white-80:   rgba(255,255,255,0.80);
+      --white-60:   rgba(255,255,255,0.60);
+      --white-20:   rgba(255,255,255,0.20);
+      --white-10:   rgba(255,255,255,0.10);
+      --white-06:   rgba(255,255,255,0.06);
+
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif:   'Playfair Display', serif;
+      --font-body:    'Inter', sans-serif;
+
+      --max-w:  1100px;
+      --pad-x:  40px;
+      --sec-y:  100px;
+      --nav-h:  68px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+      animation: pagefade 0.45s ease;
+    }
+    @keyframes pagefade { from { opacity:0; } to { opacity:1; } }
+
+    /* =====================
+       STARFIELD
+    ===================== */
+    .milky-way {
+      position: fixed;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(
+        108deg,
+        transparent       0%,
+        transparent      28%,
+        rgba(160,130,255,0.018) 35%,
+        rgba(200,175,255,0.045) 43%,
+        rgba(220,200,255,0.055) 50%,
+        rgba(200,175,255,0.045) 57%,
+        rgba(160,130,255,0.018) 64%,
+        transparent      71%,
+        transparent     100%
+      );
+    }
+    .star {
+      position: fixed;
+      border-radius: 50%;
+      background: white;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.05; }
+      50%       { opacity: 0.75; }
+    }
+    @keyframes twinkle-glow {
+      0%, 100% { opacity: 0.08; box-shadow: none; }
+      50%       { opacity: 0.95; box-shadow: 0 0 5px 2px rgba(200,185,255,0.45); }
+    }
+
+    /* =====================
+       LAYOUT
+    ===================== */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+    section { padding: var(--sec-y) 0; position: relative; z-index: 1; }
+    .bg-alt { background: var(--navy-mid); }
+
+    /* =====================
+       TYPE UTILITIES
+    ===================== */
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: 11px; letter-spacing: 5px;
+      color: var(--teal); text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .rule-accent {
+      width: 56px; height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--teal));
+      margin-bottom: 36px;
+    }
+
+    /* =====================
+       BUTTONS
+    ===================== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 36px;
+      font-family: var(--font-display);
+      font-size: 15px; letter-spacing: 3px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--pink);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #ff1a6a;
+      box-shadow: 0 0 24px 6px var(--pink-glow), 0 0 48px 12px rgba(226,16,86,0.15);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--white-20);
+    }
+    .btn-ghost:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      box-shadow: 0 0 18px 4px var(--teal-glow);
+      transform: translateY(-1px);
+    }
+
+    /* =====================
+       NAV
+    ===================== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      background: rgba(5, 1, 33, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--white-06);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x);
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px; letter-spacing: 4px;
+      color: var(--white);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo span { color: var(--pink); }
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 13px; letter-spacing: 3px;
+      color: var(--white-60);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s, text-shadow 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--teal);
+      text-shadow: 0 0 12px var(--teal-glow);
+    }
+    .nav-links .nav-cta a {
+      color: var(--pink);
+    }
+    .nav-links .nav-cta a:hover {
+      color: var(--pink);
+      text-shadow: 0 0 12px var(--pink-glow);
+    }
+    @media (max-width: 600px) {
+      .nav-logo { font-size: 17px; letter-spacing: 2px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
+    }
+
+    /* =====================
+       HERO
+    ===================== */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 680px;
+      display: flex; align-items: flex-end; justify-content: center;
+      overflow: hidden;
+      padding: 0 0 130px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('photos/Tattoo mirror.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(5,1,33,0.55) 0%,
+        rgba(5,1,33,0.30) 40%,
+        rgba(5,1,33,0.65) 75%,
+        rgba(5,1,33,0.95) 100%
+      );
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 var(--pad-x);
+    }
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 22px; letter-spacing: 7px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      -webkit-text-stroke: 0.5px rgba(255,255,255,0.25);
+      text-shadow: 0 0 12px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9);
+    }
+    .hero-wordmark {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 9rem);
+      letter-spacing: 8px;
+      line-height: 0.9;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .hero-wordmark .by {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.4rem, 4vw, 3rem);
+      letter-spacing: 2px;
+      color: var(--white-80);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .hero-wordmark .lj {
+      color: var(--pink);
+      text-shadow: 0 0 40px rgba(226,16,86,0.5);
+    }
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--white-80);
+      margin: 28px 0 44px;
+      letter-spacing: 1px;
+    }
+    .hero-ctas {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* =====================
+       GALLERY
+    ===================== */
+    #work {
+      background: var(--navy);
+    }
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .gallery-header .rule-accent {
+      margin-left: auto; margin-right: auto;
+    }
+    .gallery-grid {
+      columns: 3;
+      column-gap: 12px;
+    }
+    @media (max-width: 900px) { .gallery-grid { columns: 2; } }
+    @media (max-width: 560px) { .gallery-grid { columns: 1; } }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: brightness(0.92);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.03);
+      filter: brightness(1);
+    }
+    .gallery-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(5,1,33,0.75) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex; align-items: flex-end;
+      padding: 20px;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item-label {
+      font-family: var(--font-display);
+      font-size: 12px; letter-spacing: 3px;
+      color: var(--teal);
+      text-transform: uppercase;
+    }
+
+    /* Neon border on featured items */
+    .gallery-item.featured {
+      border: 1px solid transparent;
+      animation: neon-border 4s ease-in-out infinite;
+    }
+    @keyframes neon-border {
+      0%, 100% { border-color: rgba(226,16,86,0.3); box-shadow: 0 0 8px rgba(226,16,86,0.15); }
+      50%       { border-color: rgba(0,180,204,0.4); box-shadow: 0 0 16px rgba(0,180,204,0.2); }
+    }
+
+    /* =====================
+       ABOUT
+    ===================== */
+    #about {
+      position: relative;
+      overflow: hidden;
+    }
+    .about-bg {
+      position: absolute; inset: 0;
+      background-image: url('photos/Enrique-27.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .about-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(5,1,33,0.97) 0%,
+        rgba(5,1,33,0.92) 45%,
+        rgba(5,1,33,0.60) 100%
+      );
+      z-index: 1;
+    }
+    .about-inner {
+      position: relative; z-index: 2;
+      max-width: 600px;
+    }
+    .about-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+      color: var(--white-80);
+      line-height: 1.5;
+      border-left: 3px solid var(--pink);
+      padding-left: 28px;
+      margin: 36px 0;
+    }
+    .about-body {
+      font-size: 1rem;
+      color: var(--white-60);
+      line-height: 1.85;
+      max-width: 520px;
+    }
+
+    /* =====================
+       SERVICES
+    ===================== */
+    #services {
+      background: var(--navy-mid);
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .services-header .rule-accent {
+      margin-left: auto; margin-right: auto;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1000px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: var(--white-06);
+      border: 1px solid var(--white-10);
+      padding: 40px 32px;
+      border-radius: 2px;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+    .service-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 0 24px var(--teal-glow);
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 22px; letter-spacing: 3px;
+      color: var(--white);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--white-60);
+      line-height: 1.8;
+    }
+
+    /* =====================
+       CONTACT / BOOKING
+    ===================== */
+    #contact {
+      background: var(--navy);
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    @media (max-width: 760px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    .contact-info table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+    }
+    .contact-info td {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--white-10);
+      font-size: 0.9rem;
+    }
+    .contact-info td:first-child {
+      font-family: var(--font-display);
+      letter-spacing: 2px;
+      font-size: 11px;
+      color: var(--teal);
+      text-transform: uppercase;
+      width: 120px;
+    }
+    .contact-info td:last-child {
+      color: var(--white-80);
+    }
+    .contact-info td a {
+      color: var(--white-80);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-info td a:hover { color: var(--teal); }
+
+    .contact-cta {
+      padding-top: 8px;
+    }
+    .contact-cta p {
+      color: var(--white-60);
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* =====================
+       FOOTER
+    ===================== */
+    footer {
+      background: rgba(5,1,33,0.98);
+      border-top: 1px solid var(--white-10);
+      padding: 48px 0 36px;
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .footer-wordmark {
+      font-family: var(--font-display);
+      font-size: 28px; letter-spacing: 5px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .footer-wordmark span { color: var(--pink); }
+    .footer-tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--white-60);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .footer-divider {
+      width: 56px; height: 1px;
+      background: linear-gradient(90deg, var(--pink), var(--teal));
+      margin: 0 auto 24px;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--white-60);
+      letter-spacing: 1px;
+    }
+
+    /* =====================
+       LIGHTBOX
+    ===================== */
+    .lightbox {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(5,1,33,0.97);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid var(--white-10);
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .lightbox-close {
+      position: absolute; top: 28px; right: 36px;
+      font-family: var(--font-display);
+      font-size: 24px; letter-spacing: 2px;
+      color: var(--white-60);
+      cursor: pointer;
+      transition: color 0.2s;
+      z-index: 201;
+    }
+    .lightbox-close:hover { color: var(--pink); }
+    .lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: 32px;
+      color: var(--white-60);
+      cursor: pointer;
+      padding: 20px;
+      transition: color 0.2s;
+      z-index: 201;
+      user-select: none;
+    }
+    .lightbox-nav:hover { color: var(--teal); }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+    .lightbox-counter {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      font-family: var(--font-display);
+      font-size: 12px; letter-spacing: 3px;
+      color: var(--white-40);
+    }
+
+    /* =====================
+       VIDEO / CONTENT
+    ===================== */
+    #content {
+      background: var(--navy-mid);
+    }
+    .content-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .content-header .rule-accent {
+      margin-left: auto; margin-right: auto;
+    }
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) { .reels-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .reels-grid { grid-template-columns: 1fr 1fr; gap: 10px; } }
+
+    .reel-card {
+      position: relative;
+      border: 1px solid var(--white-10);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .reel-card:hover {
+      border-color: var(--pink);
+      box-shadow: 0 0 20px var(--pink-glow);
+    }
+    .reel-aspect {
+      position: relative;
+      width: 100%;
+      padding-bottom: 177.78%; /* 9:16 */
+    }
+    .reel-aspect iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Starfield -->
+  <div class="milky-way"></div>
+  <div id="stars"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">LUZ <span>·</span> LJ</a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#content">Content</a></li>
+        <li class="nav-cta"><a href="#contact">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Santa Fe · Albuquerque</p>
+      <h1 class="hero-wordmark">
+        <span class="by">luz by</span>
+        <span class="lj">LJ</span>
+      </h1>
+      <p class="hero-tagline">The shot in every shadow.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn btn-primary">View Work</a>
+        <a href="#contact" class="btn btn-ghost">Book a Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="work">
+    <div class="container">
+      <div class="gallery-header">
+        <p class="eyebrow">Portfolio</p>
+        <h2 class="section-heading">The Work</h2>
+        <div class="rule-accent"></div>
+      </div>
+      <div class="gallery-grid">
+
+        <!-- Neon / Portrait -->
+        <div class="gallery-item featured" onclick="openLightbox('photos/Tattoo mirror.jpg')">
+          <img src="photos/Tattoo mirror.jpg" alt="Portrait — neon tattoo sign">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item featured" onclick="openLightbox('photos/Nashville Bridge 2.jpg')">
+          <img src="photos/Nashville Bridge 2.jpg" alt="Nashville cityscape — portrait">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/melanie 1.jpg')">
+          <img src="photos/melanie 1.jpg" alt="Portrait — warm overhead light">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+
+        <!-- Commercial / Brand -->
+        <div class="gallery-item featured" onclick="openLightbox('photos/Artistic City Scape with NTD Jacket.jpg')">
+          <img src="photos/Artistic City Scape with NTD Jacket.jpg" alt="Cityscape — commercial">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/Enrique taco truck 1.jpg')">
+          <img src="photos/Enrique taco truck 1.jpg" alt="Taco truck — commercial">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/Enrique taco truck 2.jpg')">
+          <img src="photos/Enrique taco truck 2.jpg" alt="Taco truck — commercial">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
+        </div>
+
+        <!-- Events -->
+        <div class="gallery-item featured" onclick="openLightbox('photos/Leah Live Show Pic.jpg')">
+          <img src="photos/Leah Live Show Pic.jpg" alt="Live show — events">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Events</span></div>
+        </div>
+
+        <!-- Neon series cont. -->
+        <div class="gallery-item" onclick="openLightbox('photos/tattoo mirror 2.jpg')">
+          <img src="photos/tattoo mirror 2.jpg" alt="Portrait — neon">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/tattoo mirror 3.jpg')">
+          <img src="photos/tattoo mirror 3.jpg" alt="Portrait — neon">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+
+        <!-- Nashville -->
+        <div class="gallery-item" onclick="openLightbox('photos/Nashville Bridge 1.jpg')">
+          <img src="photos/Nashville Bridge 1.jpg" alt="Nashville bridge — portrait">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+
+        <!-- Portrait cont. -->
+        <div class="gallery-item" onclick="openLightbox('photos/Tina Chillin 1.jpg')">
+          <img src="photos/Tina Chillin 1.jpg" alt="Portrait — blue neon">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/melanie 2.jpg')">
+          <img src="photos/melanie 2.jpg" alt="Portrait">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+
+        <!-- Editorial / Stylistic -->
+        <div class="gallery-item" onclick="openLightbox('photos/stylistic 1.jpg')">
+          <img src="photos/stylistic 1.jpg" alt="Editorial — overhead spotlight">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/stylistic 2.jpg')">
+          <img src="photos/stylistic 2.jpg" alt="Editorial">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/stylistic 3.jpg')">
+          <img src="photos/stylistic 3.jpg" alt="Editorial">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
+        </div>
+
+        <!-- Enrique portraits -->
+        <div class="gallery-item" onclick="openLightbox('photos/Enrique.jpg')">
+          <img src="photos/Enrique.jpg" alt="Portrait — low light alley">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/Enrique-27.jpg')">
+          <img src="photos/Enrique-27.jpg" alt="Portrait — mural wall">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/Enrique-36.jpg')">
+          <img src="photos/Enrique-36.jpg" alt="Portrait">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/Enrique-38.jpg')">
+          <img src="photos/Enrique-38.jpg" alt="Portrait">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+
+        <!-- Lifestyle -->
+        <div class="gallery-item" onclick="openLightbox('photos/boat day 1.jpg')">
+          <img src="photos/boat day 1.jpg" alt="Lifestyle — sunset on water">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/boat day 2.jpg')">
+          <img src="photos/boat day 2.jpg" alt="Lifestyle — boat day">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/Boat Day 3.jpg')">
+          <img src="photos/Boat Day 3.jpg" alt="Lifestyle — boat day">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="about-bg"></div>
+    <div class="about-overlay"></div>
+    <div class="container">
+      <div class="about-inner">
+        <p class="eyebrow">About</p>
+        <h2 class="section-heading">Light in the right hands.</h2>
+        <div class="rule-accent"></div>
+        <blockquote class="about-quote">
+          "I don't chase the light — I find it where no one else is looking."
+        </blockquote>
+        <p class="about-body">
+          Luz by LJ is the photography work of LJ Jaramillo, born and raised in Albuquerque, New Mexico.
+          Rooted in low-light portraiture, cinematic framing, and the raw energy of the Southwest,
+          LJ's work finds the extraordinary in ordinary moments — alleyways lit by a single bulb,
+          neon signs bleeding color into the dark, faces illuminated by the world around them.
+        </p>
+        <br>
+        <p class="about-body">
+          Available for portrait sessions, commercial campaigns, and live event coverage across
+          New Mexico and beyond.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header">
+        <p class="eyebrow">What I Do</p>
+        <h2 class="section-heading">Services</h2>
+        <div class="rule-accent"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">◈</span>
+          <h3 class="service-title">Portrait</h3>
+          <p class="service-desc">Individual and group sessions. Cinematic, editorial, or lifestyle — built around who you actually are, not who the studio thinks you should be.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">◉</span>
+          <h3 class="service-title">Commercial</h3>
+          <p class="service-desc">Brand photography, product campaigns, artist press shots. Visual storytelling that makes people stop scrolling.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">◎</span>
+          <h3 class="service-title">Events</h3>
+          <p class="service-desc">Live music, shows, gatherings. The moment that won't come back — captured before it disappears.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">▷</span>
+          <h3 class="service-title">Content</h3>
+          <p class="service-desc">Cinematic short-form content — Reels, TikToks, and social visuals built to stop the scroll.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content / Reels -->
+  <section id="content">
+    <div class="container">
+      <div class="content-header">
+        <p class="eyebrow">Cinematic Content Creation</p>
+        <h2 class="section-heading">The Reels</h2>
+        <div class="rule-accent"></div>
+      </div>
+      <div class="reels-grid">
+        <div class="reel-card">
+          <div class="reel-aspect">
+            <iframe src="https://www.youtube.com/embed/_831uXrG5f4?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        <div class="reel-card">
+          <div class="reel-aspect">
+            <iframe src="https://www.youtube.com/embed/ifXk7DFMKyM?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        <div class="reel-card">
+          <div class="reel-aspect">
+            <iframe src="https://www.youtube.com/embed/mi0hnEf460I?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        <div class="reel-card">
+          <div class="reel-aspect">
+            <iframe src="https://www.youtube.com/embed/dImP1dRCT4g?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-info">
+          <p class="eyebrow">Get in Touch</p>
+          <h2 class="section-heading">Book a Session</h2>
+          <div class="rule-accent"></div>
+          <table>
+            <tr>
+              <td>Photographer</td>
+              <td>LJ</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td><a href="mailto:LuzByLJ@gmail.com">LuzByLJ@gmail.com</a></td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td><a href="tel:+15058181929">+1 (505) 818-1929</a></td>
+            </tr>
+            <tr>
+              <td>Based In</td>
+              <td>Albuquerque, New Mexico</td>
+            </tr>
+            <tr>
+              <td>Available</td>
+              <td>NM & Surrounding Southwest</td>
+            </tr>
+          </table>
+        </div>
+        <div class="contact-cta">
+          <p class="eyebrow">&nbsp;</p>
+          <h2 class="section-heading" style="opacity:0; pointer-events:none;">—</h2>
+          <div class="rule-accent" style="opacity:0;"></div>
+          <p>
+            Ready to shoot? Send a message with your session idea, preferred dates, and location.
+            I'll get back to you within 24 hours.
+          </p>
+          <br>
+          <p style="color: var(--white-40, rgba(255,255,255,0.4)); font-size:0.85rem;">
+            Portrait sessions · Commercial campaigns · Live events · Short-form content
+          </p>
+          <br><br>
+          <a href="mailto:LuzByLJ@gmail.com?subject=Booking Inquiry — Luz by LJ" class="btn btn-primary">Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-wordmark">LUZ <span>·</span> LJ</div>
+    <p class="footer-tagline">The shot in every shadow.</p>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">&copy; 2026 Luz by LJ · Albuquerque, New Mexico · All rights reserved</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">✕ CLOSE</span>
+    <span class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8592;</span>
+    <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+    <span class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</span>
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+  </div>
+
+  <script>
+    // Starfield
+    (function() {
+      const container = document.getElementById('stars');
+      const count = 200;
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('div');
+        s.className = 'star';
+        const size = Math.random() < 0.1 ? (Math.random() * 2 + 1.5) : (Math.random() * 1.2 + 0.3);
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const dur = 2.5 + Math.random() * 5;
+        const delay = Math.random() * 6;
+        const isGlow = Math.random() < 0.2;
+        s.style.cssText = `
+          width:${size}px; height:${size}px;
+          left:${x}vw; top:${y}vh;
+          animation: ${isGlow ? 'twinkle-glow' : 'twinkle'} ${dur}s ${delay}s ease-in-out infinite;
+        `;
+        container.appendChild(s);
+      }
+    })();
+
+    // Lightbox
+    const galleryPhotos = Array.from(document.querySelectorAll('.gallery-item')).map(el => ({
+      src: el.querySelector('img').src,
+      alt: el.querySelector('img').alt
+    }));
+    let currentIndex = 0;
+
+    function openLightbox(src) {
+      currentIndex = galleryPhotos.findIndex(p => p.src.endsWith(src.replace(/^.*photos\//, '')));
+      if (currentIndex < 0) currentIndex = 0;
+      showLightboxPhoto();
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function showLightboxPhoto() {
+      const photo = galleryPhotos[currentIndex];
+      document.getElementById('lightbox-img').src = photo.src;
+      document.getElementById('lightbox-img').alt = photo.alt;
+      document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + galleryPhotos.length;
+    }
+    function lightboxNav(dir) {
+      currentIndex = (currentIndex + dir + galleryPhotos.length) % galleryPhotos.length;
+      showLightboxPhoto();
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.getElementById('lightbox-img').src = '';
+    }
+
+    // Close on backdrop click
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') lightboxNav(1);
+      if (e.key === 'ArrowLeft') lightboxNav(-1);
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    document.getElementById('lightbox').addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    document.getElementById('lightbox').addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) lightboxNav(diff > 0 ? 1 : -1);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
