@@ -598,6 +598,35 @@
     .content-header .rule-accent {
       margin-left: auto; margin-right: auto;
     }
+    .band-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .band-item {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .band-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .band-item:hover img { transform: scale(1.04); }
+    .band-item .gallery-item-overlay {
+      position: absolute; inset: 0;
+      background: rgba(5,1,33,0.5);
+      display: flex; align-items: flex-end; justify-content: flex-start;
+      padding: 12px;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .band-item:hover .gallery-item-overlay { opacity: 1; }
+    @media (max-width: 900px) { .band-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .band-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; } }
+
     .reels-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -647,6 +676,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#content">Content</a></li>
+        <li><a href="#live">Live</a></li>
         <li class="nav-cta"><a href="#contact">Book Now</a></li>
       </ul>
     </div>
@@ -786,6 +816,61 @@
           <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Band / Live Events -->
+  <section id="live" class="bg-alt">
+    <div class="container">
+      <p class="eyebrow">Live Events</p>
+      <h2 class="section-heading">At the Show</h2>
+      <div class="rule-accent"></div>
+      <div class="band-grid">
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live Show Pic.jpg')">
+          <img src="photos/leah-live/Leah Live Show Pic.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01352.jpg')">
+          <img src="photos/leah-live/LJ_01352.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01389.jpg')">
+          <img src="photos/leah-live/LJ_01389.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01403.jpg')">
+          <img src="photos/leah-live/LJ_01403.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01423.jpg')">
+          <img src="photos/leah-live/LJ_01423.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01484.jpg')">
+          <img src="photos/leah-live/LJ_01484.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01502.jpg')">
+          <img src="photos/leah-live/LJ_01502.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01502-2.jpg')">
+          <img src="photos/leah-live/LJ_01502-2.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01545.jpg')">
+          <img src="photos/leah-live/LJ_01545.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01547.jpg')">
+          <img src="photos/leah-live/LJ_01547.jpg" alt="Live show">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Blurry Artsy Band Pic.jpg')">
+          <img src="photos/leah-live/Blurry Artsy Band Pic.jpg" alt="Live show — artistic">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -980,20 +1065,34 @@
     }));
     let currentIndex = 0;
 
+    const bandPhotos = Array.from(document.querySelectorAll('.band-item')).map(el => ({
+      src: el.querySelector('img').src,
+      alt: el.querySelector('img').alt
+    }));
+    let lightboxPool = galleryPhotos;
+
     function openLightbox(src) {
+      lightboxPool = galleryPhotos;
       currentIndex = galleryPhotos.findIndex(p => p.src.endsWith(src.replace(/^.*photos\//, '')));
       if (currentIndex < 0) currentIndex = 0;
       showLightboxPhoto();
       document.getElementById('lightbox').classList.add('open');
     }
+    function openLightboxFromBand(src) {
+      lightboxPool = bandPhotos;
+      currentIndex = bandPhotos.findIndex(p => p.src.endsWith(src.replace(/^.*photos\//, '')));
+      if (currentIndex < 0) currentIndex = 0;
+      showLightboxPhoto();
+      document.getElementById('lightbox').classList.add('open');
+    }
     function showLightboxPhoto() {
-      const photo = galleryPhotos[currentIndex];
+      const photo = lightboxPool[currentIndex];
       document.getElementById('lightbox-img').src = photo.src;
       document.getElementById('lightbox-img').alt = photo.alt;
-      document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + galleryPhotos.length;
+      document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + lightboxPool.length;
     }
     function lightboxNav(dir) {
-      currentIndex = (currentIndex + dir + galleryPhotos.length) % galleryPhotos.length;
+      currentIndex = (currentIndex + dir + lightboxPool.length) % lightboxPool.length;
       showLightboxPhoto();
     }
     function closeLightbox() {
