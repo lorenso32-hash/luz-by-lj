@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Luz by LJ — Portrait, Commercial & Event Photography. Albuquerque, NM. Portraits after dark.">
-  <title>Luz by LJ</title>
+  <meta name="description" content="Luz by LJ — Portrait, commercial, and event photography based in Santa Fe, New Mexico. Serving Albuquerque, Santa Fe, and the Southwest. Portraits after dark.">
+  <meta name="keywords" content="Santa Fe photographer, Albuquerque photographer, New Mexico photographer, portrait photographer Santa Fe, portrait photographer Albuquerque, event photographer New Mexico, commercial photographer Santa Fe, neon portrait photography, nighttime photographer NM, Southwest photographer, Luz by LJ, LJ photographer">
+  <meta name="author" content="Luz by LJ">
+  <meta property="og:title" content="Luz by LJ — Santa Fe Photographer">
+  <meta property="og:description" content="Portrait, commercial, and event photography based in Santa Fe, New Mexico. Serving the Southwest.">
+  <meta property="og:type" content="website">
+  <meta name="geo.region" content="US-NM">
+  <meta name="geo.placename" content="Santa Fe, New Mexico">
+  <title>Luz by LJ | Santa Fe & Albuquerque Photographer | Portraits After Dark</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,9 +112,27 @@
     ===================== */
     .eyebrow {
       font-family: var(--font-display);
-      font-size: 11px; letter-spacing: 5px;
+      font-size: 30px; letter-spacing: 6px;
       color: var(--teal); text-transform: uppercase;
       margin-bottom: 14px;
+      animation: eyebrow-shimmer 3s ease-in-out infinite;
+    }
+    @keyframes eyebrow-shimmer {
+      0%, 100% { text-shadow: 0 0 4px rgba(0,180,204,0.3), 0 0 8px rgba(0,180,204,0.1); opacity: 0.7; }
+      50% { text-shadow: 0 0 16px rgba(0,180,204,1), 0 0 36px rgba(0,180,204,0.7), 0 0 64px rgba(0,180,204,0.3); opacity: 1; }
+    }
+    .ntd-credit {
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      text-align: center;
+      animation: ntd-glow 3s ease-in-out infinite;
+    }
+    @keyframes ntd-glow {
+      0%, 100% { color: #00B4CC; text-shadow: 0 0 8px rgba(0,180,204,0.6), 0 0 20px rgba(0,180,204,0.3); }
+      50% { color: #E21056; text-shadow: 0 0 12px rgba(226,16,86,0.8), 0 0 30px rgba(226,16,86,0.4); }
     }
     .section-heading {
       font-family: var(--font-serif);
@@ -175,13 +200,14 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo {
-      font-family: var(--font-display);
-      font-size: 22px; letter-spacing: 4px;
-      color: var(--white);
       text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: center;
     }
-    .nav-logo span { color: var(--pink); }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+    .nav-logo span { display: none; }
     .nav-links {
       display: flex; align-items: center; gap: 36px;
       list-style: none;
@@ -217,9 +243,9 @@
     #hero {
       position: relative;
       height: 100vh; min-height: 680px;
-      display: flex; align-items: flex-end; justify-content: center;
+      display: flex; align-items: flex-end; justify-content: space-between;
       overflow: hidden;
-      padding: 0 0 130px;
+      padding: 0 5vw 4px 12vw;
     }
     .hero-bg {
       position: absolute; inset: 0;
@@ -239,20 +265,60 @@
       );
       z-index: 1;
     }
-    .hero-content {
+    .hero-left {
       position: relative; z-index: 2;
-      text-align: center;
-      padding: 0 var(--pad-x);
+    }
+    .hero-right {
+      position: relative; z-index: 2;
+      text-align: right;
+      max-width: 28%;
+      margin-bottom: 80px;
     }
     .hero-eyebrow {
       font-family: var(--font-display);
       font-size: 22px; letter-spacing: 7px;
       color: var(--teal);
       text-transform: uppercase;
+      margin-top: 20px;
       margin-bottom: 24px;
       -webkit-text-stroke: 0.5px rgba(255,255,255,0.25);
       text-shadow: 0 0 12px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.9);
     }
+    /* Chrome logo */
+    .logo-chrome-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 28px;
+    }
+    .logo-chrome-wrap img {
+      display: block;
+      width: auto;
+      max-height: 47vh;
+      max-width: 47vw;
+      filter:
+        drop-shadow(0 0 6px rgba(226,16,86,0.9))
+        drop-shadow(0 0 16px rgba(226,16,86,0.6))
+        drop-shadow(0 0 32px rgba(226,16,86,0.3))
+        drop-shadow(0 0 6px rgba(255,255,255,0.4));
+      animation: logo-neon-pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes logo-neon-pulse {
+      0%, 100% {
+        filter:
+          drop-shadow(0 0 6px rgba(226,16,86,0.9))
+          drop-shadow(0 0 16px rgba(226,16,86,0.6))
+          drop-shadow(0 0 32px rgba(226,16,86,0.3))
+          drop-shadow(0 0 6px rgba(255,255,255,0.4));
+      }
+      50% {
+        filter:
+          drop-shadow(0 0 10px rgba(226,16,86,1))
+          drop-shadow(0 0 28px rgba(226,16,86,0.8))
+          drop-shadow(0 0 55px rgba(226,16,86,0.5))
+          drop-shadow(0 0 10px rgba(255,255,255,0.6));
+      }
+    }
+
     .hero-wordmark {
       font-family: var(--font-display);
       font-size: clamp(4rem, 12vw, 9rem);
@@ -283,7 +349,7 @@
       letter-spacing: 1px;
     }
     .hero-ctas {
-      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      display: flex; gap: 16px; justify-content: flex-end; flex-wrap: wrap;
     }
 
     /* =====================
@@ -300,28 +366,47 @@
       margin-left: auto; margin-right: auto;
     }
     .gallery-grid {
-      columns: 3;
-      column-gap: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
     }
-    @media (max-width: 900px) { .gallery-grid { columns: 2; } }
-    @media (max-width: 560px) { .gallery-grid { columns: 1; } }
+    @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .gallery-grid { grid-template-columns: 1fr; } }
 
     .gallery-item {
-      break-inside: avoid;
-      margin-bottom: 12px;
+      margin-bottom: 0;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       cursor: pointer;
+      opacity: 0;
+      transform: translateY(40px) scale(0.97);
+      transition: opacity 0.6s ease, transform 0.4s ease, box-shadow 0.3s ease;
+      z-index: 1;
+    }
+    .gallery-item.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .gallery-item:hover {
+      transform: scale(1.3);
+      z-index: 10;
+      box-shadow: 0 0 16px rgba(0,180,204,0.7), 0 0 36px rgba(0,180,204,0.35), 0 0 60px rgba(0,180,204,0.15);
+    }
+    .gallery-hero:hover {
+      transform: none;
+      z-index: 1;
+    }
+    .gallery-item.landscape:hover {
+      transform: scale(1.7);
     }
     .gallery-item img {
       display: block;
       width: 100%;
       height: auto;
-      transition: transform 0.5s ease, filter 0.5s ease;
+      transition: filter 0.4s ease;
       filter: brightness(0.92);
     }
     .gallery-item:hover img {
-      transform: scale(1.03);
       filter: brightness(1);
     }
     .gallery-item-overlay {
@@ -338,6 +423,16 @@
       font-size: 12px; letter-spacing: 3px;
       color: var(--teal);
       text-transform: uppercase;
+    }
+
+    /* Full-width hero gallery item */
+    .gallery-item.gallery-hero {
+      grid-column: 1 / -1;
+    }
+    .gallery-item.gallery-hero img {
+      max-height: 600px;
+      object-fit: cover;
+      object-position: center top;
     }
 
     /* Neon border on featured items */
@@ -606,16 +701,30 @@
     .band-item {
       position: relative;
       aspect-ratio: 3 / 2;
-      overflow: hidden;
+      overflow: visible;
       cursor: pointer;
+      opacity: 0;
+      transform: translateY(40px) scale(0.97);
+      transition: opacity 0.6s ease, transform 0.4s ease, box-shadow 0.3s ease;
+      z-index: 1;
+    }
+    .band-item.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .band-item:hover {
+      transform: scale(1.3);
+      z-index: 10;
+      box-shadow: 0 0 16px rgba(0,180,204,0.7), 0 0 36px rgba(0,180,204,0.35), 0 0 60px rgba(0,180,204,0.15);
     }
     .band-item img {
       width: 100%; height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
+      transition: filter 0.4s ease;
+      filter: brightness(0.92);
     }
-    .band-item:hover img { transform: scale(1.04); }
+    .band-item:hover img { filter: brightness(1); }
     .band-item .gallery-item-overlay {
       position: absolute; inset: 0;
       background: rgba(5,1,33,0.5);
@@ -659,6 +768,21 @@
       border: none;
     }
 
+    .music-video-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-bottom: 56.25%; /* 16:9 */
+    }
+    .music-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--white-10);
+    }
+
   </style>
 </head>
 <body>
@@ -670,7 +794,7 @@
   <!-- Nav -->
   <nav>
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">LUZ <span>·</span> LJ</a>
+      <a href="#hero" class="nav-logo"><img src="Luz By LJ Logo 2.png" alt="Luz by LJ"></a>
       <ul class="nav-links">
         <li><a href="#work">Work</a></li>
         <li><a href="#about">About</a></li>
@@ -686,12 +810,13 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Santa Fe · Albuquerque</p>
-      <h1 class="hero-wordmark">
-        <span class="by">luz by</span>
-        <span class="lj">LJ</span>
-      </h1>
+    <div class="hero-left">
+      <div class="logo-chrome-wrap">
+        <img src="Luz By LJ Logo 2.png" alt="Luz by LJ">
+      </div>
+    </div>
+    <div class="hero-right">
+      <p class="hero-eyebrow">Based in Santa Fe, New Mexico</p>
       <p class="hero-tagline">The shot in every shadow.</p>
       <div class="hero-ctas">
         <a href="#work" class="btn btn-primary">View Work</a>
@@ -710,61 +835,13 @@
       </div>
       <div class="gallery-grid">
 
-        <!-- Neon / Portrait -->
-        <div class="gallery-item featured" onclick="openLightbox('photos/Tattoo mirror.jpg')">
+        <!-- Hero -->
+        <div class="gallery-item gallery-hero featured" onclick="openLightbox('photos/Tattoo mirror.jpg')">
           <img src="photos/Tattoo mirror.jpg" alt="Portrait — neon tattoo sign">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="gallery-item featured" onclick="openLightbox('photos/Nashville Bridge 2.jpg')">
-          <img src="photos/Nashville Bridge 2.jpg" alt="Nashville cityscape — portrait">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox('photos/melanie 1.jpg')">
-          <img src="photos/melanie 1.jpg" alt="Portrait — warm overhead light">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
-        </div>
 
-        <!-- Commercial / Brand -->
-        <div class="gallery-item featured" onclick="openLightbox('photos/Artistic City Scape with NTD Jacket.jpg')">
-          <img src="photos/Artistic City Scape with NTD Jacket.jpg" alt="Cityscape — commercial">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox('photos/Enrique taco truck 1.jpg')">
-          <img src="photos/Enrique taco truck 1.jpg" alt="Taco truck — commercial">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox('photos/Enrique taco truck 2.jpg')">
-          <img src="photos/Enrique taco truck 2.jpg" alt="Taco truck — commercial">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
-        </div>
-
-        <!-- Neon series cont. -->
-        <div class="gallery-item" onclick="openLightbox('photos/tattoo mirror 2.jpg')">
-          <img src="photos/tattoo mirror 2.jpg" alt="Portrait — neon">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox('photos/tattoo mirror 3.jpg')">
-          <img src="photos/tattoo mirror 3.jpg" alt="Portrait — neon">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
-        </div>
-
-        <!-- Nashville -->
-        <div class="gallery-item" onclick="openLightbox('photos/Nashville Bridge 1.jpg')">
-          <img src="photos/Nashville Bridge 1.jpg" alt="Nashville bridge — portrait">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
-        </div>
-
-        <!-- Portrait cont. -->
-        <div class="gallery-item" onclick="openLightbox('photos/Tina Chillin 1.jpg')">
-          <img src="photos/Tina Chillin 1.jpg" alt="Portrait — blue neon">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox('photos/melanie 2.jpg')">
-          <img src="photos/melanie 2.jpg" alt="Portrait">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
-        </div>
-
-        <!-- Editorial / Stylistic -->
+        <!-- Stylistic -->
         <div class="gallery-item" onclick="openLightbox('photos/stylistic 1.jpg')">
           <img src="photos/stylistic 1.jpg" alt="Editorial — overhead spotlight">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
@@ -778,36 +855,81 @@
           <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
         </div>
 
-        <!-- Enrique portraits -->
+        <!-- Melanie -->
+        <div class="gallery-item" onclick="openLightbox('photos/melanie 1.jpg')">
+          <img src="photos/melanie 1.jpg" alt="Portrait — warm overhead light">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/Tina Chillin 1.jpg')">
+          <img src="photos/Tina Chillin 1.jpg" alt="Portrait — blue neon">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('photos/melanie 2.jpg')">
+          <img src="photos/melanie 2.jpg" alt="Portrait">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+
+        <!-- Tattoo Mirror 2 | Nashville Bridge 2 | Tattoo Mirror 3 -->
+        <div class="gallery-item landscape" onclick="openLightbox('photos/tattoo mirror 2.jpg')">
+          <img src="photos/tattoo mirror 2.jpg" alt="Portrait — neon">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item landscape featured" onclick="openLightbox('photos/Nashville Bridge 2.jpg')">
+          <img src="photos/Nashville Bridge 2.jpg" alt="Tina — Nashville bridge">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
+        </div>
+        <div class="gallery-item landscape" onclick="openLightbox('photos/tattoo mirror 3.jpg')">
+          <img src="photos/tattoo mirror 3.jpg" alt="Portrait — neon">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+
+
+        <!-- Enrique -->
+        <div class="gallery-item landscape" onclick="openLightbox('photos/Enrique taco truck 1.jpg')">
+          <img src="photos/Enrique taco truck 1.jpg" alt="Taco truck — commercial">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
+        </div>
+        <div class="gallery-item landscape" onclick="openLightbox('photos/Enrique-27.jpg')">
+          <img src="photos/Enrique-27.jpg" alt="Portrait — mural wall">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+        </div>
+        <div class="gallery-item landscape" onclick="openLightbox('photos/Enrique taco truck 2.jpg')">
+          <img src="photos/Enrique taco truck 2.jpg" alt="Taco truck — commercial">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
+        </div>
         <div class="gallery-item" onclick="openLightbox('photos/Enrique.jpg')">
           <img src="photos/Enrique.jpg" alt="Portrait — low light alley">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('photos/Enrique-27.jpg')">
-          <img src="photos/Enrique-27.jpg" alt="Portrait — mural wall">
+
+        <!-- Enrique extra -->
+        <div class="gallery-item" onclick="openLightbox('photos/Enrique-32.jpg')">
+          <img src="photos/Enrique-32.jpg" alt="Portrait">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('photos/Enrique-36.jpg')">
-          <img src="photos/Enrique-36.jpg" alt="Portrait">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox('photos/Enrique-38.jpg')">
-          <img src="photos/Enrique-38.jpg" alt="Portrait">
+        <div class="gallery-item" onclick="openLightbox('photos/Nashville Bridge 1.jpg')">
+          <img src="photos/Nashville Bridge 1.jpg" alt="Nashville bridge — portrait">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
 
         <!-- Lifestyle -->
-        <div class="gallery-item" onclick="openLightbox('photos/boat day 1.jpg')">
+        <div class="gallery-item landscape" onclick="openLightbox('photos/boat day 1.jpg')">
           <img src="photos/boat day 1.jpg" alt="Lifestyle — sunset on water">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('photos/boat day 2.jpg')">
+        <div class="gallery-item landscape" onclick="openLightbox('photos/boat day 2.jpg')">
           <img src="photos/boat day 2.jpg" alt="Lifestyle — boat day">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('photos/Boat Day 3.jpg')">
+        <div class="gallery-item landscape" onclick="openLightbox('photos/Boat Day 3.jpg')">
           <img src="photos/Boat Day 3.jpg" alt="Lifestyle — boat day">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
+        </div>
+
+        <!-- Full-width closer -->
+        <div class="gallery-item gallery-hero featured" onclick="openLightbox('photos/Artistic City Scape with NTD Jacket.jpg')">
+          <img src="photos/Artistic City Scape with NTD Jacket.jpg" alt="Cityscape — commercial">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
         </div>
 
       </div>
@@ -815,8 +937,8 @@
   </section>
 
   <!-- Band / Live Events -->
-  <section id="live" class="bg-alt">
-    <div class="container">
+  <section id="live" class="bg-alt" style="position:relative; background-image: url('photos/leah-live/Blurry Artsy Band Pic.jpg'); background-size: cover; background-position: center; background-attachment: fixed;"><div style="position:absolute;inset:0;background:rgba(5,1,33,0.75);z-index:0;"></div>
+    <div class="container" style="position:relative;z-index:1;">
       <p class="eyebrow">Live Events</p>
       <h2 class="section-heading">At the Show</h2>
       <div class="rule-accent"></div>
@@ -829,12 +951,12 @@
           <img src="photos/leah-live/LJ_01352.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01389.jpg')">
-          <img src="photos/leah-live/LJ_01389.jpg" alt="Live show">
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01545.jpg')">
+          <img src="photos/leah-live/LJ_01545.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01403.jpg')">
-          <img src="photos/leah-live/LJ_01403.jpg" alt="Live show">
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01502.jpg')">
+          <img src="photos/leah-live/LJ_01502.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01423.jpg')">
@@ -845,26 +967,31 @@
           <img src="photos/leah-live/LJ_01484.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01502.jpg')">
-          <img src="photos/leah-live/LJ_01502.jpg" alt="Live show">
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01403.jpg')">
+          <img src="photos/leah-live/LJ_01403.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01502-2.jpg')">
-          <img src="photos/leah-live/LJ_01502-2.jpg" alt="Live show">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
-        </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01545.jpg')">
-          <img src="photos/leah-live/LJ_01545.jpg" alt="Live show">
+        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01381.jpg')">
+          <img src="photos/leah-live/LJ_01381.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LJ_01547.jpg')">
           <img src="photos/leah-live/LJ_01547.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Blurry Artsy Band Pic.jpg')">
-          <img src="photos/leah-live/Blurry Artsy Band Pic.jpg" alt="Live show — artistic">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Music Video -->
+  <section id="video">
+    <div class="container">
+      <p class="eyebrow">Music Video</p>
+      <h2 class="section-heading">Like It Like That</h2>
+      <div class="rule-accent"></div>
+      <p class="ntd-credit">Live Intimate Performance Produced by the NightTimeDrive Collective</p>
+      <div class="music-video-wrap">
+        <iframe src="https://www.youtube.com/embed/DTVuilMSS0w?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
     </div>
   </section>
@@ -878,53 +1005,19 @@
         <p class="eyebrow">About</p>
         <h2 class="section-heading">Light in the right hands.</h2>
         <div class="rule-accent"></div>
-        <blockquote class="about-quote">
-          "I don't chase the light — I find it where no one else is looking."
-        </blockquote>
+<p class="eyebrow" style="margin-bottom: 8px;">Visual & Creative Director</p>
         <p class="about-body">
-          Luz by LJ is the photography work of LJ Jaramillo, born and raised in Albuquerque, New Mexico.
+          Luz by LJ is the work of LJ — a Santa Fe-based visual artist and photographer born and raised in New Mexico.
           Rooted in low-light portraiture, cinematic framing, and the raw energy of the Southwest,
-          LJ's work finds the extraordinary in ordinary moments — alleyways lit by a single bulb,
+          LJ finds the extraordinary in ordinary moments — alleyways lit by a single bulb,
           neon signs bleeding color into the dark, faces illuminated by the world around them.
         </p>
         <br>
         <p class="about-body">
-          Available for portrait sessions, commercial campaigns, and live event coverage across
-          New Mexico and beyond.
+          Beyond the still frame, LJ brings the same eye to music video production, short-form content,
+          and curated live performance coverage — translating energy into image across every format.
+          Based in Santa Fe and available throughout New Mexico and the surrounding Southwest.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <div class="services-header">
-        <p class="eyebrow">What I Do</p>
-        <h2 class="section-heading">Services</h2>
-        <div class="rule-accent"></div>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <span class="service-icon">◈</span>
-          <h3 class="service-title">Portrait</h3>
-          <p class="service-desc">Individual and group sessions. Cinematic, editorial, or lifestyle — built around who you actually are, not who the studio thinks you should be.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-icon">◉</span>
-          <h3 class="service-title">Commercial</h3>
-          <p class="service-desc">Brand photography, product campaigns, artist press shots. Visual storytelling that makes people stop scrolling.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-icon">◎</span>
-          <h3 class="service-title">Events</h3>
-          <p class="service-desc">Live music, shows, gatherings. The moment that won't come back — captured before it disappears.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-icon">▷</span>
-          <h3 class="service-title">Content</h3>
-          <p class="service-desc">Cinematic short-form content — Reels, TikToks, and social visuals built to stop the scroll.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -962,6 +1055,39 @@
     </div>
   </section>
 
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header">
+        <p class="eyebrow">What I Do</p>
+        <h2 class="section-heading">Services</h2>
+        <div class="rule-accent"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">◈</span>
+          <h3 class="service-title">Portrait</h3>
+          <p class="service-desc">Individual and group sessions. Cinematic, editorial, or lifestyle — built around who you actually are, not who the studio thinks you should be.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">◉</span>
+          <h3 class="service-title">Commercial</h3>
+          <p class="service-desc">Brand photography, product campaigns, artist press shots. Visual storytelling that makes people stop scrolling.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">◎</span>
+          <h3 class="service-title">Events</h3>
+          <p class="service-desc">Live music, shows, gatherings. The moment that won't come back — captured before it disappears.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">▷</span>
+          <h3 class="service-title">Content</h3>
+          <p class="service-desc">Cinematic short-form content — Reels, TikToks, and social visuals built to stop the scroll.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
   <section id="contact">
     <div class="container">
@@ -985,7 +1111,7 @@
             </tr>
             <tr>
               <td>Based In</td>
-              <td>Albuquerque, New Mexico</td>
+              <td>Santa Fe, New Mexico</td>
             </tr>
             <tr>
               <td>Available</td>
@@ -1017,7 +1143,7 @@
     <div class="footer-wordmark">LUZ <span>·</span> LJ</div>
     <p class="footer-tagline">The shot in every shadow.</p>
     <div class="footer-divider"></div>
-    <p class="footer-copy">&copy; 2026 Luz by LJ · Albuquerque, New Mexico · All rights reserved</p>
+    <p class="footer-copy">&copy; 2026 Luz by LJ · Santa Fe, New Mexico · All rights reserved</p>
   </footer>
 
   <!-- Lightbox -->
@@ -1067,14 +1193,14 @@
 
     function openLightbox(src) {
       lightboxPool = galleryPhotos;
-      currentIndex = galleryPhotos.findIndex(p => p.src.endsWith(src.replace(/^.*photos\//, '')));
+      currentIndex = galleryPhotos.findIndex(p => decodeURIComponent(p.src).endsWith(src.replace(/^.*photos\//, '')));
       if (currentIndex < 0) currentIndex = 0;
       showLightboxPhoto();
       document.getElementById('lightbox').classList.add('open');
     }
     function openLightboxFromBand(src) {
       lightboxPool = bandPhotos;
-      currentIndex = bandPhotos.findIndex(p => p.src.endsWith(src.replace(/^.*photos\//, '')));
+      currentIndex = bandPhotos.findIndex(p => decodeURIComponent(p.src).endsWith(src.replace(/^.*photos\//, '')));
       if (currentIndex < 0) currentIndex = 0;
       showLightboxPhoto();
       document.getElementById('lightbox').classList.add('open');
@@ -1106,6 +1232,25 @@
       if (e.key === 'ArrowRight') lightboxNav(1);
       if (e.key === 'ArrowLeft') lightboxNav(-1);
     });
+
+    // Scroll-in animation for gallery items
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const item = entry.target;
+          const isBand = item.classList.contains('band-item');
+          const grid = item.closest(isBand ? '.band-grid' : '.gallery-grid');
+          const siblings = grid ? Array.from(grid.querySelectorAll(isBand ? '.band-item' : '.gallery-item')) : [];
+          const col = siblings.indexOf(item) % 3;
+          item.style.transitionDelay = (col * 0.08) + 's';
+          item.classList.add('in-view');
+          observer.unobserve(item);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.gallery-item').forEach(el => observer.observe(el));
+    document.querySelectorAll('.band-item').forEach(el => observer.observe(el));
 
     // Touch swipe
     let touchStartX = 0;
