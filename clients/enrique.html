@@ -317,8 +317,8 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><img src="../Luz By LJ Logo 2.png" alt="Luz by LJ"></a>
-    <a href="/" class="nav-back">← Back to Site</a>
+    <a href="/luz-by-lj/" class="nav-logo"><img src="../Luz By LJ Logo 2.png" alt="Luz by LJ"></a>
+    <a href="/luz-by-lj/" class="nav-back">← Back to Site</a>
   </div>
 </nav>
 
@@ -341,7 +341,7 @@
 </div>
 
 <footer>
-  <p>© 2026 <a href="/">Luz by LJ</a> &nbsp;·&nbsp; LuzByLJ@gmail.com &nbsp;·&nbsp; +1 (505) 818-1929</p>
+  <p>© 2026 <a href="/luz-by-lj/">Luz by LJ</a> &nbsp;·&nbsp; LuzByLJ@gmail.com &nbsp;·&nbsp; +1 (505) 818-1929</p>
 </footer>
 
 <div id="lightbox" onclick="closeLightbox()">
@@ -379,6 +379,25 @@ const photos = [
 
 const thumbUrl = (id, w) => `https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
 const downloadUrl = (id) => `https://drive.google.com/uc?export=download&id=${id}`;
+const usercontent = (id) => `https://drive.usercontent.google.com/download?id=${id}&export=view`;
+
+async function dlWeb(id, name, e) {
+  e.stopPropagation();
+  const btn = e.currentTarget;
+  btn.style.opacity = '0.5';
+  try {
+    const resp = await fetch(usercontent(id));
+    const blob = await resp.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name.replace(/\.jpg$/i, '-web.jpg');
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  } catch {
+    window.open(thumbUrl(id, 2000), '_blank');
+  }
+  btn.style.opacity = '1';
+}
 
 // ─── Build grid ───────────────────────────────────────────────────────────────
 const grid = document.getElementById('gallery-grid');
@@ -392,7 +411,7 @@ photos.forEach((photo, i) => {
     <div class="photo-overlay">
       <div class="photo-filename">${photo.name}</div>
       <div class="download-btns">
-        <a class="dl-btn dl-btn-web" href="${thumbUrl(photo.id, 2000)}" target="_blank" onclick="event.stopPropagation()">${dlIcon} Web</a>
+        <button class="dl-btn dl-btn-web" onclick="dlWeb('${photo.id}','${photo.name}',event)">${dlIcon} Web</button>
         <a class="dl-btn dl-btn-full" href="${downloadUrl(photo.id)}" target="_blank" onclick="event.stopPropagation()">${dlIcon} Full Res</a>
       </div>
     </div>
