@@ -555,10 +555,17 @@
       }
       .service-card {
         padding: 20px 16px;
+        aspect-ratio: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
       }
       .service-icon { font-size: 1.4rem; }
       .service-title { font-size: 0.8rem; }
-      .service-desc { font-size: 0.78rem; line-height: 1.5; }
+      .service-desc { display: none; }
     }
 
     .service-card {
