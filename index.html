@@ -139,6 +139,7 @@
       font-size: clamp(2rem, 4.5vw, 3.2rem);
       font-weight: 700; line-height: 1.15;
       margin-bottom: 20px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.25);
     }
     .rule-accent {
       width: 56px; height: 2px;
@@ -480,9 +481,9 @@
       position: absolute; inset: 0;
       background: linear-gradient(
         105deg,
-        rgba(5,1,33,0.97) 0%,
-        rgba(5,1,33,0.92) 45%,
-        rgba(5,1,33,0.60) 100%
+        rgba(5,1,33,0.77) 0%,
+        rgba(5,1,33,0.72) 45%,
+        rgba(5,1,33,0.40) 100%
       );
       z-index: 1;
     }
@@ -508,16 +509,31 @@
     }
     .about-body {
       font-size: 1rem;
-      color: var(--white-60);
+      color: var(--white-80);
       line-height: 1.85;
       max-width: 520px;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3);
     }
 
     /* =====================
        SERVICES
     ===================== */
     #services {
-      background: var(--navy-mid);
+      position: relative;
+      background-image: url('bts_56.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    #services::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(5,1,33,0.78);
+      z-index: 0;
+    }
+    #services .container {
+      position: relative;
+      z-index: 1;
     }
     .services-header {
       text-align: center;
@@ -568,13 +584,28 @@
        CONTACT / BOOKING
     ===================== */
     #contact {
-      background: var(--navy);
+      position: relative;
+      background-image: url('photos/Enrique-27.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    #contact::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(5,1,33,0.62);
+      z-index: 0;
+    }
+    #contact .container {
+      position: relative;
+      z-index: 1;
     }
     .contact-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
+      text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);
     }
     @media (max-width: 760px) {
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -587,21 +618,21 @@
     .contact-info td {
       padding: 14px 0;
       border-bottom: 1px solid var(--white-10);
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     .contact-info td:first-child {
       font-family: var(--font-display);
       letter-spacing: 2px;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--teal);
       text-transform: uppercase;
       width: 120px;
     }
     .contact-info td:last-child {
-      color: var(--white-80);
+      color: #fff;
     }
     .contact-info td a {
-      color: var(--white-80);
+      color: #fff;
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -611,9 +642,9 @@
       padding-top: 8px;
     }
     .contact-cta p {
-      color: var(--white-60);
+      color: var(--white-80);
       margin-bottom: 32px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       line-height: 1.8;
     }
 
@@ -707,7 +738,21 @@
        VIDEO / CONTENT
     ===================== */
     #content {
-      background: var(--navy-mid);
+      position: relative;
+      background-image: url('bts_66.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    #content::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(5,1,33,0.78);
+      z-index: 0;
+    }
+    #content .container {
+      position: relative;
+      z-index: 1;
     }
     .content-header {
       text-align: center;
@@ -1043,6 +1088,7 @@
         </p>
       </div>
     </div>
+    <p style="position:absolute; bottom: 24px; width:100%; text-align:center; font-family:var(--font-body); font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.25); z-index:2;">BTS Shots &nbsp;·&nbsp; Sandra Sandoval</p>
   </section>
 
   <!-- Content / Reels -->
@@ -1146,17 +1192,24 @@
           <p class="eyebrow">&nbsp;</p>
           <h2 class="section-heading" style="opacity:0; pointer-events:none;">—</h2>
           <div class="rule-accent" style="opacity:0;"></div>
-          <p>
+          <p style="margin-bottom: 12px;">
             Ready to shoot? Send a message with your session idea, preferred dates, and location.
             I'll get back to you within 24 hours.
           </p>
-          <br>
-          <p style="color: var(--white-40, rgba(255,255,255,0.4)); font-size:0.85rem;">
+          <p style="color: var(--white-40, rgba(255,255,255,0.4)); font-size:0.85rem; margin-bottom: 20px;">
             Portrait sessions · Commercial campaigns · Live events · Short-form content
           </p>
-          <br><br>
           <a href="mailto:LuzByLJ@gmail.com?subject=Booking Inquiry — Luz by LJ" class="btn btn-primary">Send a Message</a>
         </div>
+      </div>
+      <div style="margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <p style="font-family: var(--font-display); font-size: 2.25rem; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); text-shadow: 0 0 10px rgba(0,180,204,0.8), 0 0 30px rgba(0,180,204,0.5), 0 0 60px rgba(0,180,204,0.2);">What to Include</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;">
+          <li style="font-size: 1rem; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);"><span style="color: var(--pink); margin-right: 8px;">—</span>Type of session & vision</li>
+          <li style="font-size: 1rem; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);"><span style="color: var(--pink); margin-right: 8px;">—</span>Preferred dates & location</li>
+          <li style="font-size: 1rem; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);"><span style="color: var(--pink); margin-right: 8px;">—</span>Any references or inspo</li>
+          <li style="font-size: 1rem; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);"><span style="color: var(--pink); margin-right: 8px;">—</span>Budget range if you have one</li>
+        </ul>
       </div>
     </div>
   </section>
