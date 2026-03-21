@@ -548,7 +548,18 @@
       gap: 24px;
     }
     @media (max-width: 1000px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .service-card {
+        padding: 20px 16px;
+      }
+      .service-icon { font-size: 1.4rem; }
+      .service-title { font-size: 0.8rem; }
+      .service-desc { font-size: 0.78rem; line-height: 1.5; }
+    }
 
     .service-card {
       background: var(--white-06);
@@ -656,7 +667,7 @@
         background-attachment: scroll;
       }
       #content {
-        background-position: 30% center;
+        background-position: 30% top;
         background-size: 160%;
       }
       #services {
