@@ -454,10 +454,26 @@
     }
     .about-bg {
       position: absolute; inset: 0;
-      background-image: url('LJBtsBehindCam.jpg');
-      background-size: cover;
-      background-position: center;
       z-index: 0;
+    }
+    .about-bg::before,
+    .about-bg::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .about-bg::before {
+      left: 0;
+      background-image: url('LJBtsBehindCam.jpg');
+      background-position: center center;
+    }
+    .about-bg::after {
+      right: 0;
+      background-image: url('bts_25.jpg');
+      background-position: center center;
     }
     .about-overlay {
       position: absolute; inset: 0;
