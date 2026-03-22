@@ -339,61 +339,62 @@
 </div>
 
 <script>
-// ─── Photos (local web-size files) ───────────────────────────────────────────
+// ─── Photos ───────────────────────────────────────────────────────────────────
 const photos = [
-  'Untitled.jpg',
-  'Untitled-2.jpg',
-  'Untitled-3.jpg',
-  'Untitled-4.jpg',
-  'Untitled-5.jpg',
-  'Untitled-6.jpg',
-  'Untitled-7.jpg',
-  'Untitled-8.jpg',
-  'Untitled-9.jpg',
-  'Untitled-10.jpg',
-  'Untitled-11.jpg',
-  'Untitled-12.jpg',
-  'Untitled-13.jpg',
-  'Untitled-14.jpg',
-  'Untitled-15.jpg',
-  'Untitled-16.jpg',
-  'Untitled-17.jpg',
-  'Untitled-18.jpg',
-  'Untitled-19.jpg',
-  'Untitled-20.jpg',
-  'Untitled-21.jpg',
-  'Untitled-22.jpg',
-  'Untitled-23.jpg',
-  'Untitled-24.jpg',
-  'Untitled-25.jpg',
-  'Untitled-26.jpg',
-  'Untitled-27.jpg',
-  'Untitled-28.jpg',
-  'Untitled-29.jpg',
-  'Untitled-30.jpg',
-  'Untitled-31.jpg',
-  'Untitled-32.jpg',
-  'Untitled-33.jpg',
-  'Untitled-34.jpg',
-  'Untitled-35.jpg',
+  { web: 'Untitled.jpg',    full: 'Levi1FullRes.jpg' },
+  { web: 'Untitled-2.jpg',  full: 'Levi1FullRes-2.jpg' },
+  { web: 'Untitled-3.jpg',  full: 'Levi1FullRes-3.jpg' },
+  { web: 'Untitled-4.jpg',  full: 'Levi1FullRes-4.jpg' },
+  { web: 'Untitled-5.jpg',  full: 'Levi1FullRes-5.jpg' },
+  { web: 'Untitled-6.jpg',  full: 'Levi1FullRes-6.jpg' },
+  { web: 'Untitled-7.jpg',  full: 'Levi1FullRes-7.jpg' },
+  { web: 'Untitled-8.jpg',  full: 'Levi1FullRes-8.jpg' },
+  { web: 'Untitled-9.jpg',  full: 'Levi1FullRes-9.jpg' },
+  { web: 'Untitled-10.jpg', full: 'Levi1FullRes-10.jpg' },
+  { web: 'Untitled-11.jpg', full: 'Levi1FullRes-11.jpg' },
+  { web: 'Untitled-12.jpg', full: 'Levi1FullRes-12.jpg' },
+  { web: 'Untitled-13.jpg', full: 'Levi1FullRes-13.jpg' },
+  { web: 'Untitled-14.jpg', full: 'Levi1FullRes-14.jpg' },
+  { web: 'Untitled-15.jpg', full: 'Levi1FullRes-15.jpg' },
+  { web: 'Untitled-16.jpg', full: 'Levi1FullRes-16.jpg' },
+  { web: 'Untitled-17.jpg', full: 'Levi1FullRes-17.jpg' },
+  { web: 'Untitled-18.jpg', full: 'Levi1FullRes-18.jpg' },
+  { web: 'Untitled-19.jpg', full: 'Levi1FullRes-19.jpg' },
+  { web: 'Untitled-20.jpg', full: 'Levi1FullRes-20.jpg' },
+  { web: 'Untitled-21.jpg', full: 'Levi1FullRes-21.jpg' },
+  { web: 'Untitled-22.jpg', full: 'Levi1FullRes-22.jpg' },
+  { web: 'Untitled-23.jpg', full: 'Levi1FullRes-23.jpg' },
+  { web: 'Untitled-24.jpg', full: 'Levi1FullRes-24.jpg' },
+  { web: 'Untitled-25.jpg', full: 'Levi1FullRes-25.jpg' },
+  { web: 'Untitled-26.jpg', full: 'Levi1FullRes-26.jpg' },
+  { web: 'Untitled-27.jpg', full: 'Levi1FullRes-27.jpg' },
+  { web: 'Untitled-28.jpg', full: 'Levi1FullRes-28.jpg' },
+  { web: 'Untitled-29.jpg', full: 'Levi1FullRes-29.jpg' },
+  { web: 'Untitled-30.jpg', full: 'Levi1FullRes-30.jpg' },
+  { web: 'Untitled-31.jpg', full: 'Levi1FullRes-31.jpg' },
+  { web: 'Untitled-32.jpg', full: 'Levi1FullRes-32.jpg' },
+  { web: 'Untitled-33.jpg', full: 'Levi1FullRes-33.jpg' },
+  { web: 'Untitled-34.jpg', full: 'Levi1FullRes-34.jpg' },
+  { web: 'Untitled-35.jpg', full: 'Levi1FullRes-35.jpg' },
 ];
 
-const basePath = '../photos/levi/';
+const webPath  = '../photos/levi/';
+const fullPath = '../Levi1FullRes/';
 const dlIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
 
 // ─── Build grid ───────────────────────────────────────────────────────────────
 const grid = document.getElementById('gallery-grid');
 
-photos.forEach((name, i) => {
+photos.forEach((photo, i) => {
   const card = document.createElement('div');
   card.className = 'photo-card';
   card.innerHTML = `
-    <img loading="lazy" src="${basePath}${name}" alt="${name}">
+    <img loading="lazy" src="${webPath}${photo.web}" alt="${photo.web}">
     <div class="photo-overlay">
-      <div class="photo-filename">${name}</div>
+      <div class="photo-filename">${photo.web}</div>
       <div class="download-btns">
-        <a class="dl-btn dl-btn-web" href="${basePath}${name}" download="${name.replace(/\.jpg$/i,'-web.jpg')}" onclick="event.stopPropagation()">${dlIcon} Web</a>
-        <a class="dl-btn dl-btn-full" href="https://drive.google.com/drive/folders/1y2Qjq8wHAUGWCxIQ4lgLiIXyJg_dMG1p?usp=sharing" target="_blank" onclick="event.stopPropagation()">${dlIcon} Full Res</a>
+        <a class="dl-btn dl-btn-web" href="${webPath}${photo.web}" download="${photo.web.replace(/\.jpg$/i,'-web.jpg')}" onclick="event.stopPropagation()">${dlIcon} Web</a>
+        <a class="dl-btn dl-btn-full" href="${fullPath}${photo.full}" download="${photo.full}" onclick="event.stopPropagation()">${dlIcon} Full Res</a>
       </div>
     </div>
   `;
@@ -404,11 +405,11 @@ photos.forEach((name, i) => {
 // ─── Download all web ─────────────────────────────────────────────────────────
 function downloadAllWeb(e) {
   e.preventDefault();
-  photos.forEach((name, i) => {
+  photos.forEach((photo, i) => {
     setTimeout(() => {
       const a = document.createElement('a');
-      a.href = basePath + name;
-      a.download = name.replace(/\.jpg$/i, '-web.jpg');
+      a.href = webPath + photo.web;
+      a.download = photo.web.replace(/\.jpg$/i, '-web.jpg');
       a.click();
     }, i * 300);
   });
@@ -422,7 +423,7 @@ const lbCounter = document.getElementById('lb-counter');
 
 function openLightbox(i) {
   currentIndex = i;
-  lbImg.src = basePath + photos[i];
+  lbImg.src = webPath + photos[i].web;
   lbCounter.textContent = `${i + 1} / ${photos.length}`;
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
