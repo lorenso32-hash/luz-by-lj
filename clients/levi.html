@@ -312,7 +312,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Download Web Size
     </a>
-    <a class="btn-fullres-all" href="https://drive.google.com/drive/folders/1y2Qjq8wHAUGWCxIQ4lgLiIXyJg_dMG1p?usp=sharing" target="_blank">
+    <a class="btn-fullres-all" href="https://drive.google.com/drive/folders/1uPi5XIAmPwN4b95ja-UJX8QLMtA9ndqH?usp=sharing" target="_blank">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Full Res — Drive
     </a>
@@ -340,46 +340,47 @@
 
 <script>
 // ─── Photos ───────────────────────────────────────────────────────────────────
+function driveImg(id) { return `https://lh3.googleusercontent.com/d/${id}`; }
+function driveDl(id)  { return `https://drive.google.com/uc?export=download&id=${id}`; }
+
 const photos = [
-  { web: 'Untitled.jpg',    full: 'Levi1FullRes.jpg' },
-  { web: 'Untitled-2.jpg',  full: 'Levi1FullRes-2.jpg' },
-  { web: 'Untitled-3.jpg',  full: 'Levi1FullRes-3.jpg' },
-  { web: 'Untitled-4.jpg',  full: 'Levi1FullRes-4.jpg' },
-  { web: 'Untitled-5.jpg',  full: 'Levi1FullRes-5.jpg' },
-  { web: 'Untitled-6.jpg',  full: 'Levi1FullRes-6.jpg' },
-  { web: 'Untitled-7.jpg',  full: 'Levi1FullRes-7.jpg' },
-  { web: 'Untitled-8.jpg',  full: 'Levi1FullRes-8.jpg' },
-  { web: 'Untitled-9.jpg',  full: 'Levi1FullRes-9.jpg' },
-  { web: 'Untitled-10.jpg', full: 'Levi1FullRes-10.jpg' },
-  { web: 'Untitled-11.jpg', full: 'Levi1FullRes-11.jpg' },
-  { web: 'Untitled-12.jpg', full: 'Levi1FullRes-12.jpg' },
-  { web: 'Untitled-13.jpg', full: 'Levi1FullRes-13.jpg' },
-  { web: 'Untitled-14.jpg', full: 'Levi1FullRes-14.jpg' },
-  { web: 'Untitled-15.jpg', full: 'Levi1FullRes-15.jpg' },
-  { web: 'Untitled-16.jpg', full: 'Levi1FullRes-16.jpg' },
-  { web: 'Untitled-17.jpg', full: 'Levi1FullRes-17.jpg' },
-  { web: 'Untitled-18.jpg', full: 'Levi1FullRes-18.jpg' },
-  { web: 'Untitled-19.jpg', full: 'Levi1FullRes-19.jpg' },
-  { web: 'Untitled-20.jpg', full: 'Levi1FullRes-20.jpg' },
-  { web: 'Untitled-21.jpg', full: 'Levi1FullRes-21.jpg' },
-  { web: 'Untitled-22.jpg', full: 'Levi1FullRes-22.jpg' },
-  { web: 'Untitled-23.jpg', full: 'Levi1FullRes-23.jpg' },
-  { web: 'Untitled-24.jpg', full: 'Levi1FullRes-24.jpg' },
-  { web: 'Untitled-25.jpg', full: 'Levi1FullRes-25.jpg' },
-  { web: 'Untitled-26.jpg', full: 'Levi1FullRes-26.jpg' },
-  { web: 'Untitled-27.jpg', full: 'Levi1FullRes-27.jpg' },
-  { web: 'Untitled-28.jpg', full: 'Levi1FullRes-28.jpg' },
-  { web: 'Untitled-29.jpg', full: 'Levi1FullRes-29.jpg' },
-  { web: 'Untitled-30.jpg', full: 'Levi1FullRes-30.jpg' },
-  { web: 'Untitled-31.jpg', full: 'Levi1FullRes-31.jpg' },
-  { web: 'Untitled-32.jpg', full: 'Levi1FullRes-32.jpg' },
-  { web: 'Untitled-33.jpg', full: 'Levi1FullRes-33.jpg' },
-  { web: 'Untitled-34.jpg', full: 'Levi1FullRes-34.jpg' },
-  { web: 'Untitled-35.jpg', full: 'Levi1FullRes-35.jpg' },
+  { webId: '1JJVk_rY8mPUceAluO1BShV6DmW-9CiCZ', fullId: '1iOTUYAX4JFVfCvZRPjie8k9m8PEcvceW' },
+  { webId: '1eUhDqiA0pViPNl4k0ABwrShi7ydb5N9x', fullId: '1UuWS5I4wyBgZ7WQThS0ileo97blZ_nim' },
+  { webId: '1TjO1WbJ5uY9aBnVKfozs-WhWt6-xlY7e', fullId: '1bBSp2Lmb-CnOMrEsTFA7pIfHolHI3ukl' },
+  { webId: '1lGdFyYcIBSvfKjwkxQNBSSnkrz6K6RvK', fullId: '1-es74Gj45XJMlDBzKI5TVMX3sESVtQ3h' },
+  { webId: '1paTQdczFgjGz1tuLcqeFqP8Jj-IpYEgd', fullId: '1mgPtgy3_YAdcZ4nSVES1K6QEaZxP3ReF' },
+  { webId: '1JG_ZHHFz8rPwldpwHoF2QCcm87qBA36e', fullId: '1ps8ECcB1hzZKiHSpC_v7X_KWyFNTTwGK' },
+  { webId: '1naVPPPMhMYPUAt6FojO1UA1KoFUy2fjP', fullId: '1zUbljYUcdl9xwt1DZRmfcTJCSOr7x46j' },
+  { webId: '16M9Vf8Zd0OzybVBtP9tIj-ygF_-ePVqJ', fullId: '1zc954no3Gi04NeRvVNBAQdE9p2CW8mKi' },
+  { webId: '1h-2hIDqJdKH6Zgo2b5LY1cL8QaYHpD8u', fullId: '1up5098AE3AkulWwTtu9Vvbk3UOolkGmj' },
+  { webId: '1SvrIyhLOKVEjuMdgb7lPbk2pQYt_gxff', fullId: '1kH2aqPXsz8rbzIjAs6EdE8Y4Wqr9UvMN' },
+  { webId: '1QInnZVlmdOC6EJrhqjuDdKzIplVRLr5_', fullId: '1klQRK67ZJjRHFokbP1mlt3qNNreYb9bb' },
+  { webId: '1h4x-TVWC17qhSi9hzng-mCARhvSKJorh', fullId: '1A5RwHwcniWlBIbxFMJI9FqHba-0VTABD' },
+  { webId: '10nj5eGjUuKqyxs4arDLGoYk334Aen_tb', fullId: '1j5p0rt67rfqdCxlxu6l8KmS-gJ5lSASS' },
+  { webId: '12XhcOPPu3CNnBMSC1gtzEIT-Dw7_7CiZ', fullId: '1MgWahXUnkWjIQz4vIbmNJmJ2g0JIsU0J' },
+  { webId: '19KFwfTw3qbL3BvSSUVUI5wNj1T0Z7Lfc', fullId: '1KSQdwb4mVZO3Vl9GvRfHQ-Fwog4Af66Z' },
+  { webId: '19kzTxGxFndcoaTv_YTGAPYKdqGeGaNnk', fullId: '1cj3kM37iIPgvnf9ei1Wup3AdC4IPx1qr' },
+  { webId: '1oF70BQIt461q4v79w7j80ttJf_ZJXPns', fullId: '14RaC1dwj3Ah5UDckYb1FtQvW5aipDTzf' },
+  { webId: '1hJMhmqhqFRqEyqOU0qEMtNi1EXj7BXBa', fullId: '13WeY5y3VRGjrahu_1wPQZiW6c4ypsgg8' },
+  { webId: '1B6ab-BcsZGE0FfVE2yu58XiZgia5b-h6', fullId: '1TPTmbUbm2Dk429qkrVx29rjg0Do5EXXe' },
+  { webId: '1dqzYzplggTitHH747D8JHR9veRCXuY3n', fullId: '16MgAd82RmDXMm5-Lh8ynKXAKuUU2FO2h' },
+  { webId: '1oLQXp5eO8s_1rjszLQXThpsEja2g9lhs', fullId: '1jECYYqphNd1cAlN4vs0wOQq5aC0WL-IH' },
+  { webId: '1P1iwmsoDdSyYbfuULx2i9RmohR4jt3x8', fullId: '1dj75CldP8fOuHi3sSzGoWawy2_8Mg53X' },
+  { webId: '1KgpsRNuKmXTrIkqG783ZVIxQulAeDFGS', fullId: '1RxB9YJXfOnN4ETg1HliagX6fYpWeDT6U' },
+  { webId: '11Ya93EkDuwl3QnGypD3phO-qp4xRipKR', fullId: '1o7MowMmuUzKSewGOnmywAm3YjblbI2KL' },
+  { webId: '1n7yMsLrIgN_qJODLRdIA6elXshqHm23A', fullId: '1sDqtrJ_Md-9La7UDcHmF24VlfLL17pi0' },
+  { webId: '1fjZIiRLu5IFWzE34rFxy3OWhJT9bbUQU', fullId: '1ljjeC6JSq_LlRbNdT4t26QWxBM_AQhTy' },
+  { webId: '1P1ah25JaJ_hxJi2oMnF_jW_TR9io2Se4', fullId: '1qN7hpHPA7sQ3KuaNSuLmxPz2qW9wkdD-' },
+  { webId: '1iLYjt-0rjopHBFPJi30O3pm4dOucAnEO', fullId: '1AGV0qMFsg9T1GVwIZFtt1rfUHo0eJ9VK' },
+  { webId: '1Gpo6fYpIcM-2dJODYxGRkZR1BDXfaa6L', fullId: '1ivirpAeTFYoY-h4ahftxybig7pbswi_e' },
+  { webId: '1TPm_-isF-wK2jxiC5C04_UjDEXajovvV', fullId: '1zROhUbcZbZ4tY_wqI5pAlEOHxfTR7q6O' },
+  { webId: '1SZMWIe6cz5hCASQxqwu5pRc1lnZ0-uIr', fullId: '1NJDRT6x_FZ0CzUbuKBGEfC5xRK8BzjtC' },
+  { webId: '116o5bqBCwEb8-k_90gE1hiHA7uTDC8ui', fullId: '1JWV7fUB6KDNClIFJ2PxkUiouD28DLNim' },
+  { webId: '1qj6gftlb-fnKRliX-ztfFy2yjSEBXQm7', fullId: '1n4ycDKu41IscIfj04bGp3_LHNkZKD2q0' },
+  { webId: '10OEZifpOaBjE6PhQOfz0pv_XVo00KSTt', fullId: '1yMluazfj6DzLydIfaVN4aSMINqm9oNdX' },
+  { webId: '13JFhyvlyvfRp5mLomCAFrBq-4kGzVctd', fullId: '1ldyVhjXw04URHuRLSCeehO9hoocWmw_i' },
 ];
 
-const webPath  = '../photos/levi/';
-const fullPath = '../Levi1FullRes/';
 const dlIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
 
 // ─── Build grid ───────────────────────────────────────────────────────────────
@@ -389,12 +390,12 @@ photos.forEach((photo, i) => {
   const card = document.createElement('div');
   card.className = 'photo-card';
   card.innerHTML = `
-    <img loading="lazy" src="${webPath}${photo.web}" alt="${photo.web}">
+    <img loading="lazy" src="${driveImg(photo.webId)}" alt="Live show ${i + 1}">
     <div class="photo-overlay">
-      <div class="photo-filename">${photo.web}</div>
+      <div class="photo-filename">Photo ${i + 1} of ${photos.length}</div>
       <div class="download-btns">
-        <a class="dl-btn dl-btn-web" href="${webPath}${photo.web}" download="${photo.web.replace(/\.jpg$/i,'-web.jpg')}" onclick="event.stopPropagation()">${dlIcon} Web</a>
-        <a class="dl-btn dl-btn-full" href="${fullPath}${photo.full}" download="${photo.full}" onclick="event.stopPropagation()">${dlIcon} Full Res</a>
+        <a class="dl-btn dl-btn-web" href="${driveDl(photo.webId)}" target="_blank" onclick="event.stopPropagation()">${dlIcon} Web</a>
+        <a class="dl-btn dl-btn-full" href="${driveDl(photo.fullId)}" target="_blank" onclick="event.stopPropagation()">${dlIcon} Full Res</a>
       </div>
     </div>
   `;
@@ -405,14 +406,7 @@ photos.forEach((photo, i) => {
 // ─── Download all web ─────────────────────────────────────────────────────────
 function downloadAllWeb(e) {
   e.preventDefault();
-  photos.forEach((photo, i) => {
-    setTimeout(() => {
-      const a = document.createElement('a');
-      a.href = webPath + photo.web;
-      a.download = photo.web.replace(/\.jpg$/i, '-web.jpg');
-      a.click();
-    }, i * 300);
-  });
+  window.open('https://drive.google.com/drive/folders/1UfUIuUU29U0QfNvY51L1EooFA8ww1Z5K', '_blank');
 }
 
 // ─── Lightbox ─────────────────────────────────────────────────────────────────
@@ -423,7 +417,7 @@ const lbCounter = document.getElementById('lb-counter');
 
 function openLightbox(i) {
   currentIndex = i;
-  lbImg.src = webPath + photos[i].web;
+  lbImg.src = driveImg(photos[i].webId);
   lbCounter.textContent = `${i + 1} / ${photos.length}`;
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
