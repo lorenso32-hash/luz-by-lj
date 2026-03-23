@@ -1363,22 +1363,22 @@
       <div class="reels-grid">
         <div class="reel-card">
           <div class="reel-aspect">
-            <iframe src="https://www.youtube.com/embed/_831uXrG5f4?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <iframe data-src="https://www.youtube.com/embed/_831uXrG5f4?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
           </div>
         </div>
         <div class="reel-card">
           <div class="reel-aspect">
-            <iframe src="https://www.youtube.com/embed/ifXk7DFMKyM?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <iframe data-src="https://www.youtube.com/embed/ifXk7DFMKyM?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
           </div>
         </div>
         <div class="reel-card">
           <div class="reel-aspect">
-            <iframe src="https://www.youtube.com/embed/mi0hnEf460I?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <iframe data-src="https://www.youtube.com/embed/mi0hnEf460I?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
           </div>
         </div>
         <div class="reel-card">
           <div class="reel-aspect">
-            <iframe src="https://www.youtube.com/embed/dImP1dRCT4g?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <iframe data-src="https://www.youtube.com/embed/dImP1dRCT4g?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
           </div>
         </div>
       </div>
@@ -1608,6 +1608,21 @@
         lightboxNav(diffX > 0 ? 1 : -1);
       }
     }, { passive: true });
+
+    // Lazy-load YouTube iframes
+    const iframeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const iframe = entry.target;
+          iframe.src = iframe.dataset.src;
+          iframeObserver.unobserve(iframe);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+      iframeObserver.observe(iframe);
+    });
   </script>
 
 </body>
