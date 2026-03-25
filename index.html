@@ -468,13 +468,13 @@
     }
     .about-bg::before {
       left: 0;
-      background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/bts/bts_25.jpg');
+      background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1440,f_auto,q_auto/bts/bts_25.jpg');
       background-position: left center;
       filter: brightness(1.2);
     }
     .about-bg::after {
       right: 0;
-      background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/bts/LJBtsBehindCam.jpg');
+      background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1440,f_auto,q_auto/bts/LJBtsBehindCam.jpg');
       background-position: center center;
     }
     .about-overlay {
@@ -520,7 +520,7 @@
     ===================== */
     #services {
       position: relative;
-      background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/bts/bts_56.jpg');
+      background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1440,f_auto,q_auto/bts/bts_56.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -779,7 +779,7 @@
     ===================== */
     #content {
       position: relative;
-      background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/bts/bts_66.jpg');
+      background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1440,f_auto,q_auto/bts/bts_66.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -891,6 +891,46 @@
       border: 1px solid var(--white-10);
     }
 
+    .yt-facade {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      background: #000;
+    }
+    .yt-facade img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .yt-facade:hover img { opacity: 1; }
+    .yt-play {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px; height: 56px;
+      background: rgba(0,0,0,0.65);
+      border: 2px solid rgba(255,255,255,0.8);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 4px;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .yt-facade:hover .yt-play {
+      background: var(--pink);
+      border-color: var(--pink);
+      box-shadow: 0 0 16px var(--pink-glow);
+    }
+
   </style>
 </head>
 <body>
@@ -945,98 +985,98 @@
 
         <!-- Hero -->
         <div class="gallery-item gallery-hero featured" onclick="openLightbox('photos/Tattoo mirror.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Tattoo mirror.jpg" alt="Portrait — neon tattoo sign">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Tattoo mirror.jpg" alt="Portrait — neon tattoo sign">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
 
         <!-- Stylistic -->
         <div class="gallery-item" onclick="openLightbox('photos/stylistic 1.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/stylistic 1.jpg" alt="Editorial — overhead spotlight">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic 1.jpg" alt="Editorial — overhead spotlight">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox('photos/stylistic 2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/stylistic 2.jpg" alt="Editorial">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic 2.jpg" alt="Editorial">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox('photos/stylistic 3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/stylistic 3.jpg" alt="Editorial">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic 3.jpg" alt="Editorial">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
         </div>
 
         <!-- Melanie -->
         <div class="gallery-item" onclick="openLightbox('photos/melanie 1.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/melanie 1.jpg" alt="Portrait — warm overhead light">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/melanie 1.jpg" alt="Portrait — warm overhead light">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox('photos/Tina Chillin 1.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Tina Chillin 1.jpg" alt="Portrait — blue neon">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Tina Chillin 1.jpg" alt="Portrait — blue neon">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox('photos/melanie 2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/melanie 2.jpg" alt="Portrait">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/melanie 2.jpg" alt="Portrait">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
 
         <!-- Tattoo Mirror 2 | Nashville Bridge 2 | Tattoo Mirror 3 -->
         <div class="gallery-item landscape" onclick="openLightbox('photos/tattoo mirror 2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/tattoo mirror 2.jpg" alt="Portrait — neon">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/tattoo mirror 2.jpg" alt="Portrait — neon">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
         <div class="gallery-item landscape featured" onclick="openLightbox('photos/Nashville Bridge 2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Nashville Bridge 2.jpg" alt="Tina — Nashville bridge">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Nashville Bridge 2.jpg" alt="Tina — Nashville bridge">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
         </div>
         <div class="gallery-item landscape" onclick="openLightbox('photos/tattoo mirror 3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/tattoo mirror 3.jpg" alt="Portrait — neon">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/tattoo mirror 3.jpg" alt="Portrait — neon">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
 
 
         <!-- Enrique -->
         <div class="gallery-item landscape" onclick="openLightbox('photos/Enrique taco truck 1.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Enrique taco truck 1.jpg" alt="Taco truck — commercial">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Enrique taco truck 1.jpg" alt="Taco truck — commercial">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
         </div>
         <div class="gallery-item landscape" onclick="openLightbox('photos/Enrique-27.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Enrique-27.jpg" alt="Portrait — mural wall">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Enrique-27.jpg" alt="Portrait — mural wall">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
         <div class="gallery-item landscape" onclick="openLightbox('photos/Enrique taco truck 2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Enrique taco truck 2.jpg" alt="Taco truck — commercial">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Enrique taco truck 2.jpg" alt="Taco truck — commercial">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox('photos/Enrique.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Enrique.jpg" alt="Portrait — low light alley">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Enrique.jpg" alt="Portrait — low light alley">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
 
         <!-- Enrique extra -->
         <div class="gallery-item" onclick="openLightbox('photos/Enrique-32.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Enrique-32.jpg" alt="Portrait">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Enrique-32.jpg" alt="Portrait">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
         <div class="gallery-item" onclick="openLightbox('photos/Nashville Bridge 1.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Nashville Bridge 1.jpg" alt="Nashville bridge — portrait">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Nashville Bridge 1.jpg" alt="Nashville bridge — portrait">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
 
         <!-- Lifestyle -->
         <div class="gallery-item landscape" onclick="openLightbox('photos/boat day 1.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/boat day 1.jpg" alt="Lifestyle — sunset on water">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/boat day 1.jpg" alt="Lifestyle — sunset on water">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
         </div>
         <div class="gallery-item landscape" onclick="openLightbox('photos/boat day 2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/boat day 2.jpg" alt="Lifestyle — boat day">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/boat day 2.jpg" alt="Lifestyle — boat day">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
         </div>
         <div class="gallery-item landscape" onclick="openLightbox('photos/Boat Day 3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Boat Day 3.jpg" alt="Lifestyle — boat day">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Boat Day 3.jpg" alt="Lifestyle — boat day">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
         </div>
 
         <!-- Full-width closer -->
         <div class="gallery-item gallery-hero featured" onclick="openLightbox('photos/Artistic City Scape with NTD Jacket.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/Artistic City Scape with NTD Jacket.jpg" alt="Cityscape — commercial">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Artistic City Scape with NTD Jacket.jpg" alt="Cityscape — commercial">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
         </div>
 
@@ -1055,143 +1095,143 @@
       <div class="rule-accent"></div>
       <div class="band-grid">
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-2.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-2.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-3.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-3.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-4.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-4.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-4.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-5.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-5.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-5.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-6.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-6.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-6.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-7.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-7.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-7.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-8.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-8.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-8.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-9.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-9.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-9.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-10.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-10.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-10.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-11.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-11.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-11.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-12.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-12.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-12.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-13.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-13.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-13.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-14.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-14.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-14.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-15.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-15.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-15.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-16.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-16.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-16.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-17.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-17.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-17.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-18.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-18.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-18.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-19.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-19.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-19.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-20.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-20.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-20.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-21.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-21.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-21.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-22.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-22.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-22.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-23.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-23.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-23.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-24.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-24.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-24.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-25.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-25.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-25.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-26.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-26.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-26.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-27.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-27.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-27.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-28.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-28.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-28.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-29.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-29.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-29.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-30.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-30.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-30.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-31.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-31.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-31.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-32.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-32.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-32.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-33.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-33.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-33.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-34.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-34.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-34.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled-35.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/levi/Untitled-35.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-35.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
       </div>
@@ -1203,63 +1243,63 @@
     <div class="container" style="position:relative;z-index:1;">
       <div class="band-grid">
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/Leah Live-2.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-2.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/Leah Live-3.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-3.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-5.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/Leah Live-5.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-5.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-6.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/Leah Live-6.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-6.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-7.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/Leah Live-7.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-7.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-8.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/Leah Live-8.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-8.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live 2-2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/Leah Live 2-2.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live 2-2.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live 2-3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/Leah Live 2-3.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live 2-3.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/LeahLive3.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive3.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive4.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/LeahLive4.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive4.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive5.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/LeahLive5.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive5.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive6.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/LeahLive6.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive6.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive7.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/LeahLive7.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive7.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive8.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/LeahLive8.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive8.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive9.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/leah-live/LeahLive9.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive9.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
       </div>
@@ -1271,39 +1311,39 @@
     <div class="container" style="position:relative;z-index:1;">
       <div class="band-grid">
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00579.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00579.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00579.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00600.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00600.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00600.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00633.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00633.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00633.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00690.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00690.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00690.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00694.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00694.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00694.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00726.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00726.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00726.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00744.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00744.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00744.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00851.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00851.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00851.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00872.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/photos/doug-live/DSC00872.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00872.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
       </div>
@@ -1320,7 +1360,10 @@
       <div class="rule-accent"></div>
       <p class="ntd-credit">Live Intimate Performance Produced by the NightTimeDrive Collective</p>
       <div class="music-video-wrap">
-        <iframe data-src="https://www.youtube.com/embed/DTVuilMSS0w?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <div class="yt-facade" data-src="https://www.youtube.com/embed/DTVuilMSS0w?rel=0&modestbranding=1&autoplay=1">
+          <img src="https://img.youtube.com/vi/DTVuilMSS0w/maxresdefault.jpg" alt="Play Like It Like That" loading="lazy">
+          <button class="yt-play" aria-label="Play video">&#9654;</button>
+        </div>
       </div>
     </div>
   </section>
@@ -1363,22 +1406,34 @@
       <div class="reels-grid">
         <div class="reel-card">
           <div class="reel-aspect">
-            <iframe data-src="https://www.youtube.com/embed/_831uXrG5f4?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <div class="yt-facade" data-src="https://www.youtube.com/embed/_831uXrG5f4?rel=0&modestbranding=1&autoplay=1">
+              <img src="https://img.youtube.com/vi/_831uXrG5f4/maxresdefault.jpg" alt="Play reel" loading="lazy">
+              <button class="yt-play" aria-label="Play video">&#9654;</button>
+            </div>
           </div>
         </div>
         <div class="reel-card">
           <div class="reel-aspect">
-            <iframe data-src="https://www.youtube.com/embed/ifXk7DFMKyM?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <div class="yt-facade" data-src="https://www.youtube.com/embed/ifXk7DFMKyM?rel=0&modestbranding=1&autoplay=1">
+              <img src="https://img.youtube.com/vi/ifXk7DFMKyM/maxresdefault.jpg" alt="Play reel" loading="lazy">
+              <button class="yt-play" aria-label="Play video">&#9654;</button>
+            </div>
           </div>
         </div>
         <div class="reel-card">
           <div class="reel-aspect">
-            <iframe data-src="https://www.youtube.com/embed/mi0hnEf460I?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <div class="yt-facade" data-src="https://www.youtube.com/embed/mi0hnEf460I?rel=0&modestbranding=1&autoplay=1">
+              <img src="https://img.youtube.com/vi/mi0hnEf460I/maxresdefault.jpg" alt="Play reel" loading="lazy">
+              <button class="yt-play" aria-label="Play video">&#9654;</button>
+            </div>
           </div>
         </div>
         <div class="reel-card">
           <div class="reel-aspect">
-            <iframe data-src="https://www.youtube.com/embed/dImP1dRCT4g?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <div class="yt-facade" data-src="https://www.youtube.com/embed/dImP1dRCT4g?rel=0&modestbranding=1&autoplay=1">
+              <img src="https://img.youtube.com/vi/dImP1dRCT4g/maxresdefault.jpg" alt="Play reel" loading="lazy">
+              <button class="yt-play" aria-label="Play video">&#9654;</button>
+            </div>
           </div>
         </div>
       </div>
@@ -1544,7 +1599,7 @@
     }
     function showLightboxPhoto() {
       const photo = lightboxPool[currentIndex];
-      document.getElementById('lightbox-img').src = photo.src.replace('/w_800,', '/w_1920,');
+      document.getElementById('lightbox-img').src = photo.src.replace('/w_600,', '/w_1920,');
       document.getElementById('lightbox-img').alt = photo.alt;
       document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + lightboxPool.length;
     }
@@ -1609,19 +1664,15 @@
       }
     }, { passive: true });
 
-    // Lazy-load YouTube iframes
-    const iframeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const iframe = entry.target;
-          iframe.src = iframe.dataset.src;
-          iframeObserver.unobserve(iframe);
-        }
+    // YouTube click-to-load facades
+    document.querySelectorAll('.yt-facade').forEach(facade => {
+      facade.addEventListener('click', () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = facade.dataset.src;
+        iframe.allowFullscreen = true;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        facade.parentNode.replaceChild(iframe, facade);
       });
-    }, { rootMargin: '200px' });
-
-    document.querySelectorAll('iframe[data-src]').forEach(iframe => {
-      iframeObserver.observe(iframe);
     });
   </script>
 
