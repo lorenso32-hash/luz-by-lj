@@ -850,48 +850,58 @@
     /* Option cards */
     .wiz-options {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
       margin-bottom: 4px;
     }
     .wiz-opt {
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 5px;
-      padding: 16px 14px;
+      justify-content: flex-end;
+      gap: 4px;
+      padding: 14px 12px;
+      min-height: 120px;
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 3px;
-      background: rgba(255,255,255,0.03);
+      background-color: rgba(255,255,255,0.03);
+      background-size: cover;
+      background-position: center;
       transition: all 0.18s ease;
       user-select: none;
     }
+    .wiz-opt::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(5,1,33,0.62);
+      transition: background 0.18s ease;
+      z-index: 0;
+    }
     .wiz-opt input[type="radio"] { display: none; }
-    .wiz-opt:hover {
-      border-color: rgba(226,16,86,0.45);
-      background: rgba(226,16,86,0.07);
-      transform: translateY(-1px);
-    }
-    .wiz-opt.selected {
-      border-color: var(--pink);
-      background: rgba(226,16,86,0.12);
-      box-shadow: 0 0 14px rgba(226,16,86,0.2);
-    }
+    .wiz-opt:hover { border-color: rgba(226,16,86,0.55); transform: translateY(-1px); }
+    .wiz-opt:hover::before { background: rgba(226,16,86,0.52); }
+    .wiz-opt.selected { border-color: var(--pink); box-shadow: 0 0 14px rgba(226,16,86,0.3); }
+    .wiz-opt.selected::before { background: rgba(226,16,86,0.58); }
     .wiz-opt-icon {
+      position: relative; z-index: 1;
       font-size: 1.15rem;
-      color: var(--pink);
+      color: var(--white);
       line-height: 1;
     }
     .wiz-opt-title {
+      position: relative; z-index: 1;
       font-family: var(--font-display);
       font-size: 13px; letter-spacing: 2px;
       color: var(--white);
       text-transform: uppercase;
     }
     .wiz-opt-desc {
+      position: relative; z-index: 1;
       font-size: 0.72rem;
-      color: var(--white-60);
+      color: rgba(255,255,255,0.75);
       line-height: 1.4;
     }
     /* Conditional reveals */
@@ -958,6 +968,9 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0 20px;
+    }
+    @media (max-width: 760px) {
+      .wiz-options { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 520px) {
       .wiz-fields-grid { grid-template-columns: 1fr; }
@@ -1942,49 +1955,49 @@
           <p class="wiz-question">What kind of session are you after?</p>
           <p class="wiz-sub">Pick the one that fits best — we can always mix it up.</p>
           <div class="wiz-options">
-            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Portrait');wizReveal('session-other',false)">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/photos/melanie%202.jpg');background-size:80%;background-position:50% 30%;" onclick="wizSelect(this,'sessionType','Portrait');wizReveal('session-other',false)">
               <input type="radio" name="sessionType" value="Portrait">
               <span class="wiz-opt-icon">&#9672;</span>
               <span class="wiz-opt-title">Portrait</span>
               <span class="wiz-opt-desc">Individual, group, editorial</span>
             </label>
-            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Commercial');wizReveal('session-other',false)">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketBackground_wguxeo.jpg');background-size:160%;background-position:55% 85%;" onclick="wizSelect(this,'sessionType','Commercial');wizReveal('session-other',false)">
               <input type="radio" name="sessionType" value="Commercial">
               <span class="wiz-opt-icon">&#9673;</span>
               <span class="wiz-opt-title">Commercial</span>
               <span class="wiz-opt-desc">Brands, campaigns, press shots</span>
             </label>
-            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Stylistic / Creative');wizReveal('session-other',false)">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/Enrique1loweres7_pjqgyb.jpg')" onclick="wizSelect(this,'sessionType','Stylistic / Creative');wizReveal('session-other',false)">
               <input type="radio" name="sessionType" value="Stylistic / Creative">
               <span class="wiz-opt-icon">&#9671;</span>
               <span class="wiz-opt-title">Stylistic</span>
               <span class="wiz-opt-desc">Conceptual, editorial, experimental</span>
             </label>
-            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Couples');wizReveal('session-other',false)">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/SabsAndSaraEditied_c5i5ot.jpg');background-position:50% 14%;" onclick="wizSelect(this,'sessionType','Couples');wizReveal('session-other',false)">
               <input type="radio" name="sessionType" value="Couples">
               <span class="wiz-opt-icon">&#9825;</span>
               <span class="wiz-opt-title">Couples</span>
               <span class="wiz-opt-desc">Engagement, anniversary, lifestyle</span>
             </label>
-            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Event');wizReveal('session-other',false)">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg');background-position:center 20%;" onclick="wizSelect(this,'sessionType','Event');wizReveal('session-other',false)">
               <input type="radio" name="sessionType" value="Event">
               <span class="wiz-opt-icon">&#9678;</span>
               <span class="wiz-opt-title">Event</span>
               <span class="wiz-opt-desc">Live shows, gatherings, concerts</span>
             </label>
-            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Content / Reels');wizReveal('session-other',false)">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/bts/bts_66.jpg')" onclick="wizSelect(this,'sessionType','Content / Reels');wizReveal('session-other',false)">
               <input type="radio" name="sessionType" value="Content / Reels">
               <span class="wiz-opt-icon">&#9655;</span>
               <span class="wiz-opt-title">Content</span>
               <span class="wiz-opt-desc">Reels, TikToks, social video</span>
             </label>
-            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','BTS');wizReveal('session-other',false)">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/J_Dell_And_LJ_ykgyqa.jpg');background-position:50% 20%;" onclick="wizSelect(this,'sessionType','BTS');wizReveal('session-other',false)">
               <input type="radio" name="sessionType" value="BTS">
               <span class="wiz-opt-icon">&#9664;</span>
               <span class="wiz-opt-title">BTS</span>
               <span class="wiz-opt-desc">Video shoots, events, studio sessions, etc.</span>
             </label>
-            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Other');wizReveal('session-other',true)">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/photos/Artistic%20City%20Scape%20with%20NTD%20Jacket.jpg')" onclick="wizSelect(this,'sessionType','Other');wizReveal('session-other',true)">
               <input type="radio" name="sessionType" value="Other">
               <span class="wiz-opt-icon">+</span>
               <span class="wiz-opt-title">Other</span>
