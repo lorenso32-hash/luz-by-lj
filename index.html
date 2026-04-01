@@ -64,8 +64,7 @@
 
   <title>Luz by LJ | Santa Fe & Albuquerque Photographer | Portraits After Dark</title>
 
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Web3Forms (no CDN needed — uses fetch) -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2307,16 +2306,11 @@
     // =====================
     // INQUIRY WIZARD
     // =====================
-    // --- EmailJS config ---
-    // 1. Go to https://emailjs.com and create a free account
-    // 2. Add Gmail as a service (connect LuzByLJ@gmail.com)
-    // 3. Create an email template using the variables below
-    // 4. Paste your Service ID, Template ID, and Public Key here
-    const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-    const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
-
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    // --- Web3Forms config ---
+    // 1. Go to https://web3forms.com
+    // 2. Enter LuzByLJ@gmail.com and hit "Create Access Key"
+    // 3. Paste the key they email you below
+    const WEB3FORMS_KEY = 'YOUR_ACCESS_KEY';
 
     const WIZ_TOTAL = 5;
     let wizStep = 1;
@@ -2421,15 +2415,38 @@
         notes:         document.getElementById('clientNotes').value.trim() || 'None',
       };
 
-      // Skip actual send until EmailJS is configured
-      if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
+      // Skip actual send until Web3Forms is configured
+      if (WEB3FORMS_KEY === 'YOUR_ACCESS_KEY') {
         document.getElementById('inquiryWizard').classList.add('submitted');
         return;
       }
 
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-        .then(() => {
-          document.getElementById('inquiryWizard').classList.add('submitted');
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key:   WEB3FORMS_KEY,
+          subject:      'New Inquiry — Luz by LJ: ' + templateParams.session_type,
+          from_name:    templateParams.client_name,
+          replyto:      templateParams.client_email,
+          'Session Type':    templateParams.session_type + (templateParams.session_detail !== '—' ? ' — ' + templateParams.session_detail : ''),
+          'Environment':     templateParams.environment + (templateParams.env_detail !== '—' ? ' — ' + templateParams.env_detail : ''),
+          'Headcount':       templateParams.headcount,
+          'Vibe':            templateParams.vibe,
+          'Timing':          templateParams.timing + (templateParams.date_detail !== '—' ? ' — ' + templateParams.date_detail : ''),
+          'Budget':          templateParams.budget,
+          'Name':            templateParams.client_name,
+          'Email':           templateParams.client_email,
+          'Notes':           templateParams.notes,
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            document.getElementById('inquiryWizard').classList.add('submitted');
+          } else {
+            throw new Error(data.message);
+          }
         })
         .catch(err => {
           btn.disabled = false;
@@ -2437,7 +2454,7 @@
           const errEl = document.getElementById('werr5');
           errEl.textContent = 'Something went wrong. Please email LuzByLJ@gmail.com directly.';
           errEl.classList.add('show');
-          console.error('EmailJS error:', err);
+          console.error('Web3Forms error:', err);
         });
     }
   </script>
