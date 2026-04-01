@@ -1300,7 +1300,6 @@
       .live-mobile-grid .band-item img { width: 100%; height: 100%; object-fit: cover; }
 
       /* Shared swipe hint */
-      .live-carousel-wrap { overflow: hidden; }
       .swipe-hint {
         font-family: var(--font-display);
         font-size: 36px;
@@ -2773,12 +2772,24 @@
     const carousel = document.querySelector('.brand-grid-mobile');
     const hint = document.querySelector('.brand-swipe-hint');
     if (carousel && hint) {
-      carousel.addEventListener('scroll', () => hint.classList.add('hidden'), { once: true });
+      carousel.addEventListener('scroll', function handler() {
+        if (carousel.scrollLeft > 10) {
+          hint.classList.add('hidden');
+          carousel.removeEventListener('scroll', handler);
+        }
+      });
     }
     document.querySelectorAll('.live-carousel-wrap').forEach(wrap => {
       const grid = wrap.querySelector('.live-mobile-grid');
       const h = wrap.querySelector('.swipe-hint');
-      if (grid && h) grid.addEventListener('scroll', () => h.classList.add('hidden'), { once: true });
+      if (grid && h) {
+        grid.addEventListener('scroll', function handler() {
+          if (grid.scrollLeft > 10) {
+            h.classList.add('hidden');
+            grid.removeEventListener('scroll', handler);
+          }
+        });
+      }
     });
   </script>
 
