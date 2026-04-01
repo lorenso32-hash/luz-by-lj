@@ -1217,6 +1217,59 @@
     @media (max-width: 900px) { .band-grid { grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 560px) { .band-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; } }
 
+    .brand-grid-mobile { display: none; }
+    .brand-swipe-hint { display: none; }
+    .brand-carousel-wrap { position: relative; }
+    @media (max-width: 768px) {
+      .brand-grid-desktop { display: none !important; }
+      .brand-grid-mobile {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        padding: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        scrollbar-width: none;
+      }
+      .brand-grid-mobile::-webkit-scrollbar { display: none; }
+      .brand-grid-mobile .gallery-item {
+        flex-shrink: 0;
+        width: 100vw;
+        aspect-ratio: 4/5;
+        margin: 0;
+        border-radius: 0;
+        scroll-snap-align: start;
+        opacity: 1;
+        transform: none;
+      }
+      .brand-grid-mobile .gallery-item:hover { transform: none; box-shadow: none; }
+      .brand-grid-mobile .gallery-item { animation: none; box-shadow: none; border: none; }
+      #branded .container { overflow: visible; }
+      @keyframes swipe-glow-pulse {
+        0%, 100% { text-shadow: 0 0 8px #E21056, 0 0 20px #E21056, 0 0 40px #E21056aa; opacity: 0.75; }
+        50%       { text-shadow: 0 0 14px #ff3a7a, 0 0 35px #E21056, 0 0 70px #E21056, 0 0 100px #E21056cc; opacity: 1; }
+      }
+      .brand-swipe-hint {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-display);
+        font-size: 36px;
+        letter-spacing: 3px;
+        color: #fff;
+        position: absolute;
+        bottom: 90px;
+        right: 24px;
+        z-index: 10;
+        pointer-events: none;
+        animation: swipe-glow-pulse 1.6s ease-in-out infinite;
+        transition: opacity 0.5s ease;
+      }
+      .brand-swipe-hint.hidden { opacity: 0; animation: none; }
+    }
+
     .reels-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1742,45 +1795,70 @@
   </section>
 
   <!-- Branded Work -->
-  <section id="branded" class="bg-alt" style="padding: 56px 0; background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1440,f_auto,q_auto/JacketBackground_wguxeo.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+  <section id="branded" class="bg-alt" style="padding: 32px 0; background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1440,f_auto,q_auto/JacketBackground_wguxeo.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
     <div style="position:absolute;inset:0;background:rgba(5,1,33,0.72);z-index:0;"></div>
     <div class="container" style="position:relative;z-index:1;">
-      <p class="eyebrow" style="font-size:20px;letter-spacing:4px;margin-bottom:8px;">Commercial</p>
-      <h2 class="section-heading" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:12px;">Brand Photoshoots</h2>
-      <div class="rule-accent" style="margin-bottom:28px;"></div>
-      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;">
-
+      <p class="eyebrow" style="font-size:20px;letter-spacing:4px;margin-bottom:4px;">Commercial</p>
+      <h2 class="section-heading" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:8px;">Brand Photoshoots</h2>
+      <div class="rule-accent" style="margin-bottom:16px;"></div>
+      <!-- Desktop grid (original photos) -->
+      <div class="brand-grid brand-grid-desktop" style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;">
         <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketStraightOn_a3cycu.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketStraightOn_a3cycu.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
         </div>
-
         <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketCoolLean_ipxexj.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketCoolLean_ipxexj.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
         </div>
-
         <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketSmooth_obiznu.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketSmooth_obiznu.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
         </div>
-
         <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketyFrontFrom45Degrees_yjyxub.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketyFrontFrom45Degrees_yjyxub.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
         </div>
-
         <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketCuff_w6kuah.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketCuff_w6kuah.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
         </div>
-
         <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketBackground_wguxeo.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketBackground_wguxeo.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
         </div>
-
       </div>
+
+      <!-- Mobile swipe carousel (panoramic Jacket1-6) -->
+      <div class="brand-carousel-wrap">
+        <div class="brand-swipe-hint">Swipe &nbsp;&#8594;</div>
+        <div class="brand-grid brand-grid-mobile">
+        <div class="gallery-item" onclick="openLightbox('Jacket1_dinrvh.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Jacket1_dinrvh.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Jacket2_ru3hxx.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Jacket2_ru3hxx.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Jacket3_kkp2im.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Jacket3_kkp2im.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Jacket4_xjj1q3.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Jacket4_xjj1q3.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Jacket5_c3pumm.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Jacket5_c3pumm.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Jacket6_jpkyhu.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Jacket6_jpkyhu.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+        </div><!-- end brand-grid-mobile -->
+      </div><!-- end brand-carousel-wrap -->
     </div>
   </section>
 
@@ -2562,6 +2640,13 @@
         spark.addEventListener('animationend', () => spark.remove());
       });
     })();
+
+    // Fade out swipe hint on first scroll
+    const carousel = document.querySelector('.brand-grid-mobile');
+    const hint = document.querySelector('.brand-swipe-hint');
+    if (carousel && hint) {
+      carousel.addEventListener('scroll', () => hint.classList.add('hidden'), { once: true });
+    }
   </script>
 
 </body>
