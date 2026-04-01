@@ -64,6 +64,9 @@
 
   <title>Luz by LJ | Santa Fe & Albuquerque Photographer | Portraits After Dark</title>
 
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -739,6 +742,248 @@
       font-size: 1rem;
       line-height: 1.8;
     }
+
+    /* =====================
+       INQUIRY WIZARD
+    ===================== */
+    .inquiry-wizard {
+      margin-top: 48px;
+      background: rgba(8, 2, 48, 0.72);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 3px;
+      padding: 36px 40px 40px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+    .inquiry-wizard::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(226,16,86,0.04) 0%, transparent 55%, rgba(0,180,204,0.04) 100%);
+      pointer-events: none;
+    }
+    /* Progress bar */
+    .wiz-progress {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 36px;
+    }
+    .wiz-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: rgba(5,1,33,0.9);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 11px;
+      color: var(--white-60);
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      position: relative; z-index: 1;
+    }
+    .wiz-dot.active {
+      border-color: var(--pink);
+      color: var(--white);
+      box-shadow: 0 0 12px rgba(226,16,86,0.5);
+    }
+    .wiz-dot.done {
+      border-color: var(--teal);
+      background: var(--teal);
+      color: var(--navy);
+    }
+    .wiz-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      transition: background 0.3s;
+    }
+    .wiz-line.done { background: var(--teal); }
+    .wiz-step-label {
+      font-family: var(--font-display);
+      font-size: 11px; letter-spacing: 2px;
+      color: var(--white-60);
+      text-transform: uppercase;
+      margin-left: 20px;
+      flex-shrink: 0;
+    }
+    /* Panels */
+    .wiz-panel { display: none; }
+    .wiz-panel.active {
+      display: block;
+      animation: wizfade 0.28s ease;
+    }
+    @keyframes wizfade {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .wiz-question {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+      color: var(--white);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .wiz-sub {
+      font-size: 0.85rem;
+      color: var(--white-60);
+      margin-bottom: 22px;
+    }
+    /* Option cards */
+    .wiz-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .wiz-opt {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      padding: 16px 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.03);
+      transition: all 0.18s ease;
+      user-select: none;
+    }
+    .wiz-opt input[type="radio"] { display: none; }
+    .wiz-opt:hover {
+      border-color: rgba(226,16,86,0.45);
+      background: rgba(226,16,86,0.07);
+      transform: translateY(-1px);
+    }
+    .wiz-opt.selected {
+      border-color: var(--pink);
+      background: rgba(226,16,86,0.12);
+      box-shadow: 0 0 14px rgba(226,16,86,0.2);
+    }
+    .wiz-opt-icon {
+      font-size: 1.15rem;
+      color: var(--pink);
+      line-height: 1;
+    }
+    .wiz-opt-title {
+      font-family: var(--font-display);
+      font-size: 13px; letter-spacing: 2px;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .wiz-opt-desc {
+      font-size: 0.72rem;
+      color: var(--white-60);
+      line-height: 1.4;
+    }
+    /* Conditional reveals */
+    .wiz-reveal {
+      margin-top: 14px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+    .wiz-reveal.open { max-height: 200px; opacity: 1; }
+    /* Fields */
+    .wiz-field-label {
+      font-family: var(--font-display);
+      font-size: 11px; letter-spacing: 2px;
+      color: var(--teal);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+      margin-top: 20px;
+    }
+    .wiz-field-label:first-child { margin-top: 0; }
+    .wiz-field {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 2px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.93rem;
+      padding: 13px 15px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: none;
+    }
+    .wiz-field:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 10px rgba(0,180,204,0.18);
+    }
+    .wiz-field::placeholder { color: rgba(255,255,255,0.28); }
+    .wiz-select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 2px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.93rem;
+      padding: 13px 38px 13px 15px;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='rgba(255,255,255,0.4)' d='M5 6L0 0h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .wiz-select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 10px rgba(0,180,204,0.18);
+    }
+    .wiz-select option { background: #0d0535; color: #fff; }
+    .wiz-fields-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+    }
+    @media (max-width: 520px) {
+      .wiz-fields-grid { grid-template-columns: 1fr; }
+      .inquiry-wizard { padding: 24px 20px 28px; }
+      .wiz-options { grid-template-columns: repeat(2, 1fr); }
+    }
+    /* Error message */
+    .wiz-error {
+      font-size: 0.8rem;
+      color: var(--pink);
+      margin-top: 10px;
+      min-height: 18px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .wiz-error.show { opacity: 1; }
+    /* Navigation row */
+    .wiz-nav {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+      gap: 12px;
+    }
+    /* Success */
+    .inquiry-wizard.submitted .wiz-progress,
+    .inquiry-wizard.submitted .wiz-panel,
+    .inquiry-wizard.submitted .wiz-nav { display: none !important; }
+    .wiz-success { display: none; text-align: center; padding: 40px 20px; }
+    .inquiry-wizard.submitted .wiz-success { display: block; animation: wizfade 0.4s ease; }
+    .wiz-success-icon {
+      font-size: 2.4rem;
+      color: var(--teal);
+      text-shadow: 0 0 20px rgba(0,180,204,0.7);
+      margin-bottom: 14px;
+    }
+    .wiz-success h3 {
+      font-family: var(--font-display);
+      font-size: 2rem; letter-spacing: 4px;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .wiz-success p { color: var(--white-80); font-size: 0.95rem; }
 
     /* =====================
        FOOTER
@@ -1611,24 +1856,284 @@
           <p class="eyebrow">&nbsp;</p>
           <h2 class="section-heading" style="opacity:0; pointer-events:none;">—</h2>
           <div class="rule-accent" style="opacity:0;"></div>
-          <p style="margin-bottom: 12px;">
-            Ready to shoot? Send a message with your session idea, preferred dates, and location.
+          <p style="margin-bottom: 12px; color: var(--white-80);">
+            Fill out the quick form below — takes about a minute.
             I'll get back to you within 24 hours.
           </p>
-          <p style="color: var(--white-40, rgba(255,255,255,0.4)); font-size:0.85rem; margin-bottom: 20px;">
-            Portrait sessions · Commercial campaigns · Live events · Short-form content
+          <p style="color: rgba(255,255,255,0.45); font-size:0.85rem;">
+            Portrait &middot; Commercial &middot; Couples &middot; Events &middot; Content
           </p>
-          <a href="mailto:LuzByLJ@gmail.com?subject=Booking Inquiry — Luz by LJ" class="btn btn-primary">Send a Message</a>
         </div>
       </div>
-      <div style="margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
-        <p style="font-family: var(--font-display); font-size: 2.25rem; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); text-shadow: 0 0 10px rgba(0,180,204,0.8), 0 0 30px rgba(0,180,204,0.5), 0 0 60px rgba(0,180,204,0.2);">What to Include</p>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;">
-          <li style="font-size: 1rem; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);"><span style="color: var(--pink); margin-right: 8px;">—</span>Type of session & vision</li>
-          <li style="font-size: 1rem; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);"><span style="color: var(--pink); margin-right: 8px;">—</span>Preferred dates & location</li>
-          <li style="font-size: 1rem; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);"><span style="color: var(--pink); margin-right: 8px;">—</span>Any references or inspo</li>
-          <li style="font-size: 1rem; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.2);"><span style="color: var(--pink); margin-right: 8px;">—</span>Budget range if you have one</li>
-        </ul>
+
+      <!-- Inquiry Wizard -->
+      <div class="inquiry-wizard" id="inquiryWizard">
+
+        <!-- Progress -->
+        <div class="wiz-progress">
+          <div class="wiz-dot active" id="wdot1">1</div>
+          <div class="wiz-line" id="wline1"></div>
+          <div class="wiz-dot" id="wdot2">2</div>
+          <div class="wiz-line" id="wline2"></div>
+          <div class="wiz-dot" id="wdot3">3</div>
+          <div class="wiz-line" id="wline3"></div>
+          <div class="wiz-dot" id="wdot4">4</div>
+          <div class="wiz-line" id="wline4"></div>
+          <div class="wiz-dot" id="wdot5">5</div>
+          <span class="wiz-step-label" id="wizStepLabel">Step 1 of 5</span>
+        </div>
+
+        <!-- Step 1: Session Type -->
+        <div class="wiz-panel active" id="wp1">
+          <p class="wiz-question">What kind of session are you after?</p>
+          <p class="wiz-sub">Pick the one that fits best — we can always mix it up.</p>
+          <div class="wiz-options">
+            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Portrait');wizReveal('session-other',false)">
+              <input type="radio" name="sessionType" value="Portrait">
+              <span class="wiz-opt-icon">&#9672;</span>
+              <span class="wiz-opt-title">Portrait</span>
+              <span class="wiz-opt-desc">Individual, group, editorial</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Commercial');wizReveal('session-other',false)">
+              <input type="radio" name="sessionType" value="Commercial">
+              <span class="wiz-opt-icon">&#9673;</span>
+              <span class="wiz-opt-title">Commercial</span>
+              <span class="wiz-opt-desc">Brands, campaigns, press shots</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Stylistic / Creative');wizReveal('session-other',false)">
+              <input type="radio" name="sessionType" value="Stylistic / Creative">
+              <span class="wiz-opt-icon">&#9671;</span>
+              <span class="wiz-opt-title">Stylistic</span>
+              <span class="wiz-opt-desc">Conceptual, editorial, experimental</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Couples');wizReveal('session-other',false)">
+              <input type="radio" name="sessionType" value="Couples">
+              <span class="wiz-opt-icon">&#9825;</span>
+              <span class="wiz-opt-title">Couples</span>
+              <span class="wiz-opt-desc">Engagement, anniversary, lifestyle</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Event');wizReveal('session-other',false)">
+              <input type="radio" name="sessionType" value="Event">
+              <span class="wiz-opt-icon">&#9678;</span>
+              <span class="wiz-opt-title">Event</span>
+              <span class="wiz-opt-desc">Live shows, gatherings, concerts</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Content / Reels');wizReveal('session-other',false)">
+              <input type="radio" name="sessionType" value="Content / Reels">
+              <span class="wiz-opt-icon">&#9655;</span>
+              <span class="wiz-opt-title">Content</span>
+              <span class="wiz-opt-desc">Reels, TikToks, social video</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'sessionType','Other');wizReveal('session-other',true)">
+              <input type="radio" name="sessionType" value="Other">
+              <span class="wiz-opt-icon">+</span>
+              <span class="wiz-opt-title">Other</span>
+              <span class="wiz-opt-desc">Something else entirely</span>
+            </label>
+          </div>
+          <div class="wiz-reveal" id="session-other">
+            <label class="wiz-field-label">What are you thinking?</label>
+            <input class="wiz-field" id="sessionOtherDetail" type="text" placeholder="Tell me more...">
+          </div>
+          <p class="wiz-error" id="werr1">Please select a session type to continue.</p>
+        </div>
+
+        <!-- Step 2: Environment -->
+        <div class="wiz-panel" id="wp2">
+          <p class="wiz-question">Where are you imagining this?</p>
+          <p class="wiz-sub">Outdoors, a studio, somewhere specific — or wide open.</p>
+          <div class="wiz-options">
+            <label class="wiz-opt" onclick="wizSelect(this,'environment','Outdoors');wizReveal('env-outdoors',true);wizReveal('env-venue',false);wizReveal('env-other',false)">
+              <input type="radio" name="environment" value="Outdoors">
+              <span class="wiz-opt-icon">&#9651;</span>
+              <span class="wiz-opt-title">Outdoors</span>
+              <span class="wiz-opt-desc">Parks, desert, urban, nature</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'environment','Studio');wizReveal('env-outdoors',false);wizReveal('env-venue',false);wizReveal('env-other',false)">
+              <input type="radio" name="environment" value="Studio">
+              <span class="wiz-opt-icon">&#9633;</span>
+              <span class="wiz-opt-title">Studio</span>
+              <span class="wiz-opt-desc">Controlled light, clean backdrop</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'environment','Venue');wizReveal('env-venue',true);wizReveal('env-outdoors',false);wizReveal('env-other',false)">
+              <input type="radio" name="environment" value="Venue">
+              <span class="wiz-opt-icon">&#9724;</span>
+              <span class="wiz-opt-title">Venue</span>
+              <span class="wiz-opt-desc">Bar, gallery, concert hall, etc.</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'environment','Flexible');wizReveal('env-outdoors',false);wizReveal('env-venue',false);wizReveal('env-other',false)">
+              <input type="radio" name="environment" value="Flexible">
+              <span class="wiz-opt-icon">&#9711;</span>
+              <span class="wiz-opt-title">Flexible</span>
+              <span class="wiz-opt-desc">Open to ideas — let's figure it out</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'environment','Other');wizReveal('env-other',true);wizReveal('env-outdoors',false);wizReveal('env-venue',false)">
+              <input type="radio" name="environment" value="Other">
+              <span class="wiz-opt-icon">+</span>
+              <span class="wiz-opt-title">Other</span>
+              <span class="wiz-opt-desc">Something specific in mind</span>
+            </label>
+          </div>
+          <div class="wiz-reveal" id="env-outdoors">
+            <label class="wiz-field-label">Describe the location or vibe</label>
+            <textarea class="wiz-field" id="envOutdoorDetail" rows="2" placeholder="e.g. Bosque, Old Town, somewhere with murals..."></textarea>
+          </div>
+          <div class="wiz-reveal" id="env-venue">
+            <label class="wiz-field-label">What venue?</label>
+            <input class="wiz-field" id="envVenueDetail" type="text" placeholder="Name and/or location of the venue">
+          </div>
+          <div class="wiz-reveal" id="env-other">
+            <label class="wiz-field-label">Tell me more</label>
+            <input class="wiz-field" id="envOtherDetail" type="text" placeholder="Describe where you're imagining this...">
+          </div>
+          <p class="wiz-error" id="werr2">Please select an environment to continue.</p>
+        </div>
+
+        <!-- Step 3: Headcount + Vibe -->
+        <div class="wiz-panel" id="wp3">
+          <p class="wiz-question">Tell me a little more.</p>
+          <p class="wiz-sub">Two quick ones — no wrong answers.</p>
+          <label class="wiz-field-label" style="margin-top:0;">Who's in the frame?</label>
+          <div class="wiz-options">
+            <label class="wiz-opt" onclick="wizSelect(this,'headcount','Just me')">
+              <input type="radio" name="headcount" value="Just me">
+              <span class="wiz-opt-icon">&#9711;</span>
+              <span class="wiz-opt-title">Just Me</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'headcount','Two people')">
+              <input type="radio" name="headcount" value="Two people">
+              <span class="wiz-opt-icon">&#9678;</span>
+              <span class="wiz-opt-title">Two People</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'headcount','Small group (3-5)')">
+              <input type="radio" name="headcount" value="Small group (3-5)">
+              <span class="wiz-opt-icon">&#9672;</span>
+              <span class="wiz-opt-title">Small Group</span>
+              <span class="wiz-opt-desc">3&ndash;5 people</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'headcount','Large group (6+)')">
+              <input type="radio" name="headcount" value="Large group (6+)">
+              <span class="wiz-opt-icon">&#9673;</span>
+              <span class="wiz-opt-title">Large Group</span>
+              <span class="wiz-opt-desc">6 or more</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'headcount','Not sure yet')">
+              <input type="radio" name="headcount" value="Not sure yet">
+              <span class="wiz-opt-icon">&#9671;</span>
+              <span class="wiz-opt-title">Not Sure Yet</span>
+            </label>
+          </div>
+          <label class="wiz-field-label">What's the vibe? <span style="color:var(--white-60);font-family:var(--font-body);font-size:0.75rem;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <div class="wiz-options">
+            <label class="wiz-opt" onclick="wizSelect(this,'vibe','Dark &amp; Moody')">
+              <input type="radio" name="vibe" value="Dark &amp; Moody">
+              <span class="wiz-opt-title">Dark &amp; Moody</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'vibe','Light &amp; Airy')">
+              <input type="radio" name="vibe" value="Light &amp; Airy">
+              <span class="wiz-opt-title">Light &amp; Airy</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'vibe','Cinematic')">
+              <input type="radio" name="vibe" value="Cinematic">
+              <span class="wiz-opt-title">Cinematic</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'vibe','Editorial')">
+              <input type="radio" name="vibe" value="Editorial">
+              <span class="wiz-opt-title">Editorial</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'vibe','Candid / Natural')">
+              <input type="radio" name="vibe" value="Candid / Natural">
+              <span class="wiz-opt-title">Candid / Natural</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'vibe','Surprise Me')">
+              <input type="radio" name="vibe" value="Surprise Me">
+              <span class="wiz-opt-title">Surprise Me</span>
+            </label>
+          </div>
+          <p class="wiz-error" id="werr3">Please select how many people will be in the session.</p>
+        </div>
+
+        <!-- Step 4: Timing -->
+        <div class="wiz-panel" id="wp4">
+          <p class="wiz-question">When are you thinking?</p>
+          <p class="wiz-sub">Doesn't have to be exact — a rough idea helps a lot.</p>
+          <div class="wiz-options">
+            <label class="wiz-opt" onclick="wizSelect(this,'timing','I have a specific date');wizReveal('timing-date',true)">
+              <input type="radio" name="timing" value="I have a specific date">
+              <span class="wiz-opt-icon">&#9719;</span>
+              <span class="wiz-opt-title">Specific Date</span>
+              <span class="wiz-opt-desc">I know exactly when I want it</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'timing','Within the next month');wizReveal('timing-date',false)">
+              <input type="radio" name="timing" value="Within the next month">
+              <span class="wiz-opt-icon">&#9681;</span>
+              <span class="wiz-opt-title">Next Month</span>
+              <span class="wiz-opt-desc">Sometime in the next 4 weeks</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'timing','Within 2-3 months');wizReveal('timing-date',false)">
+              <input type="radio" name="timing" value="Within 2-3 months">
+              <span class="wiz-opt-icon">&#9680;</span>
+              <span class="wiz-opt-title">2&ndash;3 Months</span>
+              <span class="wiz-opt-desc">Planning ahead, not urgent</span>
+            </label>
+            <label class="wiz-opt" onclick="wizSelect(this,'timing','Flexible / No rush');wizReveal('timing-date',false)">
+              <input type="radio" name="timing" value="Flexible / No rush">
+              <span class="wiz-opt-icon">&#8734;</span>
+              <span class="wiz-opt-title">Flexible</span>
+              <span class="wiz-opt-desc">No hard deadline — let's find a time</span>
+            </label>
+          </div>
+          <div class="wiz-reveal" id="timing-date">
+            <label class="wiz-field-label">Preferred date or date range</label>
+            <input class="wiz-field" id="timingDateDetail" type="text" placeholder="e.g. April 12th, or the weekend of May 3rd...">
+          </div>
+          <p class="wiz-error" id="werr4">Please select a timeframe to continue.</p>
+        </div>
+
+        <!-- Step 5: Your Info -->
+        <div class="wiz-panel" id="wp5">
+          <p class="wiz-question">Last step — just a few details.</p>
+          <p class="wiz-sub">I'll reach back out within 24 hours.</p>
+          <div class="wiz-fields-grid">
+            <div>
+              <label class="wiz-field-label" for="clientName">Your Name</label>
+              <input class="wiz-field" id="clientName" type="text" placeholder="First name or full name">
+            </div>
+            <div>
+              <label class="wiz-field-label" for="clientEmail">Your Email</label>
+              <input class="wiz-field" id="clientEmail" type="email" placeholder="you@email.com">
+            </div>
+          </div>
+          <label class="wiz-field-label" for="clientBudget">Budget Range <span style="color:var(--white-60);font-family:var(--font-body);font-size:0.75rem;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <select class="wiz-select" id="clientBudget">
+            <option value="" disabled selected>Select a range</option>
+            <option value="Under $200">Under $200</option>
+            <option value="$200-$400">$200&ndash;$400</option>
+            <option value="$400-$800">$400&ndash;$800</option>
+            <option value="$800-$1,500">$800&ndash;$1,500</option>
+            <option value="$1,500+">$1,500+</option>
+            <option value="Not sure — let's talk">Not sure &mdash; let's talk</option>
+            <option value="Marketing / Collaboration">Marketing / Collaboration</option>
+          </select>
+          <label class="wiz-field-label" for="clientNotes">Anything else? <span style="color:var(--white-60);font-family:var(--font-body);font-size:0.75rem;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <textarea class="wiz-field" id="clientNotes" rows="3" placeholder="Inspo links, references, or anything on your mind..."></textarea>
+          <p class="wiz-error" id="werr5">Please enter your name and a valid email address.</p>
+        </div>
+
+        <!-- Success state -->
+        <div class="wiz-success" id="wizSuccess">
+          <div class="wiz-success-icon">&#9672;</div>
+          <h3>Message Sent</h3>
+          <p>Got it &mdash; I'll be in touch within 24 hours.<br>Keep an eye on your inbox.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="wiz-nav" id="wizNav">
+          <button class="btn btn-ghost" id="wBtnBack" onclick="wizBack()" style="display:none;">&#8592; Back</button>
+          <div style="flex:1"></div>
+          <button class="btn btn-primary" id="wBtnNext" onclick="wizNext()">Next &#8594;</button>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1780,6 +2285,137 @@
         facade.parentNode.replaceChild(iframe, facade);
       });
     });
+
+    // =====================
+    // INQUIRY WIZARD
+    // =====================
+    // --- EmailJS config ---
+    // 1. Go to https://emailjs.com and create a free account
+    // 2. Add Gmail as a service (connect LuzByLJ@gmail.com)
+    // 3. Create an email template using the variables below
+    // 4. Paste your Service ID, Template ID, and Public Key here
+    const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+    const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    const WIZ_TOTAL = 5;
+    let wizStep = 1;
+    const wizData = {};
+
+    function wizSelect(el, field, value) {
+      el.closest('.wiz-options').querySelectorAll('.wiz-opt').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      wizData[field] = value;
+    }
+
+    function wizReveal(id, open) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (open) el.classList.add('open');
+      else el.classList.remove('open');
+    }
+
+    function wizUpdateUI() {
+      for (let i = 1; i <= WIZ_TOTAL; i++) {
+        const dot = document.getElementById('wdot' + i);
+        if (i < wizStep)       { dot.classList.remove('active'); dot.classList.add('done'); dot.innerHTML = '&#10003;'; }
+        else if (i === wizStep) { dot.classList.add('active'); dot.classList.remove('done'); dot.innerHTML = i; }
+        else                   { dot.classList.remove('active', 'done'); dot.innerHTML = i; }
+        if (i < WIZ_TOTAL) {
+          const line = document.getElementById('wline' + i);
+          if (i < wizStep) line.classList.add('done');
+          else line.classList.remove('done');
+        }
+      }
+      document.getElementById('wizStepLabel').textContent = 'Step ' + wizStep + ' of ' + WIZ_TOTAL;
+      document.getElementById('wBtnBack').style.display = wizStep > 1 ? 'inline-flex' : 'none';
+      document.getElementById('wBtnNext').textContent = wizStep === WIZ_TOTAL ? 'Send Inquiry \u2192' : 'Next \u2192';
+    }
+
+    function wizValidate() {
+      const errEl = document.getElementById('werr' + wizStep);
+      if (errEl) errEl.classList.remove('show');
+      if (wizStep === 1 && !wizData.sessionType)  { errEl.classList.add('show'); return false; }
+      if (wizStep === 2 && !wizData.environment)  { errEl.classList.add('show'); return false; }
+      if (wizStep === 3 && !wizData.headcount)    { errEl.classList.add('show'); return false; }
+      if (wizStep === 4 && !wizData.timing)       { errEl.classList.add('show'); return false; }
+      if (wizStep === 5) {
+        const name  = document.getElementById('clientName').value.trim();
+        const email = document.getElementById('clientEmail').value.trim();
+        if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          errEl.classList.add('show'); return false;
+        }
+      }
+      return true;
+    }
+
+    function wizNext() {
+      if (!wizValidate()) return;
+      if (wizStep === WIZ_TOTAL) { wizSubmit(); return; }
+      document.getElementById('wp' + wizStep).classList.remove('active');
+      wizStep++;
+      document.getElementById('wp' + wizStep).classList.add('active');
+      wizUpdateUI();
+      document.getElementById('inquiryWizard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function wizBack() {
+      document.getElementById('wp' + wizStep).classList.remove('active');
+      wizStep--;
+      document.getElementById('wp' + wizStep).classList.add('active');
+      wizUpdateUI();
+    }
+
+    function wizSubmit() {
+      const btn = document.getElementById('wBtnNext');
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+
+      // Gather conditional detail fields
+      const envDetail = wizData.environment === 'Outdoors'
+        ? (document.getElementById('envOutdoorDetail').value.trim() || '—')
+        : wizData.environment === 'Venue'
+          ? (document.getElementById('envVenueDetail').value.trim() || '—')
+          : wizData.environment === 'Other'
+            ? (document.getElementById('envOtherDetail').value.trim() || '—')
+            : '—';
+      const sessionDetail = wizData.sessionType === 'Other'
+        ? (document.getElementById('sessionOtherDetail').value.trim() || '—')
+        : '—';
+      const dateDetail = wizData.timing === 'I have a specific date'
+        ? (document.getElementById('timingDateDetail').value.trim() || '—')
+        : '—';
+
+      const templateParams = {
+        session_type:   wizData.sessionType,
+        session_detail: sessionDetail,
+        environment:    wizData.environment,
+        env_detail:     envDetail,
+        headcount:     wizData.headcount,
+        vibe:          wizData.vibe || 'Not specified',
+        timing:        wizData.timing,
+        date_detail:   dateDetail,
+        budget:        document.getElementById('clientBudget').value || 'Not specified',
+        client_name:   document.getElementById('clientName').value.trim(),
+        client_email:  document.getElementById('clientEmail').value.trim(),
+        notes:         document.getElementById('clientNotes').value.trim() || 'None',
+      };
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(() => {
+          document.getElementById('inquiryWizard').classList.add('submitted');
+        })
+        .catch(err => {
+          btn.disabled = false;
+          btn.textContent = 'Send Inquiry \u2192';
+          const errEl = document.getElementById('werr4');
+          errEl.textContent = 'Something went wrong. Please email LuzByLJ@gmail.com directly.';
+          errEl.classList.add('show');
+          console.error('EmailJS error:', err);
+        });
+    }
   </script>
 
 </body>
