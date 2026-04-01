@@ -2121,6 +2121,16 @@
               <input class="wiz-field" id="clientEmail" type="email" placeholder="you@email.com">
             </div>
           </div>
+          <div class="wiz-fields-grid">
+            <div>
+              <label class="wiz-field-label" for="clientPhone">Phone <span style="color:var(--white-60);font-family:var(--font-body);font-size:0.75rem;text-transform:none;letter-spacing:0;">(optional)</span></label>
+              <input class="wiz-field" id="clientPhone" type="tel" placeholder="(505) 000-0000">
+            </div>
+            <div>
+              <label class="wiz-field-label" for="clientSocial">Instagram / TikTok <span style="color:var(--white-60);font-family:var(--font-body);font-size:0.75rem;text-transform:none;letter-spacing:0;">(optional)</span></label>
+              <input class="wiz-field" id="clientSocial" type="text" placeholder="@handle or profile link">
+            </div>
+          </div>
           <label class="wiz-field-label" for="clientBudget">Budget Range <span style="color:var(--white-60);font-family:var(--font-body);font-size:0.75rem;text-transform:none;letter-spacing:0;">(optional)</span></label>
           <select class="wiz-select" id="clientBudget">
             <option value="" disabled selected>Select a range</option>
@@ -2412,6 +2422,8 @@
         budget:        document.getElementById('clientBudget').value || 'Not specified',
         client_name:   document.getElementById('clientName').value.trim(),
         client_email:  document.getElementById('clientEmail').value.trim(),
+        client_phone:  document.getElementById('clientPhone').value.trim() || 'Not provided',
+        client_social: document.getElementById('clientSocial').value.trim() || 'Not provided',
         notes:         document.getElementById('clientNotes').value.trim() || 'None',
       };
 
@@ -2437,6 +2449,8 @@
           'Budget':          templateParams.budget,
           'Name':            templateParams.client_name,
           'Email':           templateParams.client_email,
+          'Phone':           templateParams.client_phone,
+          'Social':          templateParams.client_social,
           'Notes':           templateParams.notes,
         })
       })
