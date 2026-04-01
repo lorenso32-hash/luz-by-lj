@@ -1163,13 +1163,13 @@
     }
     .band-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 8px;
     }
     .band-item {
       position: relative;
-      aspect-ratio: 3 / 2;
-      overflow: visible;
+      aspect-ratio: 1;
+      overflow: hidden;
       cursor: pointer;
       opacity: 0;
       transform: translateY(40px) scale(0.97);
@@ -1181,7 +1181,7 @@
       transform: translateY(0) scale(1);
     }
     .band-item:hover {
-      transform: scale(1.3);
+      transform: scale(1.08);
       z-index: 10;
       box-shadow: 0 0 16px rgba(0,180,204,0.7), 0 0 36px rgba(0,180,204,0.35), 0 0 60px rgba(0,180,204,0.15);
     }
@@ -1201,8 +1201,8 @@
       opacity: 0; transition: opacity 0.3s;
     }
     .band-item:hover .gallery-item-overlay { opacity: 1; }
-    @media (max-width: 900px) { .band-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .band-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; } }
+    @media (max-width: 900px) { .band-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 560px) { .band-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; } }
 
     .reels-grid {
       display: grid;
@@ -1444,60 +1444,11 @@
     </div>
   </section>
 
-  <!-- Branded Work -->
-  <section id="branded" style="
-    position:relative;
-    background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/branding/JacketBackground_wguxeo');
-    background-size:cover; background-position:center; background-attachment:fixed;
-    padding: var(--sec-y) 0;
-  ">
-    <div style="position:absolute;inset:0;background:rgba(5,1,33,0.78);z-index:0;"></div>
-    <div class="container" style="position:relative;z-index:1;">
-      <p class="eyebrow">Branded</p>
-      <h2 class="section-heading">NightTimeDrive — Jacket Shoot</h2>
-      <div class="rule-accent"></div>
-      <p style="color:var(--white-60);max-width:560px;margin-bottom:48px;">Commercial and product photography for the NightTimeDrive merch line. Shot on location in Albuquerque, NM.</p>
-      <div class="gallery-grid">
-
-        <div class="gallery-item gallery-hero" onclick="openLightbox('branding/JacketStraightOn_a3cycu')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/branding/JacketStraightOn_a3cycu" alt="NightTimeDrive jacket — straight on">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">NTD Jacket</span></div>
-        </div>
-
-        <div class="gallery-item" onclick="openLightbox('branding/JacketCoolLean_ipxexj')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/branding/JacketCoolLean_ipxexj" alt="NightTimeDrive jacket — cool lean">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">NTD Jacket</span></div>
-        </div>
-
-        <div class="gallery-item" onclick="openLightbox('branding/JacketSmooth_obiznu')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/branding/JacketSmooth_obiznu" alt="NightTimeDrive jacket — smooth">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">NTD Jacket</span></div>
-        </div>
-
-        <div class="gallery-item" onclick="openLightbox('branding/JacketyFrontFrom45Degrees_yjyxub')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/branding/JacketyFrontFrom45Degrees_yjyxub" alt="NightTimeDrive jacket — 45 degrees">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">NTD Jacket</span></div>
-        </div>
-
-        <div class="gallery-item" onclick="openLightbox('branding/JacketCuff_w6kuah')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/branding/JacketCuff_w6kuah" alt="NightTimeDrive jacket — cuff detail">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">NTD Jacket</span></div>
-        </div>
-
-        <div class="gallery-item" onclick="openLightbox('branding/JacketBackground_wguxeo')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/branding/JacketBackground_wguxeo" alt="NightTimeDrive jacket — background">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">NTD Jacket</span></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- Band / Live Events -->
   <section id="live" class="bg-alt" style="padding:0;">
 
     <!-- Levi block -->
-    <div style="position:relative; background-image: none; background-size: cover; background-position: center; background-attachment: fixed; padding: 80px 0;"><div style="position:absolute;inset:0;background:rgba(5,1,33,0.75);z-index:0;"></div>
+    <div style="position:relative; background-image: none; background-size: cover; background-position: center; background-attachment: fixed; padding: 56px 0;"><div style="position:absolute;inset:0;background:rgba(5,1,33,0.75);z-index:0;"></div>
     <div class="container" style="position:relative;z-index:1;">
       <p class="eyebrow">Live Events</p>
       <h2 class="section-heading">At the Show</h2>
@@ -1773,6 +1724,48 @@
           <img src="https://img.youtube.com/vi/DTVuilMSS0w/maxresdefault.jpg" alt="Play Like It Like That" loading="lazy">
           <button class="yt-play" aria-label="Play video">&#9654;</button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branded Work -->
+  <section id="branded" class="bg-alt" style="padding: 56px 0;">
+    <div class="container">
+      <p class="eyebrow" style="font-size:20px;letter-spacing:4px;margin-bottom:8px;">Commercial</p>
+      <h2 class="section-heading" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:12px;">Brand Photoshoots</h2>
+      <div class="rule-accent" style="margin-bottom:28px;"></div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;">
+
+        <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketStraightOn_a3cycu.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketStraightOn_a3cycu.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+
+        <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketCoolLean_ipxexj.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketCoolLean_ipxexj.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+
+        <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketSmooth_obiznu.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketSmooth_obiznu.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+
+        <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketyFrontFrom45Degrees_yjyxub.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketyFrontFrom45Degrees_yjyxub.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+
+        <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketCuff_w6kuah.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketCuff_w6kuah.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+
+        <div class="gallery-item" style="aspect-ratio:1;margin:0;" onclick="openLightbox('JacketBackground_wguxeo.jpg')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketBackground_wguxeo.jpg" alt="Brand shoot" style="width:100%;height:100%;object-fit:cover;">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Brand</span></div>
+        </div>
+
       </div>
     </div>
   </section>
