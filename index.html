@@ -117,6 +117,24 @@
     @keyframes pagefade { from { opacity:0; } to { opacity:1; } }
 
     /* =====================
+       CURSOR TRAIL
+    ===================== */
+    .cursor-spark {
+      position: fixed;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+      animation: spark-fade 0.65s ease-out forwards;
+    }
+    @keyframes spark-fade {
+      0%   { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0;    transform: translate(-50%, -50%) scale(0.1); }
+    }
+
+    /* =====================
        STARFIELD
     ===================== */
     .milky-way {
@@ -2416,6 +2434,40 @@
           console.error('EmailJS error:', err);
         });
     }
+  </script>
+
+  <!-- Cursor Light Trail -->
+  <script>
+    (function() {
+      // Skip on touch-only devices
+      if (window.matchMedia('(hover: none)').matches) return;
+
+      const COLORS = ['#E21056', '#ff3a7a', '#00B4CC', '#33c8e0', '#ff6faa'];
+      const SIZES  = [5, 6, 7, 8, 9];
+      let lastX = -999, lastY = -999;
+
+      document.addEventListener('mousemove', function(e) {
+        // Throttle: skip if barely moved
+        const dx = e.clientX - lastX, dy = e.clientY - lastY;
+        if (dx * dx + dy * dy < 60) return;
+        lastX = e.clientX; lastY = e.clientY;
+
+        const spark = document.createElement('div');
+        spark.className = 'cursor-spark';
+        const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        const size  = SIZES[Math.floor(Math.random() * SIZES.length)];
+        spark.style.cssText = `
+          left: ${e.clientX}px;
+          top: ${e.clientY}px;
+          width: ${size}px;
+          height: ${size}px;
+          background: ${color};
+          box-shadow: 0 0 ${size * 2}px ${size}px ${color}99;
+        `;
+        document.body.appendChild(spark);
+        spark.addEventListener('animationend', () => spark.remove());
+      });
+    })();
   </script>
 
 </body>
