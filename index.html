@@ -2421,6 +2421,12 @@
         notes:         document.getElementById('clientNotes').value.trim() || 'None',
       };
 
+      // Skip actual send until EmailJS is configured
+      if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
+        document.getElementById('inquiryWizard').classList.add('submitted');
+        return;
+      }
+
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(() => {
           document.getElementById('inquiryWizard').classList.add('submitted');
@@ -2428,7 +2434,7 @@
         .catch(err => {
           btn.disabled = false;
           btn.textContent = 'Send Inquiry \u2192';
-          const errEl = document.getElementById('werr4');
+          const errEl = document.getElementById('werr5');
           errEl.textContent = 'Something went wrong. Please email LuzByLJ@gmail.com directly.';
           errEl.classList.add('show');
           console.error('EmailJS error:', err);
