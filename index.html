@@ -1217,9 +1217,107 @@
     @media (max-width: 900px) { .band-grid { grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 560px) { .band-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; } }
 
+    @media (max-width: 768px) {
+      /* Band grid swipe carousel */
+      .band-grid {
+        display: flex !important;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+      .band-grid::-webkit-scrollbar { display: none; }
+      .band-item {
+        flex-shrink: 0;
+        width: 85vw;
+        aspect-ratio: 1 !important;
+        scroll-snap-align: start;
+        overflow: hidden;
+      }
+      .band-item:hover { transform: none; }
+
+      /* Main gallery grid swipe carousel */
+      .gallery-grid {
+        display: flex !important;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        grid-template-columns: unset !important;
+      }
+      .gallery-grid::-webkit-scrollbar { display: none; }
+      .gallery-grid .gallery-item {
+        flex-shrink: 0;
+        width: 85vw;
+        aspect-ratio: 4/5;
+        scroll-snap-align: start;
+        opacity: 1 !important;
+        transform: none !important;
+        margin: 0;
+        overflow: hidden;
+      }
+      .gallery-grid .gallery-item.gallery-hero {
+        grid-column: unset;
+        width: 90vw;
+      }
+      .gallery-grid .gallery-item:hover { transform: none; }
+      .gallery-grid .gallery-item img { height: 100%; object-fit: cover; }
+
+      /* Live mobile carousels */
+      .band-grid.levi-desktop-grid { display: none !important; }
+      .live-carousel-wrap { display: block; }
+      .live-mobile-grid {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+      .live-mobile-grid::-webkit-scrollbar { display: none; }
+      .live-mobile-grid .band-item {
+        flex-shrink: 0;
+        width: 85vw;
+        aspect-ratio: 2/3;
+        scroll-snap-align: start;
+        overflow: hidden;
+      }
+      .live-mobile-grid .band-item:hover { transform: none; }
+      .live-mobile-grid .band-item img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* Shared swipe hint */
+      .swipe-hint {
+        font-family: var(--font-display);
+        font-size: 36px;
+        letter-spacing: 3px;
+        color: #fff;
+        position: absolute;
+        bottom: 90px;
+        right: 24px;
+        z-index: 10;
+        pointer-events: none;
+        animation: swipe-glow-pulse 1.6s ease-in-out infinite;
+        transition: opacity 0.5s ease;
+      }
+      .swipe-hint.hidden { opacity: 0; animation: none; }
+    }
+
     .brand-grid-mobile { display: none; }
     .brand-swipe-hint { display: none; }
     .brand-carousel-wrap { position: relative; }
+    .live-mobile-grid { display: none; }
+    .live-carousel-wrap { display: none; position: relative; }
     @media (max-width: 768px) {
       .brand-grid-desktop { display: none !important; }
       .brand-grid-mobile {
@@ -1519,7 +1617,7 @@
       <p class="eyebrow">Live Events</p>
       <h2 class="section-heading">At the Show</h2>
       <div class="rule-accent"></div>
-      <div class="band-grid">
+      <div class="band-grid levi-desktop-grid">
         <div class="band-item" onclick="openLightboxFromBand('photos/levi/Untitled.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
@@ -1661,6 +1759,34 @@
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
       </div>
+
+      <!-- Mobile swipe carousel (Levi Featured) -->
+      <div class="live-carousel-wrap">
+        <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
+        <div class="live-mobile-grid levi-mobile-grid">
+          <div class="band-item" onclick="openLightboxFromBand('LeviPlayingBackground_qziqvz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-3_myzmfq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-3_myzmfq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-5_maaxqq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-5_maaxqq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-6_zksuji.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-6_zksuji.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-8_vazriz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-8_vazriz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-9_niicct.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-9_niicct.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-13_rqdgaz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-13_rqdgaz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-14_zmceha.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-14_zmceha.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-15_t3xx1a.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-15_t3xx1a.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-19_fgf8vy.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-19_fgf8vy.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-20_b5o25n.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-20_b5o25n.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-22_frsqvr.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-22_frsqvr.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-24_mzppox.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-24_mzppox.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-25_c1tfiz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-25_c1tfiz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-26_pn6ah3.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-26_pn6ah3.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-29_tmc2nw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-29_tmc2nw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-30_doqzxm.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-30_doqzxm.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-33_wxrqgw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-33_wxrqgw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-34_bfxx5d.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-34_bfxx5d.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-35_ddugmy.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-35_ddugmy.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+        </div>
+      </div>
+
     </div>
     </div>
 
@@ -2641,12 +2767,17 @@
       });
     })();
 
-    // Fade out swipe hint on first scroll
+    // Fade out swipe hints on first scroll
     const carousel = document.querySelector('.brand-grid-mobile');
     const hint = document.querySelector('.brand-swipe-hint');
     if (carousel && hint) {
       carousel.addEventListener('scroll', () => hint.classList.add('hidden'), { once: true });
     }
+    document.querySelectorAll('.live-carousel-wrap').forEach(wrap => {
+      const grid = wrap.querySelector('.live-mobile-grid');
+      const h = wrap.querySelector('.swipe-hint');
+      if (grid && h) grid.addEventListener('scroll', () => h.classList.add('hidden'), { once: true });
+    });
   </script>
 
 </body>
