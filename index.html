@@ -2682,9 +2682,32 @@
     let lightboxPool = galleryPhotos;
 
     function openLightbox(src) {
-      lightboxPool = galleryPhotos;
-      currentIndex = galleryPhotos.findIndex(p => decodeURIComponent(p.src).endsWith(src.replace(/^.*photos\//, '')));
-      if (currentIndex < 0) currentIndex = 0;
+      if (window.innerWidth <= 768) {
+        const mobileGrids = document.querySelectorAll('.gallery-mobile-grid, .stylistic-mobile-grid, .live-mobile-grid');
+        let found = false;
+        for (const grid of mobileGrids) {
+          const items = Array.from(grid.querySelectorAll('.gallery-item'));
+          const idx = items.findIndex(el => {
+            const s = decodeURIComponent(el.querySelector('img').src);
+            return s.endsWith(src.replace(/^.*photos\//, '')) || s.includes(src.replace(/\.jpg$/, ''));
+          });
+          if (idx >= 0) {
+            lightboxPool = items.map(el => ({ src: el.querySelector('img').src, alt: el.querySelector('img').alt }));
+            currentIndex = idx;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          lightboxPool = galleryPhotos;
+          currentIndex = galleryPhotos.findIndex(p => decodeURIComponent(p.src).endsWith(src.replace(/^.*photos\//, '')));
+          if (currentIndex < 0) currentIndex = 0;
+        }
+      } else {
+        lightboxPool = galleryPhotos;
+        currentIndex = galleryPhotos.findIndex(p => decodeURIComponent(p.src).endsWith(src.replace(/^.*photos\//, '')));
+        if (currentIndex < 0) currentIndex = 0;
+      }
       showLightboxPhoto();
       document.getElementById('lightbox').classList.add('open');
     }
