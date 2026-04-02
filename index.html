@@ -1233,10 +1233,10 @@
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 0;
+        gap: 12px;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
-        padding-bottom: 8px;
+        padding: 0 7.5vw 8px;
         scrollbar-width: none;
       }
       .band-grid::-webkit-scrollbar { display: none; }
@@ -1244,7 +1244,7 @@
         flex-shrink: 0;
         width: 85vw;
         aspect-ratio: 1 !important;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
         overflow: hidden;
       }
       .band-item:hover { transform: none; }
@@ -1288,10 +1288,10 @@
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 0;
+        gap: 12px;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
-        padding-bottom: 8px;
+        padding: 0 7.5vw 8px;
         scrollbar-width: none;
       }
       .live-mobile-grid::-webkit-scrollbar { display: none; }
@@ -1299,7 +1299,7 @@
         flex-shrink: 0;
         width: 85vw;
         aspect-ratio: 2/3;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
         overflow: hidden;
       }
       .live-mobile-grid .band-item:hover { transform: none; }
@@ -1320,6 +1320,23 @@
         transition: opacity 0.5s ease;
       }
       .swipe-hint.hidden { opacity: 0; animation: none; }
+      /* Tap hint */
+      .tap-hint {
+        font-family: var(--font-body);
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.65);
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+        white-space: nowrap;
+      }
+      .tap-hint.hidden { opacity: 0; }
     }
 
     .brand-grid-mobile { display: none; }
@@ -1333,10 +1350,10 @@
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 0;
+        gap: 12px;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
-        padding-bottom: 8px;
+        padding: 0 7.5vw 8px;
         scrollbar-width: none;
       }
       .gallery-mobile-grid::-webkit-scrollbar { display: none; }
@@ -1344,7 +1361,7 @@
         flex-shrink: 0;
         width: 85vw;
         aspect-ratio: 4/5;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
         opacity: 1 !important;
         transform: none !important;
         margin: 0;
@@ -1376,10 +1393,10 @@
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 0;
+        gap: 12px;
         width: 100vw;
         margin-left: calc(-50vw + 50%);
-        padding-bottom: 8px;
+        padding: 0 7.5vw 8px;
         scrollbar-width: none;
       }
       .stylistic-mobile-grid::-webkit-scrollbar { display: none; }
@@ -1387,7 +1404,7 @@
         flex-shrink: 0;
         width: 85vw;
         aspect-ratio: 4/5;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
         opacity: 1 !important;
         transform: none !important;
         margin: 0;
@@ -1691,45 +1708,46 @@
       <div class="mobile-carousel-title">Portraits</div>
       <div class="gallery-carousel-wrap">
         <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
+        <div class="tap-hint">Tap · Full Res</div>
         <div class="gallery-mobile-grid">
           <div class="gallery-item" onclick="openLightbox('photos/melanie 2.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/melanie%202.jpg" alt="Portrait">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/melanie%202.jpg" alt="Portrait">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/stylistic 1.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic%201.jpg" alt="Editorial">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/stylistic%201.jpg" alt="Editorial">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/stylistic 2.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic%202.jpg" alt="Editorial">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/stylistic%202.jpg" alt="Editorial">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/stylistic 3.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic%203.jpg" alt="Editorial">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/stylistic%203.jpg" alt="Editorial">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/melanie 1.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/melanie%201.jpg" alt="Portrait">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/melanie%201.jpg" alt="Portrait">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('EnriquePortrait_nsamam.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/EnriquePortrait_nsamam.jpg" alt="Portrait">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/EnriquePortrait_nsamam.jpg" alt="Portrait">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('Tina_ggybih.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Tina_ggybih.jpg" alt="Portrait">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Tina_ggybih.jpg" alt="Portrait">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('JacketyFrontFrom45Degrees_yjyxub.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/JacketyFrontFrom45Degrees_yjyxub.jpg" alt="Commercial">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/JacketyFrontFrom45Degrees_yjyxub.jpg" alt="Commercial">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/Boat Day 3.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Boat%20Day%203.jpg" alt="Lifestyle">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/Boat%20Day%203.jpg" alt="Lifestyle">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('Enrique1loweres10_covkuw.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Enrique1loweres10_covkuw.jpg" alt="Portrait">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Enrique1loweres10_covkuw.jpg" alt="Portrait">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
           </div>
         </div><!-- end gallery-mobile-grid -->
@@ -1738,65 +1756,66 @@
       <div class="mobile-carousel-title">Stylistic / Artistic</div>
       <div class="stylistic-carousel-wrap">
         <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
+        <div class="tap-hint">Tap · Full Res</div>
         <div class="stylistic-mobile-grid">
           <div class="gallery-item" onclick="openLightbox('photos/Tattoo mirror.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Tattoo%20mirror.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/Tattoo%20mirror.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/tattoo mirror 2.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/tattoo%20mirror%202.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/tattoo%20mirror%202.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/tattoo mirror 3.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/tattoo%20mirror%203.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/tattoo%20mirror%203.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('Ro2-15_mmslur.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Ro2-15_mmslur.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Ro2-15_mmslur.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('Ro3-13_vb6ghc.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Ro3-13_vb6ghc.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Ro3-13_vb6ghc.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('Enrique1loweres7_pjqgyb.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Enrique1loweres7_pjqgyb.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Enrique1loweres7_pjqgyb.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('Enrique1loweres9_qp6x6v.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Enrique1loweres9_qp6x6v.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Enrique1loweres9_qp6x6v.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/levi/Untitled-26.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-26.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/levi/Untitled-26.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/levi/Untitled-27.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/levi/Untitled-27.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/levi/Untitled-27.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/Nashville Bridge 2.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Nashville%20Bridge%202.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/Nashville%20Bridge%202.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/boat day 1.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/boat%20day%201.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/boat%20day%201.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/boat day 2.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/boat%20day%202.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/boat%20day%202.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/Enrique.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Enrique.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/Enrique.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/Nashville Bridge 1.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Nashville%20Bridge%201.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/Nashville%20Bridge%201.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('photos/Artistic City Scape with NTD Jacket.jpg')">
-            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Artistic%20City%20Scape%20with%20NTD%20Jacket.jpg" alt="Stylistic">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/Artistic%20City%20Scape%20with%20NTD%20Jacket.jpg" alt="Stylistic">
             <div class="gallery-item-overlay"><span class="gallery-item-label">Stylistic</span></div>
           </div>
         </div><!-- end stylistic-mobile-grid -->
@@ -1959,27 +1978,28 @@
       <!-- Mobile swipe carousel (Levi Featured) -->
       <div class="live-carousel-wrap">
         <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
+        <div class="tap-hint">Tap · Full Res</div>
         <div class="live-mobile-grid levi-mobile-grid">
-          <div class="band-item" onclick="openLightboxFromBand('LeviPlayingBackground_qziqvz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-3_myzmfq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-3_myzmfq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-5_maaxqq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-5_maaxqq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-6_zksuji.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-6_zksuji.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-8_vazriz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-8_vazriz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-9_niicct.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-9_niicct.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-13_rqdgaz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-13_rqdgaz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-14_zmceha.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-14_zmceha.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-15_t3xx1a.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-15_t3xx1a.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-19_fgf8vy.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-19_fgf8vy.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-20_b5o25n.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-20_b5o25n.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-22_frsqvr.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-22_frsqvr.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-24_mzppox.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-24_mzppox.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-25_c1tfiz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-25_c1tfiz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-26_pn6ah3.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-26_pn6ah3.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-29_tmc2nw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-29_tmc2nw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-30_doqzxm.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-30_doqzxm.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-33_wxrqgw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-33_wxrqgw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-34_bfxx5d.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-34_bfxx5d.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-35_ddugmy.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Untitled-35_ddugmy.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('LeviPlayingBackground_qziqvz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-3_myzmfq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-3_myzmfq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-5_maaxqq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-5_maaxqq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-6_zksuji.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-6_zksuji.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-8_vazriz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-8_vazriz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-9_niicct.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-9_niicct.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-13_rqdgaz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-13_rqdgaz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-14_zmceha.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-14_zmceha.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-15_t3xx1a.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-15_t3xx1a.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-19_fgf8vy.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-19_fgf8vy.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-20_b5o25n.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-20_b5o25n.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-22_frsqvr.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-22_frsqvr.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-24_mzppox.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-24_mzppox.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-25_c1tfiz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-25_c1tfiz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-26_pn6ah3.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-26_pn6ah3.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-29_tmc2nw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-29_tmc2nw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-30_doqzxm.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-30_doqzxm.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-33_wxrqgw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-33_wxrqgw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-34_bfxx5d.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-34_bfxx5d.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item" onclick="openLightboxFromBand('Untitled-35_ddugmy.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-35_ddugmy.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
         </div>
       </div>
 
@@ -1991,65 +2011,66 @@
     <div class="container" style="position:relative;z-index:1;">
       <div class="band-carousel-wrap">
       <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
+      <div class="tap-hint">Tap · Full Res</div>
       <div class="band-grid">
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-2.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-2.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-3.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-3.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-5.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-5.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-5.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-6.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-6.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-6.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-7.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-7.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-7.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-8.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live-8.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-8.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live 2-2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live 2-2.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live 2-2.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live 2-3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/Leah Live 2-3.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live 2-3.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive3.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive3.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive4.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive4.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive4.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive5.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive5.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive5.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive6.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive6.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive6.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive7.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive7.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive7.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive8.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive8.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive8.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive9.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/leah-live/LeahLive9.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive9.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
       </div><!-- end band-grid -->
@@ -2062,41 +2083,42 @@
     <div class="container" style="position:relative;z-index:1;">
       <div class="band-carousel-wrap">
       <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
+      <div class="tap-hint">Tap · Full Res</div>
       <div class="band-grid">
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00579.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00579.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00579.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00600.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00600.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00600.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00633.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00633.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00633.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00690.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00690.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00690.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00694.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00694.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00694.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00726.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00726.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00726.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00744.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00744.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00744.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00851.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00851.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00851.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
         <div class="band-item" onclick="openLightboxFromBand('photos/doug-live/DSC00872.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/doug-live/DSC00872.jpg" alt="Live show">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/doug-live/DSC00872.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
       </div><!-- end band-grid -->
@@ -3014,6 +3036,16 @@
             grid.removeEventListener('scroll', handler);
           }
         });
+      }
+    });
+    // Dismiss tap hints on first tap
+    document.querySelectorAll('.gallery-carousel-wrap, .stylistic-carousel-wrap, .live-carousel-wrap, .band-carousel-wrap').forEach(wrap => {
+      const tapHint = wrap.querySelector('.tap-hint');
+      if (tapHint) {
+        wrap.addEventListener('click', function handler() {
+          tapHint.classList.add('hidden');
+          wrap.removeEventListener('click', handler);
+        }, { once: true });
       }
     });
   </script>
