@@ -1318,6 +1318,7 @@
 
       /* Shared swipe hint */
       .swipe-hint {
+        display: block;
         font-family: var(--font-display);
         font-size: 36px;
         letter-spacing: 3px;
@@ -1333,6 +1334,7 @@
       .swipe-hint.hidden { opacity: 0; animation: none; }
       /* Tap hint */
       .tap-hint {
+        display: block;
         font-family: var(--font-display);
         font-size: 18px;
         letter-spacing: 3px;
@@ -1357,6 +1359,8 @@
       .live-carousel-wrap .tap-hint { top: auto; bottom: 20px; }
     }
 
+    .swipe-hint { display: none; }
+    .tap-hint { display: none; }
     .brand-grid-mobile { display: none; }
     .brand-swipe-hint { display: none; }
     .brand-carousel-wrap { position: relative; }
