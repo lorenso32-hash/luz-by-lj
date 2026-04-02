@@ -286,6 +286,21 @@
       font-family: var(--font-display); font-size: 13px; letter-spacing: 3px;
       color: var(--white-60);
     }
+    .swipe-hint {
+      display: none;
+      position: absolute; bottom: 52px;
+      font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 2px;
+      color: var(--white-60); text-transform: uppercase;
+      animation: swipe-fade 2.5s ease forwards;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) { .swipe-hint { display: block; } }
+    @keyframes swipe-fade {
+      0% { opacity: 0; transform: translateX(0); }
+      20% { opacity: 1; }
+      60% { opacity: 1; }
+      100% { opacity: 0; }
+    }
 
   </style>
 </head>
@@ -558,6 +573,7 @@
     <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
     <span class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</span>
     <span class="lightbox-counter" id="lightbox-counter"></span>
+    <span class="swipe-hint" id="swipe-hint">← swipe →</span>
   </div>
 
   <script>
@@ -590,6 +606,10 @@
       currentIndex = index;
       showPhoto();
       document.getElementById('lightbox').classList.add('open');
+      const hint = document.getElementById('swipe-hint');
+      hint.style.animation = 'none';
+      hint.offsetHeight; // reflow
+      hint.style.animation = '';
     }
     function showPhoto() {
       const p = photos[currentIndex];
