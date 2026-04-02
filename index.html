@@ -1220,6 +1220,8 @@
     .live-mobile-grid { display: none; }
     .live-carousel-wrap { display: none; position: relative; }
     .band-carousel-wrap { position: relative; }
+    .gallery-mobile-grid { display: none; }
+    .gallery-carousel-wrap { position: relative; }
 
     @media (max-width: 768px) {
       /* Band grid swipe carousel */
@@ -1321,6 +1323,37 @@
     .brand-swipe-hint { display: none; }
     .brand-carousel-wrap { position: relative; }
     @media (max-width: 768px) {
+      /* Main gallery mobile carousel */
+      .gallery-grid { display: none !important; }
+      .gallery-mobile-grid {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+      .gallery-mobile-grid::-webkit-scrollbar { display: none; }
+      .gallery-mobile-grid .gallery-item {
+        flex-shrink: 0;
+        width: 85vw;
+        aspect-ratio: 4/5;
+        scroll-snap-align: start;
+        opacity: 1 !important;
+        transform: none !important;
+        margin: 0;
+        border-radius: 0;
+        overflow: hidden;
+        box-shadow: none;
+        border: none;
+        animation: none;
+      }
+      .gallery-mobile-grid .gallery-item:hover { transform: none; box-shadow: none; }
+      .gallery-mobile-grid .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
       .brand-grid-desktop { display: none !important; }
       .brand-grid-mobile {
         display: flex;
@@ -1607,6 +1640,49 @@
         </div>
 
       </div>
+
+      <!-- Mobile swipe carousel (Featured Portraits) -->
+      <div class="gallery-carousel-wrap">
+        <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
+        <div class="gallery-mobile-grid">
+          <div class="gallery-item" onclick="openLightbox('photos/melanie 2.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/melanie%202.jpg" alt="Portrait">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('photos/stylistic 1.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic%201.jpg" alt="Editorial">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('photos/stylistic 2.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic%202.jpg" alt="Editorial">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('photos/stylistic 3.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/stylistic%203.jpg" alt="Editorial">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Editorial</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('EnriquePortrait_nsamam.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/EnriquePortrait_nsamam.jpg" alt="Portrait">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('Tina_ggybih.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Tina_ggybih.jpg" alt="Portrait">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('JacketyFrontFrom45Degrees_yjyxub.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/JacketyFrontFrom45Degrees_yjyxub.jpg" alt="Commercial">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Commercial</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('photos/Boat Day 3.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/photos/Boat%20Day%203.jpg" alt="Lifestyle">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Lifestyle</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('Enrique1loweres10_covkuw.jpg')">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Enrique1loweres10_covkuw.jpg" alt="Portrait">
+            <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+          </div>
+        </div><!-- end gallery-mobile-grid -->
+      </div><!-- end gallery-carousel-wrap -->
     </div>
   </section>
 
@@ -2798,6 +2874,19 @@
         });
       }
     });
+    const galleryCWrap = document.querySelector('.gallery-carousel-wrap');
+    if (galleryCWrap) {
+      const gGrid = galleryCWrap.querySelector('.gallery-mobile-grid');
+      const gHint = galleryCWrap.querySelector('.swipe-hint');
+      if (gGrid && gHint) {
+        gGrid.addEventListener('scroll', function handler() {
+          if (gGrid.scrollLeft > 10) {
+            gHint.classList.add('hidden');
+            gGrid.removeEventListener('scroll', handler);
+          }
+        });
+      }
+    }
     document.querySelectorAll('.band-carousel-wrap').forEach(wrap => {
       const grid = wrap.querySelector('.band-grid');
       const h = wrap.querySelector('.swipe-hint');
