@@ -1227,6 +1227,8 @@
     @media (max-width: 900px) { .band-grid { grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 560px) { .band-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; } }
 
+    .swipe-hint { display: none; }
+    .tap-hint { display: none; }
     .live-mobile-grid { display: none; }
     .live-carousel-wrap { display: none; position: relative; }
     .band-carousel-wrap { position: relative; }
@@ -1318,7 +1320,6 @@
 
       /* Shared swipe hint */
       .swipe-hint {
-        display: block;
         font-family: var(--font-display);
         font-size: 36px;
         letter-spacing: 3px;
@@ -1359,8 +1360,6 @@
       .live-carousel-wrap .tap-hint { top: auto; bottom: 20px; }
     }
 
-    .swipe-hint { display: none; }
-    .tap-hint { display: none; }
     .brand-grid-mobile { display: none; }
     .brand-swipe-hint { display: none; }
     .brand-carousel-wrap { position: relative; }
