@@ -1326,17 +1326,22 @@
         font-size: 11px;
         letter-spacing: 2px;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.65);
+        color: #fff;
         position: absolute;
-        bottom: 60px;
+        top: 16px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
         pointer-events: none;
         transition: opacity 0.5s ease;
         white-space: nowrap;
+        animation: tap-glow-pulse 1.8s ease-in-out infinite;
       }
-      .tap-hint.hidden { opacity: 0; }
+      @keyframes tap-glow-pulse {
+        0%, 100% { text-shadow: 0 0 6px rgba(255,255,255,0.5), 0 0 16px rgba(255,255,255,0.3); opacity: 0.7; }
+        50%       { text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 28px rgba(255,255,255,0.6), 0 0 50px rgba(255,255,255,0.3); opacity: 1; }
+      }
+      .tap-hint.hidden { opacity: 0; animation: none; }
     }
 
     .brand-grid-mobile { display: none; }
@@ -3038,14 +3043,17 @@
         });
       }
     });
-    // Dismiss tap hints on first tap
+    // Dismiss tap hints on first swipe
     document.querySelectorAll('.gallery-carousel-wrap, .stylistic-carousel-wrap, .live-carousel-wrap, .band-carousel-wrap').forEach(wrap => {
       const tapHint = wrap.querySelector('.tap-hint');
-      if (tapHint) {
-        wrap.addEventListener('click', function handler() {
-          tapHint.classList.add('hidden');
-          wrap.removeEventListener('click', handler);
-        }, { once: true });
+      const scrollEl = wrap.querySelector('.gallery-mobile-grid, .stylistic-mobile-grid, .live-mobile-grid, .band-grid');
+      if (tapHint && scrollEl) {
+        scrollEl.addEventListener('scroll', function handler() {
+          if (scrollEl.scrollLeft > 10) {
+            tapHint.classList.add('hidden');
+            scrollEl.removeEventListener('scroll', handler);
+          }
+        });
       }
     });
   </script>
