@@ -1230,17 +1230,11 @@
     .live-mobile-grid { display: none; }
     .live-carousel-wrap { display: none; position: relative; }
     .band-carousel-wrap { position: relative; }
-    .gallery-mobile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .gallery-mobile-grid .gallery-item { opacity: 1 !important; transform: none !important; animation: none; }
+    .gallery-mobile-grid { display: none; }
     .gallery-carousel-wrap { position: relative; }
-    .stylistic-mobile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .stylistic-mobile-grid .gallery-item { opacity: 1 !important; transform: none !important; animation: none; }
+    .stylistic-mobile-grid { display: none; }
     .stylistic-carousel-wrap { position: relative; }
-    .mobile-carousel-title { display: block; }
-    @media (max-width: 900px) {
-      .gallery-mobile-grid { grid-template-columns: repeat(2, 1fr); }
-      .stylistic-mobile-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    .mobile-carousel-title { display: none; }
 
     @media (max-width: 768px) {
       /* Band grid swipe carousel */
