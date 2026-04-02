@@ -288,18 +288,17 @@
     }
     .swipe-hint {
       display: none;
-      position: absolute; bottom: 52px;
-      font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 2px;
-      color: var(--white-60); text-transform: uppercase;
-      animation: swipe-fade 2.5s ease forwards;
-      pointer-events: none;
+      position: absolute; bottom: 52px; right: 24px;
+      font-family: var(--font-display); font-size: 36px; letter-spacing: 3px;
+      color: #fff; pointer-events: none;
+      animation: swipe-glow-pulse 1.6s ease-in-out infinite;
+      transition: opacity 0.5s ease;
     }
+    .swipe-hint.hidden { opacity: 0; animation: none; }
     @media (max-width: 768px) { .swipe-hint { display: block; } }
-    @keyframes swipe-fade {
-      0% { opacity: 0; transform: translateX(0); }
-      20% { opacity: 1; }
-      60% { opacity: 1; }
-      100% { opacity: 0; }
+    @keyframes swipe-glow-pulse {
+      0%, 100% { text-shadow: 0 0 8px #E21056, 0 0 20px #E21056, 0 0 40px #E21056aa; opacity: 0.75; }
+      50%       { text-shadow: 0 0 14px #ff3a7a, 0 0 35px #E21056, 0 0 70px #E21056, 0 0 100px #E21056cc; opacity: 1; }
     }
 
   </style>
@@ -606,10 +605,7 @@
       currentIndex = index;
       showPhoto();
       document.getElementById('lightbox').classList.add('open');
-      const hint = document.getElementById('swipe-hint');
-      hint.style.animation = 'none';
-      hint.offsetHeight; // reflow
-      hint.style.animation = '';
+      document.getElementById('swipe-hint').classList.remove('hidden');
     }
     function showPhoto() {
       const p = photos[currentIndex];
@@ -656,7 +652,10 @@
       if (isPinch) { isPinch = false; return; }
       const dx = e.changedTouches[0].clientX - touchStartX;
       const dy = e.changedTouches[0].clientY - touchStartY;
-      if (isSwiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) lightboxNav(dx < 0 ? 1 : -1);
+      if (isSwiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        lightboxNav(dx < 0 ? 1 : -1);
+        document.getElementById('swipe-hint').classList.add('hidden');
+      }
       isSwiping = false;
     }, { passive: true });
 
