@@ -2381,52 +2381,52 @@
         <!-- Step 1: Session Type -->
         <div class="wiz-panel active" id="wp1">
           <p class="wiz-question">What kind of session are you after?</p>
-          <p class="wiz-sub">Pick the one that fits best — we can always mix it up.</p>
+          <p class="wiz-sub">Select all that apply — mix it up.</p>
           <div class="wiz-options">
-            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/photos/melanie%202.jpg');background-size:80%;background-position:50% 30%;" onclick="wizSelect(this,'sessionType','Portrait');wizReveal('session-other',false)">
-              <input type="radio" name="sessionType" value="Portrait">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/photos/melanie%202.jpg');background-size:80%;background-position:50% 30%;" onclick="wizToggle(this,'sessionType','Portrait')">
+              <input type="checkbox" name="sessionType" value="Portrait">
               <span class="wiz-opt-icon">&#9672;</span>
               <span class="wiz-opt-title">Portrait</span>
               <span class="wiz-opt-desc">Individual, group, editorial</span>
             </label>
-            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketBackground_wguxeo.jpg');background-size:160%;background-position:55% 90%;" onclick="wizSelect(this,'sessionType','Commercial');wizReveal('session-other',false)">
-              <input type="radio" name="sessionType" value="Commercial">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/JacketBackground_wguxeo.jpg');background-size:160%;background-position:55% 90%;" onclick="wizToggle(this,'sessionType','Commercial')">
+              <input type="checkbox" name="sessionType" value="Commercial">
               <span class="wiz-opt-icon">&#9673;</span>
               <span class="wiz-opt-title">Commercial</span>
               <span class="wiz-opt-desc">Brands, campaigns, press shots</span>
             </label>
-            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/Enrique1loweres7_pjqgyb.jpg')" onclick="wizSelect(this,'sessionType','Stylistic / Creative');wizReveal('session-other',false)">
-              <input type="radio" name="sessionType" value="Stylistic / Creative">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/Enrique1loweres7_pjqgyb.jpg')" onclick="wizToggle(this,'sessionType','Stylistic / Creative')">
+              <input type="checkbox" name="sessionType" value="Stylistic / Creative">
               <span class="wiz-opt-icon">&#9671;</span>
               <span class="wiz-opt-title">Stylistic</span>
               <span class="wiz-opt-desc">Conceptual, editorial, experimental</span>
             </label>
-            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/SabsAndSaraEditied_c5i5ot.jpg');background-size:80%;background-position:50% 25%;" onclick="wizSelect(this,'sessionType','Couples');wizReveal('session-other',false)">
-              <input type="radio" name="sessionType" value="Couples">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/SabsAndSaraEditied_c5i5ot.jpg');background-size:80%;background-position:50% 25%;" onclick="wizToggle(this,'sessionType','Couples')">
+              <input type="checkbox" name="sessionType" value="Couples">
               <span class="wiz-opt-icon">&#9825;</span>
               <span class="wiz-opt-title">Couples</span>
               <span class="wiz-opt-desc">Engagement, anniversary, lifestyle</span>
             </label>
-            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg');background-position:center 20%;" onclick="wizSelect(this,'sessionType','Event');wizReveal('session-other',false)">
-              <input type="radio" name="sessionType" value="Event">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg');background-position:center 20%;" onclick="wizToggle(this,'sessionType','Event')">
+              <input type="checkbox" name="sessionType" value="Event">
               <span class="wiz-opt-icon">&#9678;</span>
               <span class="wiz-opt-title">Event</span>
               <span class="wiz-opt-desc">Live shows, gatherings, concerts</span>
             </label>
-            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/bts/bts_66.jpg')" onclick="wizSelect(this,'sessionType','Content / Reels');wizReveal('session-other',false)">
-              <input type="radio" name="sessionType" value="Content / Reels">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/bts/bts_66.jpg')" onclick="wizToggle(this,'sessionType','Content / Reels')">
+              <input type="checkbox" name="sessionType" value="Content / Reels">
               <span class="wiz-opt-icon">&#9655;</span>
               <span class="wiz-opt-title">Content</span>
               <span class="wiz-opt-desc">Reels, TikToks, social video</span>
             </label>
-            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/J_Dell_And_LJ_ykgyqa.jpg');background-position:50% 20%;" onclick="wizSelect(this,'sessionType','BTS');wizReveal('session-other',false)">
-              <input type="radio" name="sessionType" value="BTS">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/J_Dell_And_LJ_ykgyqa.jpg');background-position:50% 20%;" onclick="wizToggle(this,'sessionType','BTS')">
+              <input type="checkbox" name="sessionType" value="BTS">
               <span class="wiz-opt-icon">&#9664;</span>
               <span class="wiz-opt-title">BTS</span>
               <span class="wiz-opt-desc">Video shoots, events, studio sessions, etc.</span>
             </label>
-            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/photos/Artistic%20City%20Scape%20with%20NTD%20Jacket.jpg')" onclick="wizSelect(this,'sessionType','Other');wizReveal('session-other',true)">
-              <input type="radio" name="sessionType" value="Other">
+            <label class="wiz-opt" style="background-image:url('https://res.cloudinary.com/diitxd6ou/image/upload/w_400,f_auto,q_auto/photos/Artistic%20City%20Scape%20with%20NTD%20Jacket.jpg')" onclick="wizToggle(this,'sessionType','Other')">
+              <input type="checkbox" name="sessionType" value="Other">
               <span class="wiz-opt-icon">+</span>
               <span class="wiz-opt-title">Other</span>
               <span class="wiz-opt-desc">Something else entirely</span>
@@ -2816,6 +2816,20 @@
       wizData[field] = value;
     }
 
+    function wizToggle(el, field, value) {
+      const isSelected = el.classList.contains('selected');
+      if (isSelected) {
+        el.classList.remove('selected');
+        wizData[field] = (wizData[field] || []).filter(v => v !== value);
+      } else {
+        el.classList.add('selected');
+        wizData[field] = [...(wizData[field] || []), value];
+      }
+      if (field === 'sessionType') {
+        wizReveal('session-other', (wizData[field] || []).includes('Other'));
+      }
+    }
+
     function wizReveal(id, open) {
       const el = document.getElementById(id);
       if (!el) return;
@@ -2843,7 +2857,7 @@
     function wizValidate() {
       const errEl = document.getElementById('werr' + wizStep);
       if (errEl) errEl.classList.remove('show');
-      if (wizStep === 1 && !wizData.sessionType)  { errEl.classList.add('show'); return false; }
+      if (wizStep === 1 && (!wizData.sessionType || wizData.sessionType.length === 0)) { errEl.classList.add('show'); return false; }
       if (wizStep === 2 && !wizData.environment)  { errEl.classList.add('show'); return false; }
       if (wizStep === 3 && !wizData.headcount)    { errEl.classList.add('show'); return false; }
       if (wizStep === 4 && !wizData.timing)       { errEl.classList.add('show'); return false; }
@@ -2887,7 +2901,7 @@
           : wizData.environment === 'Other'
             ? (document.getElementById('envOtherDetail').value.trim() || '—')
             : '—';
-      const sessionDetail = wizData.sessionType === 'Other'
+      const sessionDetail = (wizData.sessionType || []).includes('Other')
         ? (document.getElementById('sessionOtherDetail').value.trim() || '—')
         : '—';
       const dateDetail = wizData.timing === 'I have a specific date'
@@ -2895,7 +2909,7 @@
         : '—';
 
       const templateParams = {
-        session_type:   wizData.sessionType,
+        session_type:   (wizData.sessionType || []).join(', '),
         session_detail: sessionDetail,
         environment:    wizData.environment,
         env_detail:     envDetail,
@@ -2922,7 +2936,7 @@
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           access_key:   WEB3FORMS_KEY,
-          subject:      'New Inquiry — Luz by LJ: ' + templateParams.session_type,
+          subject:      'New Inquiry — Luz by LJ: ' + (templateParams.session_type || 'General'),
           from_name:    templateParams.client_name,
           replyto:      templateParams.client_email,
           'Session Type':    templateParams.session_type + (templateParams.session_detail !== '—' ? ' — ' + templateParams.session_detail : ''),
