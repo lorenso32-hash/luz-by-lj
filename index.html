@@ -1322,9 +1322,9 @@
       .swipe-hint.hidden { opacity: 0; animation: none; }
       /* Tap hint */
       .tap-hint {
-        font-family: var(--font-body);
-        font-size: 11px;
-        letter-spacing: 2px;
+        font-family: var(--font-display);
+        font-size: 18px;
+        letter-spacing: 3px;
         text-transform: uppercase;
         color: #fff;
         position: absolute;
@@ -1338,8 +1338,8 @@
         animation: tap-glow-pulse 1.8s ease-in-out infinite;
       }
       @keyframes tap-glow-pulse {
-        0%, 100% { text-shadow: 0 0 6px rgba(255,255,255,0.5), 0 0 16px rgba(255,255,255,0.3); opacity: 0.7; }
-        50%       { text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 28px rgba(255,255,255,0.6), 0 0 50px rgba(255,255,255,0.3); opacity: 1; }
+        0%, 100% { text-shadow: 0 0 10px #fff, 0 0 30px rgba(255,255,255,0.8), 0 0 60px rgba(255,255,255,0.4); opacity: 0.85; }
+        50%       { text-shadow: 0 0 16px #fff, 0 0 50px #fff, 0 0 90px rgba(255,255,255,0.7), 0 0 130px rgba(255,255,255,0.4); opacity: 1; }
       }
       .tap-hint.hidden { opacity: 0; animation: none; }
     }
