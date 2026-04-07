@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post-Shoot Survey — Luz by LJ</title>
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/diitxd6ou/image/upload/w_64,f_auto,q_auto/Logo_White_Vert_NightTimeDrive.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #050121;
+      --pink: #E21056;
+      --teal: #00B4CC;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--navy);
+      color: #fff;
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Starfield */
+    #starfield {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,1,33,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,180,204,0.15);
+      padding: 0 5vw;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(226,16,86,0.6));
+    }
+    .nav-home {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-home:hover { color: #fff; }
+
+    /* Hero */
+    .survey-hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 64px 5vw 28px;
+    }
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      letter-spacing: 4px;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(226,16,86,0.4), 0 0 60px rgba(226,16,86,0.2);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+    .time-badge {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(0,180,204,0.7);
+      border: 1px solid rgba(0,180,204,0.25);
+      padding: 5px 14px;
+      margin-top: 8px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      margin: 20px auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Form wrapper */
+    .survey-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 5vw 100px;
+    }
+
+    /* Question block */
+    .question {
+      margin-bottom: 48px;
+      text-align: center;
+    }
+    #q1 { margin-bottom: 18px; }
+    .q-number {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 8px;
+    }
+    .q-label {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      letter-spacing: 2px;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    /* Star rating */
+    .star-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .star {
+      font-size: 2.4rem;
+      cursor: pointer;
+      color: rgba(255,255,255,0.15);
+      transition: color 0.15s, transform 0.15s;
+      user-select: none;
+      line-height: 1;
+    }
+    .star:hover,
+    .star.active {
+      color: var(--pink);
+    }
+    .star.gleam {
+      animation: star-gleam 0.5s ease-out forwards;
+    }
+    @keyframes star-gleam {
+      0%   { transform: scale(1); text-shadow: none; }
+      40%  { transform: scale(1.55); text-shadow: 0 0 16px rgba(226,16,86,0.9), 0 0 32px rgba(226,16,86,0.5); }
+      100% { transform: scale(1.15); text-shadow: 0 0 6px rgba(226,16,86,0.4); }
+    }
+    .star-label {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 10px;
+      min-height: 1.2em;
+      transition: color 0.2s;
+    }
+
+    /* Multi-select chips */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .chip {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 18px;
+      cursor: pointer;
+      transition: all 0.18s;
+      user-select: none;
+    }
+    .chip:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .chip.selected {
+      background: rgba(226,16,86,0.12);
+      border-color: var(--pink);
+      color: #fff;
+      box-shadow: 0 0 12px rgba(226,16,86,0.25);
+      animation: teal-text-pulse 2.5s ease-in-out infinite;
+    }
+    .chip.gleam {
+      animation: chip-gleam 0.45s ease-out forwards;
+    }
+    @keyframes chip-gleam {
+      0%   { transform: scale(1); text-shadow: none; }
+      40%  { transform: scale(1.18); box-shadow: 0 0 28px rgba(226,16,86,0.9); text-shadow: 0 0 6px rgba(255,255,255,1), 0 0 18px rgba(0,180,204,1), 0 0 40px rgba(0,180,204,0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 12px rgba(226,16,86,0.25); text-shadow: none; }
+    }
+    .chip--negative { border-color: rgba(255,255,255,0.1); }
+    .chip--negative:hover { border-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.7); }
+    .chip--negative.selected {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.85);
+      box-shadow: none;
+    }
+
+    /* Conditional expand for negative feel chips */
+    .feel-expand {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      margin-top: 0;
+    }
+    .feel-expand.open {
+      max-height: 220px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+    .feel-expand-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 10px;
+    }
+    .feel-expand-sub {
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
+    }
+    .feel-expand-area { min-height: 90px; }
+    .uncomfortable-ty {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.72);
+    }
+
+    /* Standout free-text */
+    .standout-other {
+      width: 100%;
+      margin-top: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .standout-other::placeholder { color: rgba(255,255,255,0.55); }
+    .standout-other:focus { border-color: rgba(0,180,204,0.4); }
+
+    /* Promo contact expand */
+    .promo-expand {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      margin-top: 0;
+    }
+    .promo-expand.open {
+      max-height: 160px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+    .promo-expand-note {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 14px;
+    }
+    .promo-inputs {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .promo-input {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .promo-input::placeholder { color: rgba(255,255,255,0.55); }
+    .promo-input:focus { border-color: rgba(0,180,204,0.4); }
+
+    /* Radio options */
+    .radio-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .radio-opt {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: opacity 0.3s ease, max-width 0.35s ease, max-height 0.35s ease, padding 0.3s ease, border-width 0.3s ease, margin 0.3s ease, color 0.18s, border-color 0.18s, background 0.18s, box-shadow 0.18s;
+      user-select: none;
+      overflow: hidden;
+      max-width: 300px;
+      max-height: 60px;
+      position: relative;
+    }
+    .radio-opt:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .radio-opt.selected {
+      overflow: visible;
+      background: rgba(0,180,204,0.08);
+      border: 1px solid transparent;
+      color: #fff;
+      animation: teal-text-pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes teal-text-pulse {
+      0%, 100% { text-shadow: none; color: rgba(255,255,255,0.7); }
+      50% { text-shadow: 0 0 8px rgba(255,255,255,1), 0 0 20px rgba(0,180,204,1), 0 0 40px rgba(0,180,204,0.8), 0 0 70px rgba(0,180,204,0.4); color: #fff; }
+    }
+    .radio-opt.gleam {
+      animation: radio-gleam 0.45s ease-out forwards;
+    }
+    @keyframes radio-gleam {
+      0%   { transform: scale(1); text-shadow: none; }
+      40%  { transform: scale(1.18); text-shadow: 0 0 6px rgba(255,255,255,1), 0 0 18px rgba(0,180,204,1), 0 0 40px rgba(0,180,204,0.8); }
+      100% { transform: scale(1); text-shadow: none; }
+    }
+    @property --glow-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    .radio-opt.selected::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      padding: 1px;
+      background: conic-gradient(from var(--glow-angle),
+        transparent 0%,
+        rgba(0,180,204,0.2) 35%,
+        rgba(0,180,204,1) 47%,
+        rgba(180,245,255,1) 50%,
+        rgba(0,180,204,1) 53%,
+        rgba(0,180,204,0.2) 65%,
+        transparent 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      animation: teal-orbit 2.5s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes teal-orbit {
+      to { --glow-angle: 360deg; }
+    }
+    /* Fade out unselected options */
+    .radio-options.has-selection {
+      gap: 0;
+    }
+    .radio-options.has-selection .radio-opt:not(.selected) {
+      opacity: 0;
+      max-width: 0;
+      max-height: 0;
+      padding: 0;
+      border-width: 0;
+      margin: 0;
+      pointer-events: none;
+    }
+
+    /* Text area */
+    .comment-area {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.7;
+      padding: 18px 20px;
+      resize: vertical;
+      min-height: 130px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .comment-area::placeholder {
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
+    }
+    .comment-area:focus {
+      border-color: rgba(0,180,204,0.4);
+    }
+    .optional-tag {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-top: 8px;
+    }
+
+    /* Closing message */
+    .closing-message {
+      border-left: 2px solid rgba(226,16,86,0.4);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    .closing-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 5px;
+      color: #fff;
+      text-shadow: 0 0 18px rgba(255,255,255,0.35), 0 0 40px rgba(255,255,255,0.1);
+      margin-bottom: 12px;
+    }
+    .closing-body {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #fff;
+    }
+    .closing-sub {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 6px;
+    }
+
+    /* Submit */
+    .submit-row {
+      text-align: center;
+      margin-top: 56px;
+    }
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--pink);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border: none;
+      padding: 16px 48px;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 24px rgba(226,16,86,0.4);
+    }
+    .btn-submit:hover {
+      background: #ff1a6b;
+      box-shadow: 0 0 40px rgba(226,16,86,0.7);
+    }
+    .btn-submit:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Thank you state */
+    .thank-you {
+      display: none;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 80px 5vw 120px;
+      max-width: 600px;
+      margin: 0 auto;
+      flex-direction: column;
+      align-items: center;
+    }
+    .thank-you.visible { display: flex; }
+    .ty-star {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.4));
+      animation: star-spin-in 0.8s ease-out forwards;
+    }
+    .ty-star--bottom {
+      margin-top: 40px;
+      margin-bottom: 0;
+      display: block;
+      animation: star-spin-in 1s ease-out forwards;
+    }
+    @keyframes star-spin-in {
+      0%   { transform: scale(0) rotate(-180deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+    .ty-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(226,16,86,0.4);
+      margin-bottom: 16px;
+    }
+    .ty-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .ty-link {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .ty-link:hover { color: #fff; }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      z-index: 99;
+      background: rgba(255,255,255,0.06);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--pink), var(--teal));
+      width: 0%;
+      transition: width 0.4s ease;
+      box-shadow: 0 0 8px rgba(226,16,86,0.5);
+    }
+
+    @media (max-width: 500px) {
+      .chips, .radio-options { gap: 8px; }
+      .chip, .radio-opt { font-size: 0.72rem; padding: 9px 14px; }
+      .star { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<!-- Progress bar -->
+<div class="progress-bar-wrap">
+  <div class="progress-bar-fill" id="progressBar"></div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="Luz By LJ Logo 2.png" alt="Luz by LJ">
+    </a>
+    <a class="nav-home" href="index.html">&#8592; Back to Site</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="survey-hero" id="surveyHero">
+  <h1 class="hero-title">Thank You for Your Time!</h1>
+  <p class="hero-sub">Tell me about your experience — your feedback means everything.</p>
+  <span class="time-badge">Takes about 1 minute</span>
+</div>
+
+<div class="divider" id="topDivider"></div>
+
+<!-- Survey Form -->
+<div class="survey-wrap" id="surveyForm">
+
+  <!-- Q1: Star rating -->
+  <div class="question" id="q1">
+    <p class="q-number">01</p>
+    <p class="q-label">Overall, how was your experience?</p>
+    <div class="star-row" id="starRow">
+      <span class="star" data-val="1">★</span>
+      <span class="star" data-val="2">★</span>
+      <span class="star" data-val="3">★</span>
+      <span class="star" data-val="4">★</span>
+      <span class="star" data-val="5">★</span>
+    </div>
+    <p class="star-label" id="starLabel">&nbsp;</p>
+  </div>
+
+  <!-- Q2: Feeling chips -->
+  <div class="question" id="q2">
+    <p class="q-number">02</p>
+    <p class="q-label">How did you feel during the shoot?</p>
+    <div class="chips" id="feelChips">
+      <span class="chip" data-val="comfortable">Comfortable</span>
+      <span class="chip" data-val="nervous-at-first">Nervous at First</span>
+      <span class="chip" data-val="confident">Confident</span>
+      <span class="chip" data-val="had-a-blast">Had a Blast</span>
+      <span class="chip" data-val="relaxed">Relaxed</span>
+      <span class="chip" data-val="in-my-element">In My Element</span>
+      <span class="chip chip--negative" data-val="uncertain">Uncertain</span>
+      <span class="chip chip--negative" data-val="a-little-uncomfortable">A Little Uncomfortable</span>
+    </div>
+    <div class="feel-expand" id="nervousExpand">
+      <p class="feel-expand-label">Did we find the right vibe eventually?</p>
+      <div class="radio-options" id="nervousVibe">
+        <span class="radio-opt" data-val="yes">Yes</span>
+        <span class="radio-opt" data-val="not-really">Not really</span>
+      </div>
+    </div>
+    <div class="feel-expand" id="uncomfortableThank">
+      <p class="uncomfortable-ty">Thank you for the honesty — that means a lot.</p>
+    </div>
+    <div class="feel-expand" id="feelExpand">
+      <p class="feel-expand-label">Want to tell me more? <span class="feel-expand-sub">(optional — helps me improve)</span></p>
+      <textarea class="comment-area feel-expand-area" id="feelComment" placeholder="No worries at all — anything you share helps me make the experience better next time…"></textarea>
+    </div>
+  </div>
+
+  <!-- Q3: Standout chips -->
+  <div class="question" id="q3">
+    <p class="q-number">03</p>
+    <p class="q-label">What stood out most?</p>
+    <div class="chips" id="standoutChips">
+      <span class="chip" data-val="the-vibe">The Vibe</span>
+      <span class="chip" data-val="the-location">The Location</span>
+      <span class="chip" data-val="posing-direction">Posing &amp; Direction</span>
+      <span class="chip" data-val="final-photos">The Final Photos</span>
+      <span class="chip" data-val="communication">Communication</span>
+      <span class="chip" data-val="how-natural-it-felt">How Natural It Felt</span>
+    </div>
+    <input class="standout-other" id="standoutOther" type="text" placeholder="Something else? Write it in…">
+  </div>
+
+  <!-- Q3b: Photos match expectations -->
+  <div class="question" id="q3b">
+    <p class="q-number">04</p>
+    <p class="q-label">Did the final photos match what you were hoping for?</p>
+    <div class="radio-options" id="photosMatch">
+      <span class="radio-opt" data-val="yes">Yes! Great work!</span>
+      <span class="radio-opt" data-val="not-really-but-liked">Not really, but I liked it!</span>
+      <span class="radio-opt" data-val="mostly">Mostly</span>
+      <span class="radio-opt" data-val="not-quite">Not quite</span>
+    </div>
+    <div class="feel-expand" id="photosMatchExpand">
+      <p class="feel-expand-label">Anything specific? <span class="feel-expand-sub">(optional — helps me nail it next time)</span></p>
+      <textarea class="comment-area feel-expand-area" id="photosMatchComment" placeholder="Was it the editing style, the poses, the lighting? Anything helps…"></textarea>
+    </div>
+  </div>
+
+  <!-- Q4: Book again -->
+  <div class="question" id="q4">
+    <p class="q-number">05</p>
+    <p class="q-label">Would you book again?</p>
+    <div class="radio-options" id="bookAgain">
+      <span class="radio-opt" data-val="yes">Yes, absolutely</span>
+      <span class="radio-opt" data-val="maybe">Maybe</span>
+      <span class="radio-opt" data-val="not-sure">Not sure yet</span>
+    </div>
+  </div>
+
+  <!-- Q5: Recommend -->
+  <div class="question" id="q5">
+    <p class="q-number">06</p>
+    <p class="q-label">Would you recommend Luz by LJ?</p>
+    <div class="radio-options" id="recommend">
+      <span class="radio-opt" data-val="yes">Yes, for sure</span>
+      <span class="radio-opt" data-val="maybe">Probably</span>
+      <span class="radio-opt" data-val="not-sure">Not sure</span>
+    </div>
+  </div>
+
+  <!-- Q5b: Future shoot type -->
+  <div class="question" id="q5b">
+    <p class="q-number">07</p>
+    <p class="q-label">Is there a type of shoot you'd want to explore in the future?</p>
+    <div class="chips" id="futureShootChips">
+      <span class="chip" data-val="night-shoot">Night Shoot</span>
+      <span class="chip" data-val="studio">Studio</span>
+      <span class="chip" data-val="fashion">Fashion</span>
+      <span class="chip" data-val="couples">Couples</span>
+      <span class="chip" data-val="family">Family</span>
+      <span class="chip" data-val="event">Event / Party</span>
+      <span class="chip" data-val="creative">Creative / Concept</span>
+    </div>
+    <input class="standout-other" id="futureShootOther" type="text" placeholder="Something else? Write it in…">
+  </div>
+
+  <!-- Q6: Open comment -->
+  <div class="question" id="q6">
+    <p class="q-number">08</p>
+    <p class="q-label">Anything you'd want to say in your own words?</p>
+    <textarea class="comment-area" id="comment" placeholder="Share whatever's on your mind — the good, the great, or anything I could do better…"></textarea>
+    <p class="optional-tag">Optional</p>
+  </div>
+
+  <!-- Q7: Promo opt-in -->
+  <div class="question" id="q7">
+    <p class="q-number">09</p>
+    <p class="q-label">Would you like to hear about future sessions &amp; promotions?</p>
+    <div class="radio-options" id="promoOptin">
+      <span class="radio-opt" data-val="text">Text me</span>
+      <span class="radio-opt" data-val="email">Email me</span>
+      <span class="radio-opt" data-val="both">Both</span>
+      <span class="radio-opt" data-val="no">No thanks</span>
+    </div>
+    <div class="promo-expand" id="promoExpand">
+      <p class="promo-expand-note">If I already have your preferred contact info, no need to fill this in.</p>
+      <div class="promo-inputs" id="promoInputs">
+        <input class="promo-input" id="promoPhone" type="tel" placeholder="Phone number" autocomplete="tel">
+        <input class="promo-input" id="promoEmail" type="email" placeholder="Email address" autocomplete="email">
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing message + name field -->
+  <div class="question" id="q8">
+    <div class="closing-message">
+      <p class="closing-title">Thank you — genuinely.</p>
+      <p class="closing-body">Whether your experience was everything you hoped for or left something to be desired, this feedback shapes what I do next. Every shoot is a chance to grow — and every person who steps in front of my lens is part of how that happens. We're building this thing together, one session at a time, so thank you!</p>
+    </div>
+    <p class="q-label" style="margin-top: 32px;">Every review helps — and might get displayed.</p>
+    <p class="closing-sub">Leave the name you prefer if you have something specific in mind. Otherwise, no worries.</p>
+    <input class="standout-other" id="reviewName" type="text" placeholder="First name, nickname, whatever you prefer…" style="margin-top: 14px;">
+    <p class="feel-expand-label" style="margin-top: 28px; margin-bottom: 12px;">Mind if I link to your social on the post from our shoot?</p>
+    <div class="radio-options" id="socialConsent">
+      <span class="radio-opt" data-val="yes">Go for it</span>
+      <span class="radio-opt" data-val="no">I'd rather not</span>
+    </div>
+  </div>
+
+  <div class="submit-row">
+    <button class="btn-submit" id="submitBtn" onclick="submitSurvey()">
+      Submit &rarr;
+    </button>
+  </div>
+
+</div>
+
+<!-- Thank You State -->
+<div class="thank-you" id="thankYou">
+  <img class="ty-star" src="chrome-star.png" alt="">
+  <h2 class="ty-title">Thank You</h2>
+  <p class="ty-sub">Your feedback means a lot — it helps me keep getting better at what I do. Hope to see you behind my lens again soon.</p>
+  <a class="ty-link" href="index.html">&#8592; Back to Luz by LJ</a>
+  <img class="ty-star ty-star--bottom" src="chrome-star.png" alt="">
+</div>
+
+<script>
+  /* ── Starfield ── */
+  (function() {
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    function makeStars(n) {
+      stars = [];
+      for (let i = 0; i < n; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.1 + 0.2,
+          o: Math.random() * 0.5 + 0.1,
+          speed: Math.random() * 0.3 + 0.05
+        });
+      }
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${s.o})`;
+        ctx.fill();
+        s.o += (Math.random() - 0.5) * 0.02;
+        s.o = Math.max(0.05, Math.min(0.65, s.o));
+      });
+      requestAnimationFrame(draw);
+    }
+    resize();
+    makeStars(180);
+    draw();
+    window.addEventListener('resize', () => { resize(); makeStars(180); });
+  })();
+
+  /* ── State ── */
+  const WEB3FORMS_KEY = 'e365fcf3-2daf-4241-8010-b66a16c16f24';
+
+  const state = {
+    rating: 0,
+    feel: [],
+    feelComment: '',
+    nervousVibe: '',
+    standout: [],
+    standoutOther: '',
+    photosMatch: '',
+    photosMatchComment: '',
+    futureShoot: [],
+    futureShootOther: '',
+    bookAgain: '',
+    recommend: '',
+    comment: '',
+    promo: '',
+    promoPhone: '',
+    promoEmail: '',
+    reviewName: '',
+    socialConsent: ''
+  };
+
+  const starLabels = ['', 'Could\'ve been better', 'It was alright', 'Pretty good!', 'Really enjoyed it', 'Absolutely loved it ✦'];
+
+  /* ── Stars ── */
+  const stars = document.querySelectorAll('.star');
+  const starLabel = document.getElementById('starLabel');
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      state.rating = parseInt(star.dataset.val);
+      stars.forEach(s => {
+        const isActive = parseInt(s.dataset.val) <= state.rating;
+        s.classList.toggle('active', isActive);
+        s.classList.remove('gleam');
+        if (isActive) {
+          triggerGleam(s);
+        }
+      });
+      starLabel.textContent = starLabels[state.rating];
+      updateProgress();
+    });
+    star.addEventListener('mouseenter', () => {
+      const val = parseInt(star.dataset.val);
+      stars.forEach(s => s.style.color = parseInt(s.dataset.val) <= val ? 'var(--pink)' : '');
+      starLabel.textContent = starLabels[val];
+    });
+    star.addEventListener('mouseleave', () => {
+      stars.forEach(s => s.style.color = '');
+      starLabel.textContent = state.rating ? starLabels[state.rating] : '\u00a0';
+    });
+  });
+
+  /* ── Multi-select chips ── */
+  function triggerGleam(el) {
+    el.classList.remove('gleam');
+    void el.offsetWidth;
+    el.classList.add('gleam');
+    el.addEventListener('animationend', () => el.classList.remove('gleam'), { once: true });
+  }
+
+  function setupChips(containerId, stateKey) {
+    document.querySelectorAll(`#${containerId} .chip`).forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('selected');
+        if (chip.classList.contains('selected')) {
+          triggerGleam(chip);
+        }
+        const val = chip.dataset.val;
+        if (chip.classList.contains('selected')) {
+          state[stateKey].push(val);
+        } else {
+          state[stateKey] = state[stateKey].filter(v => v !== val);
+        }
+        updateProgress();
+      });
+    });
+  }
+  setupChips('feelChips', 'feel');
+  setupChips('standoutChips', 'standout');
+  setupChips('futureShootChips', 'futureShoot');
+
+  /* ── Nervous / negative feel expands ── */
+  const negativeVals = ['uncertain', 'a-little-uncomfortable'];
+  const feelExpand = document.getElementById('feelExpand');
+  const nervousExpand = document.getElementById('nervousExpand');
+  const uncomfortableThank = document.getElementById('uncomfortableThank');
+
+  document.getElementById('feelChips').addEventListener('click', () => {
+    const hasNegative = state.feel.some(v => negativeVals.includes(v));
+    const hasNervous = state.feel.includes('nervous-at-first');
+    const hasUncomfortable = state.feel.includes('a-little-uncomfortable');
+    feelExpand.classList.toggle('open', hasNegative);
+    nervousExpand.classList.toggle('open', hasNervous);
+    uncomfortableThank.classList.toggle('open', hasUncomfortable);
+    if (!hasNervous) {
+      document.querySelectorAll('#nervousVibe .radio-opt').forEach(o => o.classList.remove('selected'));
+      state.nervousVibe = '';
+    }
+  });
+
+  setupRadio('nervousVibe', 'nervousVibe');
+
+  document.getElementById('feelComment').addEventListener('input', e => {
+    state.feelComment = e.target.value;
+  });
+
+  /* ── Radio options ── */
+  function setupRadio(containerId, stateKey) {
+    const container = document.getElementById(containerId);
+    document.querySelectorAll(`#${containerId} .radio-opt`).forEach(opt => {
+      opt.addEventListener('click', () => {
+        document.querySelectorAll(`#${containerId} .radio-opt`).forEach(o => { o.classList.remove('selected'); o.classList.remove('gleam'); });
+        opt.classList.add('selected');
+        triggerGleam(opt);
+        container.classList.add('has-selection');
+        state[stateKey] = opt.dataset.val;
+        updateProgress();
+      });
+    });
+  }
+  setupRadio('photosMatch', 'photosMatch');
+  const photosMatchExpand = document.getElementById('photosMatchExpand');
+  document.getElementById('photosMatch').addEventListener('click', () => {
+    const open = state.photosMatch === 'mostly' || state.photosMatch === 'not-quite';
+    photosMatchExpand.classList.toggle('open', open);
+    if (!open) { document.getElementById('photosMatchComment').value = ''; state.photosMatchComment = ''; }
+  });
+  document.getElementById('photosMatchComment').addEventListener('input', e => { state.photosMatchComment = e.target.value; });
+  setupRadio('bookAgain', 'bookAgain');
+  setupRadio('recommend', 'recommend');
+  setupRadio('promoOptin', 'promo');
+
+  /* ── Promo contact expand ── */
+  const promoExpand = document.getElementById('promoExpand');
+  document.getElementById('promoOptin').addEventListener('click', () => {
+    const open = state.promo && state.promo !== 'no';
+    promoExpand.classList.toggle('open', open);
+    if (!open) {
+      document.getElementById('promoPhone').value = '';
+      document.getElementById('promoEmail').value = '';
+      state.promoPhone = '';
+      state.promoEmail = '';
+    }
+  });
+  document.getElementById('promoPhone').addEventListener('input', e => { state.promoPhone = e.target.value; });
+  document.getElementById('promoEmail').addEventListener('input', e => { state.promoEmail = e.target.value; });
+
+  document.getElementById('standoutOther').addEventListener('input', e => { state.standoutOther = e.target.value; });
+  document.getElementById('futureShootOther').addEventListener('input', e => { state.futureShootOther = e.target.value; });
+  document.getElementById('reviewName').addEventListener('input', e => { state.reviewName = e.target.value; });
+  setupRadio('socialConsent', 'socialConsent');
+
+  document.getElementById('comment').addEventListener('input', e => {
+    state.comment = e.target.value;
+  });
+
+  /* ── Progress bar ── */
+  function updateProgress() {
+    const required = [
+      state.rating > 0,
+      state.feel.length > 0,
+      state.standout.length > 0,
+      state.bookAgain !== '',
+      state.recommend !== '',
+      state.promo !== ''
+    ];
+    const done = required.filter(Boolean).length;
+    const pct = Math.round((done / required.length) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+  }
+
+  /* ── Label formatters ── */
+  const labels = {
+    'comfortable': 'Comfortable', 'nervous-at-first': 'Nervous at First',
+    'confident': 'Confident', 'had-a-blast': 'Had a Blast', 'relaxed': 'Relaxed',
+    'in-my-element': 'In My Element', 'uncertain': 'Uncertain',
+    'a-little-uncomfortable': 'A Little Uncomfortable',
+    'the-vibe': 'The Vibe', 'the-location': 'The Location',
+    'posing-direction': 'Posing & Direction', 'final-photos': 'The Final Photos',
+    'communication': 'Communication', 'how-natural-it-felt': 'How Natural It Felt',
+    'yes': 'Yes', 'mostly': 'Mostly', 'not-quite': 'Not quite',
+    'not-really-but-liked': 'Not really, but I liked it!',
+    'yes-exactly': 'Yes, exactly', 'maybe': 'Maybe', 'not-sure': 'Not sure',
+    'night-shoot': 'Night Shoot', 'studio': 'Studio', 'fashion': 'Fashion',
+    'couples': 'Couples', 'family': 'Family', 'event': 'Event / Party',
+    'creative': 'Creative / Concept',
+    'text': 'Text', 'email': 'Email', 'both': 'Both', 'no': 'No thanks',
+    'not-really': 'Not really', 'go-for-it': 'Go for it',
+  };
+  function fmtVal(v) { return labels[v] || v; }
+  function fmt(arr) { return arr.map(fmtVal).join(', '); }
+
+  /* ── Submit ── */
+  function submitSurvey() {
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key:       WEB3FORMS_KEY,
+        subject:          'New Post-Shoot Survey — Luz by LJ' + (state.reviewName ? ' (' + state.reviewName + ')' : ''),
+        'Rating':                   state.rating + ' / 5',
+        'How they felt':            fmt(state.feel) || '—',
+        'Did nervous vibe resolve': fmtVal(state.nervousVibe) || '—',
+        'Notes on feeling (if neg)': state.feelComment || '—',
+        'What stood out':           fmt(state.standout) || '—',
+        'Stood out — write-in':     state.standoutOther || '—',
+        'Photos matched expectations': fmtVal(state.photosMatch) || '—',
+        'Photos — specifics':       state.photosMatchComment || '—',
+        'Future shoot interest':    fmt(state.futureShoot) + (state.futureShootOther ? ', ' + state.futureShootOther : '') || '—',
+        'Would book again':         fmtVal(state.bookAgain) || '—',
+        'Would recommend':          fmtVal(state.recommend) || '—',
+        'Open comment':             state.comment || '—',
+        'Promo opt-in':             fmtVal(state.promo) || '—',
+        'Phone':                    state.promoPhone || '—',
+        'Email':                    state.promoEmail || '—',
+        'Review name':              state.reviewName || '—',
+        'OK to link social':        fmtVal(state.socialConsent) || '—',
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById('surveyHero').style.display = 'none';
+          document.getElementById('topDivider').style.display = 'none';
+          document.getElementById('surveyForm').style.display = 'none';
+          document.getElementById('thankYou').classList.add('visible');
+          document.getElementById('progressBar').style.width = '100%';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error(data.message);
+        }
+      })
+      .catch(err => {
+        btn.disabled = false;
+        btn.textContent = 'Submit →';
+        alert('Something went wrong. Please email LuzByLJ@gmail.com directly.');
+        console.error('Web3Forms error:', err);
+      });
+  }
+</script>
+</body>
+</html>
