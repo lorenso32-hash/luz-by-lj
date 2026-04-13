@@ -154,8 +154,8 @@
       animation: please-pulse 2.2s ease-in-out infinite;
     }
     @keyframes please-pulse {
-      0%, 100% { text-shadow: none; opacity: 0.7; }
-      50% { text-shadow: 0 0 8px #fff, 0 0 20px rgba(226,16,86,0.9), 0 0 40px rgba(226,16,86,0.5); opacity: 1; }
+      0%, 100% { text-shadow: none; opacity: 0.6; }
+      50% { text-shadow: 0 0 6px #fff, 0 0 16px #fff, 0 0 30px #E21056, 0 0 60px #E21056, 0 0 100px rgba(226,16,86,0.6); opacity: 1; }
     }
 
     /* DOWNLOAD BUTTON */
@@ -366,6 +366,10 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/CaritaMain5_tdoxii" alt="Carita — Featured 4">
           <div class="gallery-item-overlay"></div>
         </div>
+        <div class="gallery-item">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_800,f_auto,q_auto/Carita2-4_yqjiuf" alt="Carita — Featured 5">
+          <div class="gallery-item-overlay"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -404,11 +408,7 @@
           <div class="gallery-item-overlay"></div>
         </div>
         <div class="gallery-item">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Carita2-4_yqjiuf" alt="Carita — 8">
-          <div class="gallery-item-overlay"></div>
-        </div>
-        <div class="gallery-item">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Carita2-5_vyidk0" alt="Carita — 9">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Carita2-5_vyidk0" alt="Carita — 8">
           <div class="gallery-item-overlay"></div>
         </div>
         <div class="gallery-item">
@@ -544,10 +544,9 @@
 
     // Per-photo download buttons
     const photoIDs = [
-      'CaritaMain4_r7cv4a','CaritaMain_c64uje','CaritaMain2_hi9hkt','CaritaMain5_tdoxii',
+      'CaritaMain4_r7cv4a','CaritaMain_c64uje','CaritaMain2_hi9hkt','CaritaMain5_tdoxii','Carita2-4_yqjiuf',
       'CaritaMain3_v1esxc','CARITA1-2_jibbmf','CARITA1-3_bkmiup','CARITA1-6_uh7uek','CARITA1-7_ldc60l',
-      'Carita2-2_ctsulm','Carita2-3_vzk4rx','Carita2-4_yqjiuf',
-      'Carita2-5_vyidk0','Carita2-6_ljd0hp','Carita2-9_gnftuh'
+      'Carita2-2_ctsulm','Carita2-3_vzk4rx','Carita2-5_vyidk0','Carita2-6_ljd0hp','Carita2-9_gnftuh'
     ];
     const dlIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
     allItems.forEach((item, i) => {
