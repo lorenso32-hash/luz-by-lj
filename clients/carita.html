@@ -147,6 +147,16 @@
       0%, 100% { text-shadow: 0 0 6px rgba(226,16,86,0.3), 0 0 12px rgba(226,16,86,0.1); }
       50% { text-shadow: 0 0 14px rgba(226,16,86,0.8), 0 0 30px rgba(226,16,86,0.4), 0 0 50px rgba(226,16,86,0.15); }
     }
+    .please-glow {
+      display: inline-block;
+      border-bottom: 1px solid currentColor;
+      line-height: 1.1;
+      animation: please-pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes please-pulse {
+      0%, 100% { text-shadow: none; opacity: 0.7; }
+      50% { text-shadow: 0 0 8px #fff, 0 0 20px rgba(226,16,86,0.9), 0 0 40px rgba(226,16,86,0.5); opacity: 1; }
+    }
 
     /* DOWNLOAD BUTTON */
     .download-wrap {
@@ -325,7 +335,7 @@
     <p class="eyebrow">Your Gallery</p>
     <h1 class="page-title">Carita — Live @ Spirit Stage</h1>
     <div class="rule-accent"></div>
-    <p class="page-subtitle">These are professionally edited — if you'd like any color adjustments, just let me know.<br><br><span style="display:inline-block;border-bottom:1px solid currentColor;line-height:1.1;">Please</span> avoid posting with filters to preserve the edit.</p>
+    <p class="page-subtitle">These are professionally edited — if you'd like any color adjustments, just let me know.<br><br><span class="please-glow">Please</span> avoid posting with filters to preserve the edit.</p>
   </div>
 
   <div class="download-wrap">
