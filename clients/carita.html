@@ -214,7 +214,7 @@
       position: relative; cursor: pointer;
       border-radius: 3px; overflow: hidden;
       background: var(--navy-light);
-      aspect-ratio: 2/3;
+      aspect-ratio: 3/2;
       opacity: 0; transform: translateY(20px);
       transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
     }
@@ -329,7 +329,7 @@
   </div>
 
   <div class="download-wrap">
-    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=1933708153&mode=download&public_ids%5B%5D=CaritaMain_c64uje&public_ids%5B%5D=CaritaMain2_hi9hkt&public_ids%5B%5D=CaritaMain3_v1esxc&public_ids%5B%5D=CaritaMain4_r7cv4a&public_ids%5B%5D=CaritaMain5_tdoxii&public_ids%5B%5D=CARITA1_utqrcm&public_ids%5B%5D=CARITA1-2_jibbmf&public_ids%5B%5D=CARITA1-3_bkmiup&public_ids%5B%5D=CARITA1-6_uh7uek&public_ids%5B%5D=CARITA1-7_ldc60l&public_ids%5B%5D=CARITA1-9_rdckrx&public_ids%5B%5D=Carita2_woptji&public_ids%5B%5D=Carita2-2_ctsulm&public_ids%5B%5D=Carita2-3_vzk4rx&public_ids%5B%5D=Carita2-4_yqjiuf&public_ids%5B%5D=Carita2-5_vyidk0&public_ids%5B%5D=Carita2-6_ljd0hp&public_ids%5B%5D=Carita2-8_n7elrt&public_ids%5B%5D=Carita2-9_gnftuh&public_ids%5B%5D=Carita2-11_yr4xo8&target_format=zip&timestamp=1776028153&signature=4a58fe0d8c33c19aceed015cf490e048ab17b9e2&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download">
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=9999999999&mode=download&public_ids%5B%5D=CaritaMain_c64uje&public_ids%5B%5D=CaritaMain2_hi9hkt&public_ids%5B%5D=CaritaMain3_v1esxc&public_ids%5B%5D=CaritaMain4_r7cv4a&public_ids%5B%5D=CaritaMain5_tdoxii&public_ids%5B%5D=CARITA1_utqrcm&public_ids%5B%5D=CARITA1-2_jibbmf&public_ids%5B%5D=CARITA1-3_bkmiup&public_ids%5B%5D=CARITA1-6_uh7uek&public_ids%5B%5D=CARITA1-7_ldc60l&public_ids%5B%5D=CARITA1-9_rdckrx&public_ids%5B%5D=Carita2_woptji&public_ids%5B%5D=Carita2-2_ctsulm&public_ids%5B%5D=Carita2-3_vzk4rx&public_ids%5B%5D=Carita2-4_yqjiuf&public_ids%5B%5D=Carita2-5_vyidk0&public_ids%5B%5D=Carita2-6_ljd0hp&public_ids%5B%5D=Carita2-8_n7elrt&public_ids%5B%5D=Carita2-9_gnftuh&public_ids%5B%5D=Carita2-11_yr4xo8&target_format=zip&timestamp=1776045634&signature=eb5f2b6de1044fcf15f437ca71ff5d05c4e4b9dd&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
       Download All Photos
     </a>
@@ -565,7 +565,7 @@
       overlay.innerHTML = `
         <div class="photo-num">Photo ${i + 1} of ${photoIDs.length}</div>
         <div class="photo-dl-btns">
-          <a class="dl-btn-sm dl-full" href="https://res.cloudinary.com/diitxd6ou/image/upload/w_2048,f_jpg,q_90,fl_attachment/${id}" target="_blank" onclick="event.stopPropagation()">${dlIcon} Download</a>
+          <a class="dl-btn-sm dl-full" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${id}" target="_blank" onclick="event.stopPropagation()">${dlIcon} Download</a>
         </div>
       `;
     });
