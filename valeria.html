@@ -304,6 +304,7 @@
     .dl-btn-sm svg { width: 9px; height: 9px; flex-shrink: 0; }
 
     .carousel-swipe-hint { display: none; }
+    .please-underline { text-decoration: underline; text-underline-offset: 3px; }
 
     @media (max-width: 600px) {
       :root { --pad-x: 20px; }
@@ -313,8 +314,12 @@
       /* Hide hero landscape — carousel starts immediately */
       .hero-photo-wrap { display: none; }
 
-      /* Hide rule under title */
+      /* Always show download buttons — no hover on mobile */
+      .photo-overlay { opacity: 1; }
+
+      /* Hide rule under title + underline on Please */
       .rule-accent { display: none; }
+      .please-underline { text-decoration: none; }
 
       /* Carousel swipe hint */
       .carousel-swipe-hint {
@@ -516,7 +521,7 @@
     <p class="eyebrow">Your Gallery</p>
     <h1 class="page-title">Valeria</h1>
     <div class="rule-accent"></div>
-    <p class="page-subtitle">These are professionally edited — if you'd like any color adjustments, just let me know.<br><span style="text-decoration: underline; text-underline-offset: 3px;">Please</span> avoid posting with filters to preserve the edit.</p>
+    <p class="page-subtitle">These are professionally edited — if you'd like any color adjustments, just let me know.<br><span class="please-underline">Please</span> avoid posting with filters to preserve the edit.</p>
   </div>
 
   <section class="photos-section">
