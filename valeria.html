@@ -317,6 +317,7 @@
         flex-shrink: 0;
         scroll-snap-align: start;
         margin-bottom: 0;
+        touch-action: pan-x;
       }
       .hero-photo-wrap img { aspect-ratio: 3 / 2; }
 
@@ -364,6 +365,7 @@
         flex: 0 0 82%;
         scroll-snap-align: start;
         transform: none !important; /* disable hover lift on mobile */
+        touch-action: pan-x;
       }
 
       .neon-cta { padding-top: 36px; }
@@ -372,6 +374,7 @@
         flex: 0 0 82%;
         flex-shrink: 0;
         scroll-snap-align: start;
+        touch-action: pan-x;
       }
     }
 
@@ -801,7 +804,7 @@
           const original = btn.innerHTML;
           btn.textContent = 'Loading...';
           try {
-            const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/f_auto,q_auto/${id}`);
+            const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${id}`);
             const blob = await resp.blob();
             const file = new File([blob], id + '.jpg', { type: blob.type });
             await navigator.share({ files: [file] });
@@ -823,7 +826,7 @@
           try {
             const files = await Promise.all(photos.map(async (p, i) => {
               dlAllBtn.textContent = `Loading... (${i + 1}/${photos.length})`;
-              const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/f_auto,q_auto/${p.id}`);
+              const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${p.id}`);
               const blob = await resp.blob();
               return new File([blob], p.id + '.jpg', { type: blob.type });
             }));
