@@ -311,8 +311,14 @@
 
       .photos-section { padding-bottom: 32px; }
 
-      /* Hide hero landscape — carousel starts immediately */
-      .hero-photo-wrap { display: none; }
+      /* Hero becomes first card in carousel on mobile */
+      .hero-photo-wrap {
+        flex: 0 0 92%;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        margin-bottom: 0;
+      }
+      .hero-photo-wrap img { aspect-ratio: 3 / 2; }
 
       /* Always show download buttons — no hover on mobile */
       .photo-overlay { opacity: 1; }
@@ -527,6 +533,7 @@
   <section class="photos-section">
     <div class="container">
 
+      <div class="portrait-carousel-wrap">
       <!-- Landscape hero -->
       <div class="hero-photo-wrap" data-index="0" onclick="openLightbox(0)">
         <img src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1200,f_auto,q_auto/Valeria-Immortal-3_btzezr" alt="Valeria — 1">
@@ -538,8 +545,6 @@
           </a>
         </div>
       </div>
-
-      <div class="portrait-carousel-wrap">
       <!-- Portrait trio: 9 / 5 / 7 -->
       <div class="portrait-grid">
         <div class="portrait-item" data-index="1" onclick="openLightbox(1)">
@@ -794,7 +799,7 @@
         btn.addEventListener('click', async function(e) {
           e.stopPropagation();
           const original = btn.innerHTML;
-          btn.textContent = '…';
+          btn.textContent = 'Loading...';
           try {
             const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/f_auto,q_auto/${id}`);
             const blob = await resp.blob();
@@ -804,6 +809,29 @@
           btn.innerHTML = original;
         });
       });
+
+      // Download All — share all photos at once on iOS
+      const dlAllBtn = document.querySelector('#download-all .btn-download');
+      if (dlAllBtn) {
+        dlAllBtn.removeAttribute('href');
+        dlAllBtn.removeAttribute('target');
+        dlAllBtn.style.cursor = 'pointer';
+        dlAllBtn.addEventListener('click', async function(e) {
+          e.preventDefault();
+          const original = dlAllBtn.innerHTML;
+          dlAllBtn.textContent = 'Loading...';
+          try {
+            const files = await Promise.all(photos.map(async (p, i) => {
+              dlAllBtn.textContent = `Loading... (${i + 1}/${photos.length})`;
+              const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/f_auto,q_auto/${p.id}`);
+              const blob = await resp.blob();
+              return new File([blob], p.id + '.jpg', { type: blob.type });
+            }));
+            await navigator.share({ files });
+          } catch(e) { /* cancelled */ }
+          dlAllBtn.innerHTML = original;
+        });
+      }
     })();
 
     // Carousel swipe hint — fade on first scroll
