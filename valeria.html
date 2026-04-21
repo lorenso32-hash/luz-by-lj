@@ -776,6 +776,36 @@
       });
     }, { threshold: 0.1 });
 
+    // Smart download — Web Share API on iOS, direct download on desktop
+    (function() {
+      const testFile = new File([''], 'test.jpg', { type: 'image/jpeg' });
+      const canShare = navigator.share && navigator.canShare && navigator.canShare({ files: [testFile] });
+      if (!canShare) return;
+
+      // Replace all download links with share buttons
+      document.querySelectorAll('.dl-btn-sm').forEach(btn => {
+        const href = btn.getAttribute('href');
+        const id = href && href.split('/fl_attachment/')[1];
+        if (!id) return;
+
+        btn.removeAttribute('href');
+        btn.removeAttribute('target');
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', async function(e) {
+          e.stopPropagation();
+          const original = btn.innerHTML;
+          btn.textContent = '…';
+          try {
+            const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/f_auto,q_auto/${id}`);
+            const blob = await resp.blob();
+            const file = new File([blob], id + '.jpg', { type: blob.type });
+            await navigator.share({ files: [file] });
+          } catch(e) { /* cancelled */ }
+          btn.innerHTML = original;
+        });
+      });
+    })();
+
     // Carousel swipe hint — fade on first scroll
     const carouselWrap = document.querySelector('.portrait-carousel-wrap');
     const carouselHint = document.getElementById('carousel-swipe-hint');
