@@ -303,19 +303,44 @@
     .dl-btn-sm:hover { background: var(--pink); color: var(--white); }
     .dl-btn-sm svg { width: 9px; height: 9px; flex-shrink: 0; }
 
+    .carousel-swipe-hint { display: none; }
+
     @media (max-width: 600px) {
       :root { --pad-x: 20px; }
 
       .photos-section { padding-bottom: 32px; }
+
+      /* Hide hero landscape — carousel starts immediately */
+      .hero-photo-wrap { display: none; }
+
+      /* Hide rule under title */
+      .rule-accent { display: none; }
+
+      /* Carousel swipe hint */
+      .carousel-swipe-hint {
+        display: block;
+        position: absolute;
+        bottom: 20px;
+        right: calc(var(--pad-x) + 24px);
+        font-family: var(--font-display);
+        font-size: 22px; letter-spacing: 3px;
+        color: #fff;
+        pointer-events: none;
+        z-index: 10;
+        animation: swipe-glow-pulse 1.6s ease-in-out infinite;
+        transition: opacity 0.4s ease;
+      }
 
       .portrait-carousel-wrap {
         display: flex;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         gap: 10px;
-        padding-right: 20px; /* peek at next card */
+        padding-right: 20px;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        touch-action: pan-x;
+        position: relative;
       }
       .portrait-carousel-wrap::-webkit-scrollbar { display: none; }
 
@@ -336,15 +361,6 @@
         flex: 0 0 82%;
         flex-shrink: 0;
         scroll-snap-align: start;
-        border-radius: 3px;
-        background: var(--navy-light);
-        border: 1px solid var(--white-10);
-        aspect-ratio: 2 / 3;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 24px;
-        cursor: pointer;
       }
     }
 
@@ -610,6 +626,7 @@
           <span class="scroll-card-arrow">↓</span>
         </div>
       </div>
+        <div id="carousel-swipe-hint" class="carousel-swipe-hint">Swipe &nbsp;&#8594;</div>
       </div><!-- /.portrait-carousel-wrap -->
 
     </div>
@@ -753,6 +770,15 @@
         }
       });
     }, { threshold: 0.1 });
+
+    // Carousel swipe hint — fade on first scroll
+    const carouselWrap = document.querySelector('.portrait-carousel-wrap');
+    const carouselHint = document.getElementById('carousel-swipe-hint');
+    if (carouselWrap && carouselHint) {
+      carouselWrap.addEventListener('scroll', function() {
+        carouselHint.style.opacity = '0';
+      }, { passive: true, once: true });
+    }
 
     document.querySelectorAll('.hero-photo-wrap, .portrait-item, .scroll-card').forEach((el, i) => {
       el.style.transitionDelay = (i * 0.08) + 's';
