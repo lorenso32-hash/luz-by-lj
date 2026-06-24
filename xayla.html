@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Xayla — 1 Month Session | Luz by LJ</title>
+
+  <link rel="icon" type="image/png" href="Luz By LJ Logo 2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #050121;
+      --navy-mid:   #080230;
+      --navy-light: #0d0535;
+      --pink:       #E21056;
+      --pink-glow:  rgba(226, 16, 86, 0.35);
+      --teal:       #00B4CC;
+      --teal-glow:  rgba(0, 180, 204, 0.35);
+      --white:      #FFFFFF;
+      --white-80:   rgba(255,255,255,0.80);
+      --white-60:   rgba(255,255,255,0.60);
+      --white-20:   rgba(255,255,255,0.20);
+      --white-10:   rgba(255,255,255,0.10);
+      --white-06:   rgba(255,255,255,0.06);
+
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif:   'Playfair Display', serif;
+      --font-body:    'Inter', sans-serif;
+
+      --max-w:  1100px;
+      --pad-x:  40px;
+      --nav-h:  68px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+      animation: pagefade 0.45s ease;
+    }
+    @keyframes pagefade { from { opacity:0; } to { opacity:1; } }
+
+    .milky-way {
+      position: fixed;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(
+        108deg,
+        transparent 0%, transparent 28%,
+        rgba(160,130,255,0.018) 35%,
+        rgba(200,175,255,0.045) 43%,
+        rgba(220,200,255,0.055) 50%,
+        rgba(200,175,255,0.045) 57%,
+        rgba(160,130,255,0.018) 64%,
+        transparent 71%, transparent 100%
+      );
+    }
+    .star {
+      position: fixed; border-radius: 50%; background: white;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.05; } 50% { opacity: 0.75; }
+    }
+    @keyframes twinkle-glow {
+      0%, 100% { opacity: 0.08; box-shadow: none; }
+      50% { opacity: 0.95; box-shadow: 0 0 5px 2px rgba(200,185,255,0.45); }
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(5,1,33,0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid var(--white-10);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 36px; display: block; }
+    .nav-main-btn {
+      font-family: var(--font-display);
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      text-decoration: none; color: var(--white-60);
+      border: 1px solid var(--white-20); padding: 7px 16px; border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-main-btn:hover { color: var(--teal); border-color: var(--teal); }
+
+    /* HEADER */
+    .page-header {
+      padding: 140px 0 50px;
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: 26px; letter-spacing: 6px;
+      color: var(--teal); text-transform: uppercase;
+      margin-bottom: 12px;
+      animation: eyebrow-shimmer 3s ease-in-out infinite;
+    }
+    @keyframes eyebrow-shimmer {
+      0%, 100% { text-shadow: 0 0 4px rgba(0,180,204,0.3), 0 0 8px rgba(0,180,204,0.1); opacity: 0.7; }
+      50% { text-shadow: 0 0 16px rgba(0,180,204,1), 0 0 36px rgba(0,180,204,0.7), 0 0 64px rgba(0,180,204,0.3); opacity: 1; }
+    }
+    .page-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700; line-height: 1.1; margin-bottom: 16px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.25);
+    }
+    .rule-accent {
+      width: 56px; height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--teal));
+      margin: 0 auto 28px;
+    }
+    .page-subtitle {
+      font-size: 1.15rem;
+      color: var(--white-80);
+      letter-spacing: 0.5px;
+      max-width: 540px;
+      margin: 0 auto;
+      animation: subtitle-glow 3s ease-in-out infinite;
+    }
+    @keyframes subtitle-glow {
+      0%, 100% { text-shadow: 0 0 6px rgba(226,16,86,0.3), 0 0 12px rgba(226,16,86,0.1); }
+      50% { text-shadow: 0 0 14px rgba(226,16,86,0.8), 0 0 30px rgba(226,16,86,0.4), 0 0 50px rgba(226,16,86,0.15); }
+    }
+
+    /* DOWNLOAD BUTTON */
+    .download-wrap {
+      display: flex; justify-content: center;
+      position: relative; z-index: 1;
+      padding: 0 0 60px;
+    }
+    .btn-download {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 17px 44px;
+      font-family: var(--font-display);
+      font-size: 17px; letter-spacing: 3px;
+      text-decoration: none; border-radius: 2px;
+      background: var(--pink); color: var(--white);
+      transition: all 0.25s ease;
+    }
+    .btn-download:hover {
+      background: #ff1a6a;
+      box-shadow: 0 0 24px 6px var(--pink-glow), 0 0 48px 12px rgba(226,16,86,0.15);
+      transform: translateY(-1px);
+    }
+    .btn-download svg { width: 16px; height: 16px; fill: currentColor; }
+
+    .btn-download-fullres {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 40px;
+      font-family: var(--font-display);
+      font-size: 17px; letter-spacing: 3px;
+      text-decoration: none; border-radius: 2px;
+      white-space: nowrap;
+      color: var(--teal); border: 1px solid var(--teal);
+      transition: all 0.25s ease;
+    }
+    .btn-download-fullres:hover {
+      background: var(--teal); color: var(--navy);
+      box-shadow: 0 0 20px 4px var(--teal-glow), 0 0 40px 8px rgba(0,180,204,0.12);
+    }
+    .btn-download-fullres svg { width: 16px; height: 16px; fill: currentColor; }
+    .fullres-note {
+      display: block; text-align: center; margin-top: 10px;
+      font-size: 0.75rem; color: var(--white-60); letter-spacing: 1px;
+    }
+
+    /* PHOTOS */
+    .photos-section {
+      padding: 0 0 0;
+      position: relative; z-index: 1;
+    }
+
+    .download-note {
+      text-align: center;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+
+    /* Hero landscape */
+    .hero-photo-wrap {
+      margin-bottom: 12px;
+      cursor: pointer;
+      border-radius: 3px; overflow: hidden;
+      background: var(--navy-light);
+      position: relative;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+    }
+    .hero-photo-wrap.in-view { opacity: 1; transform: translateY(0); }
+    .hero-photo-wrap:hover {
+      box-shadow: 0 0 0 1px var(--pink-glow), 0 8px 32px rgba(226,16,86,0.15);
+    }
+    .hero-photo-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      aspect-ratio: 3 / 2;
+      transition: transform 0.4s ease;
+    }
+    .hero-photo-wrap:hover img { transform: scale(1.02); }
+
+    /* Portrait grids */
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .portrait-grid:last-child { margin-bottom: 0; }
+
+    .portrait-item {
+      cursor: pointer;
+      border-radius: 3px; overflow: hidden;
+      background: var(--navy-light);
+      aspect-ratio: 2 / 3;
+      position: relative;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+    }
+    .portrait-item.in-view { opacity: 1; transform: translateY(0); }
+    .portrait-item:hover {
+      box-shadow: 0 0 0 1px var(--pink-glow), 0 8px 32px rgba(226,16,86,0.15);
+      transform: translateY(-3px);
+    }
+    .portrait-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .portrait-item:hover img { transform: scale(1.04); }
+
+    /* Scroll card */
+    .scroll-card {
+      border-radius: 3px; overflow: hidden;
+      position: relative;
+      background: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-29_o1anw5') center/cover no-repeat;
+      border: 1px solid var(--white-10);
+      aspect-ratio: 2 / 3;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      padding-bottom: 28px;
+      cursor: pointer;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .scroll-card.in-view { opacity: 1; transform: translateY(0); }
+    .scroll-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(5,1,33,0.62);
+      z-index: 0;
+    }
+    .scroll-card-label, .scroll-card-arrow { position: relative; z-index: 1; }
+    .scroll-card-label {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--white);
+      text-align: center;
+      padding: 0 16px;
+      animation: neon-flicker 4s ease-in-out infinite;
+    }
+    .scroll-card-arrow {
+      font-size: 2rem;
+      color: var(--pink);
+      text-shadow: 0 0 8px #E21056, 0 0 20px #E21056;
+      animation: bounce-down 1.8s ease-in-out infinite;
+    }
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0);    opacity: 0.7; }
+      50%       { transform: translateY(10px); opacity: 1;   }
+    }
+
+    /* Shared overlay */
+    .photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(5,1,33,0.9) 0%, rgba(5,1,33,0.4) 55%, transparent 100%);
+      opacity: 0; transition: opacity 0.3s ease;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 14px;
+    }
+    .hero-photo-wrap .photo-overlay {
+      background: linear-gradient(to top, rgba(5,1,33,0.8) 0%, rgba(5,1,33,0.3) 50%, transparent 100%);
+      padding: 18px;
+    }
+    .hero-photo-wrap:hover .photo-overlay,
+    .portrait-item:hover .photo-overlay { opacity: 1; }
+
+    .photo-num {
+      font-family: var(--font-body);
+      font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--white-60); margin-bottom: 8px;
+    }
+    .dl-btn-sm {
+      display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+      padding: 7px 12px;
+      font-family: var(--font-body); font-size: 0.58rem; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; border: 1px solid; transition: background 0.2s, color 0.2s;
+      color: var(--pink); border-color: var(--pink); background: rgba(226,16,86,0.1);
+    }
+    .dl-btn-sm:hover { background: var(--pink); color: var(--white); }
+    .dl-btn-sm svg { width: 9px; height: 9px; flex-shrink: 0; }
+
+    .carousel-swipe-hint { display: none; }
+    .please-underline { text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 600px) {
+      :root { --pad-x: 20px; }
+
+      .photos-section { padding-bottom: 32px; }
+
+      .portrait-carousel-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .hero-photo-wrap {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+      }
+      .hero-photo-wrap img { aspect-ratio: 3 / 2; }
+
+      .portrait-grid { display: contents; }
+
+      .photo-overlay { opacity: 1; }
+
+      .rule-accent { display: none; }
+      .please-underline { text-decoration: none; }
+
+      .portrait-item { transform: none !important; }
+
+      .neon-cta { padding-top: 36px; }
+    }
+
+    /* NEON CTA */
+    .neon-cta {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 60px 0 32px;
+    }
+    .neon-sign-wrap {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .neon-sign {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: block;
+      color: var(--white);
+      animation: neon-flicker 4s ease-in-out infinite;
+      border: 2px solid transparent;
+      padding: 8px 20px;
+      border-radius: 3px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neon-sign:hover {
+      border-color: var(--pink);
+      box-shadow:
+        0 0 3px 1px #E21056,
+        0 0 8px 2px #E21056,
+        0 0 20px 4px rgba(226,16,86,0.4),
+        0 0 40px 8px rgba(226,16,86,0.15),
+        inset 0 0 8px 1px rgba(226,16,86,0.06);
+    }
+    @keyframes neon-flicker {
+      0%   { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+      4%   { text-shadow: none; opacity: 0.85; }
+      6%   { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+      70%  { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+      72%  { text-shadow: 0 0 4px #fff, 0 0 8px #E21056; opacity: 0.9; }
+      74%  { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+      100% { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+    }
+    .neon-sign-underline {
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--pink), var(--teal), transparent);
+      margin-top: 10px;
+      animation: neon-line-pulse 4s ease-in-out infinite;
+    }
+    @keyframes neon-line-pulse {
+      0%, 100% { opacity: 0.7; box-shadow: 0 0 8px var(--pink); }
+      50%       { opacity: 1;   box-shadow: 0 0 18px var(--pink), 0 0 36px var(--teal); }
+    }
+    .neon-cta-body {
+      max-width: 480px;
+      margin: 0 auto 36px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--white-80);
+      line-height: 1.8;
+    }
+    .neon-cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-display);
+      font-size: 17px; letter-spacing: 4px; text-transform: uppercase;
+      text-decoration: none;
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      padding: 16px 40px;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+    .neon-cta-btn:hover {
+      background: var(--teal);
+      color: var(--navy);
+      box-shadow: 0 0 20px 4px var(--teal-glow), 0 0 40px 8px rgba(0,180,204,0.12);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 0; text-align: center;
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--white-10);
+    }
+    .footer-copy { font-size: 0.78rem; color: var(--white-60); letter-spacing: 1px; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(3,0,20,0.97);
+      z-index: 200; align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 92vw; max-height: 92vh;
+      object-fit: contain; border-radius: 2px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+    .lightbox-close {
+      position: absolute; top: 20px; right: 24px;
+      font-family: var(--font-display); font-size: 13px; letter-spacing: 3px;
+      cursor: pointer; color: var(--white-60); transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--pink); }
+    .lightbox-nav {
+      position: absolute; font-size: 28px; cursor: pointer;
+      color: var(--white-60); transition: color 0.2s;
+      padding: 20px; user-select: none;
+    }
+    .lightbox-nav:hover { color: var(--teal); }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+    .lightbox-counter {
+      position: absolute; bottom: 20px;
+      font-family: var(--font-display); font-size: 13px; letter-spacing: 3px;
+      color: var(--white-60);
+    }
+    .swipe-hint {
+      position: absolute; bottom: 52px; right: 24px;
+      font-family: var(--font-display); font-size: 36px; letter-spacing: 3px;
+      color: #fff; pointer-events: none;
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .swipe-hint.visible {
+      animation: swipe-glow-pulse 1.6s ease-in-out infinite;
+      opacity: 0.75;
+    }
+    @keyframes swipe-glow-pulse {
+      0%, 100% { text-shadow: 0 0 8px #E21056, 0 0 20px #E21056, 0 0 40px #E21056aa; opacity: 0.75; }
+      50%       { text-shadow: 0 0 14px #ff3a7a, 0 0 35px #E21056, 0 0 70px #E21056, 0 0 100px #E21056cc; opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="stars"></div>
+  <div class="milky-way"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="Luz By LJ Logo 2.png" alt="Luz by LJ"></a>
+      <a href="https://luzbylj.com" target="_blank" rel="noopener" class="nav-main-btn">Main Site</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <p class="eyebrow">Your Gallery</p>
+    <h1 class="page-title">Xayla</h1>
+    <div class="rule-accent"></div>
+  </div>
+
+  <section class="photos-section">
+    <div class="container">
+
+      <p class="download-note">(These downloads are optimized for social media/web. Full resolution files available upon request.)</p>
+
+      <div class="portrait-carousel-wrap">
+
+        <!-- Hero -->
+        <div class="hero-photo-wrap" data-index="0" onclick="openLightbox(0)">
+          <img src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1200,f_auto,q_auto/LilXaylaWeb-21_g43tir" alt="Xayla — 1">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 1 of 42</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-21_g43tir" target="_blank" onclick="event.stopPropagation()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </a>
+          </div>
+        </div>
+
+        <!-- Grid 1 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="1" onclick="openLightbox(1)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXayla_iqiykq" alt="Xayla — 2">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 2 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXayla_iqiykq" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="2" onclick="openLightbox(2)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-2_m9ovap" alt="Xayla — 3">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 3 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-2_m9ovap" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="3" onclick="openLightbox(3)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-3_nhe1jd" alt="Xayla — 4">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 4 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-3_nhe1jd" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 2 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="4" onclick="openLightbox(4)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-4_aqlcpl" alt="Xayla — 5">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 5 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-4_aqlcpl" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="5" onclick="openLightbox(5)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-5_au7rbt" alt="Xayla — 6">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 6 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-5_au7rbt" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="6" onclick="openLightbox(6)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-6_hko34y" alt="Xayla — 7">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 7 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-6_hko34y" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 3 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="7" onclick="openLightbox(7)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-7_dlan8p" alt="Xayla — 8">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 8 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-7_dlan8p" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="8" onclick="openLightbox(8)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-8_kimg7k" alt="Xayla — 9">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 9 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-8_kimg7k" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="9" onclick="openLightbox(9)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-9_johhlk" alt="Xayla — 10">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 10 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-9_johhlk" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 4 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="10" onclick="openLightbox(10)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-10_xmfj2e" alt="Xayla — 11">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 11 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-10_xmfj2e" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="11" onclick="openLightbox(11)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-11_yaztsf" alt="Xayla — 12">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 12 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-11_yaztsf" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="12" onclick="openLightbox(12)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-12_x3wowa" alt="Xayla — 13">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 13 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-12_x3wowa" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 5 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="13" onclick="openLightbox(13)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-13_nx4dp8" alt="Xayla — 14">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 14 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-13_nx4dp8" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="14" onclick="openLightbox(14)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-14_iru83i" alt="Xayla — 15">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 15 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-14_iru83i" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="15" onclick="openLightbox(15)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-15_ywhqyr" alt="Xayla — 16">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 16 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-15_ywhqyr" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 6 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="16" onclick="openLightbox(16)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-16_eamfbf" alt="Xayla — 17">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 17 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-16_eamfbf" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="17" onclick="openLightbox(17)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-17_p7ktzh" alt="Xayla — 18">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 18 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-17_p7ktzh" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="18" onclick="openLightbox(18)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-18_rrwtqk" alt="Xayla — 19">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 19 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-18_rrwtqk" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 7 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="19" onclick="openLightbox(19)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-19_w7wmfr" alt="Xayla — 20">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 20 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-19_w7wmfr" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="20" onclick="openLightbox(20)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-20_pcz9io" alt="Xayla — 21">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 21 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-20_pcz9io" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="21" onclick="openLightbox(21)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-22_rugsye" alt="Xayla — 22">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 22 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-22_rugsye" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 8 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="22" onclick="openLightbox(22)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-23_lztzgj" alt="Xayla — 23">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 23 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-23_lztzgj" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="23" onclick="openLightbox(23)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-24_nbq8jt" alt="Xayla — 24">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 24 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-24_nbq8jt" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="24" onclick="openLightbox(24)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-25_vast7p" alt="Xayla — 25">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 25 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-25_vast7p" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 9 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="25" onclick="openLightbox(25)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-26_jqbqzv" alt="Xayla — 26">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 26 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-26_jqbqzv" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="26" onclick="openLightbox(26)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-27_bgqg0i" alt="Xayla — 27">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 27 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-27_bgqg0i" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="27" onclick="openLightbox(27)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-28_upixua" alt="Xayla — 28">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 28 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-28_upixua" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 10 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="28" onclick="openLightbox(28)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-29_o1anw5" alt="Xayla — 29">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 29 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-29_o1anw5" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="29" onclick="openLightbox(29)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-30_tqnyk3" alt="Xayla — 30">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 30 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-30_tqnyk3" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="30" onclick="openLightbox(30)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-31_qjk8tb" alt="Xayla — 31">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 31 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-31_qjk8tb" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 11 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="31" onclick="openLightbox(31)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-32_ipcg08" alt="Xayla — 32">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 32 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-32_ipcg08" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="32" onclick="openLightbox(32)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-33_r1yoob" alt="Xayla — 33">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 33 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-33_r1yoob" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="33" onclick="openLightbox(33)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-34_fhsz8c" alt="Xayla — 34">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 34 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-34_fhsz8c" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 12 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="34" onclick="openLightbox(34)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-35_yxh0l0" alt="Xayla — 35">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 35 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-35_yxh0l0" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="35" onclick="openLightbox(35)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-36_cfhbml" alt="Xayla — 36">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 36 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-36_cfhbml" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="36" onclick="openLightbox(36)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-37_qlpltf" alt="Xayla — 37">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 37 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-37_qlpltf" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 13 -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="37" onclick="openLightbox(37)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-38_yrkvzi" alt="Xayla — 38">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 38 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-38_yrkvzi" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="38" onclick="openLightbox(38)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-39_kcwslb" alt="Xayla — 39">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 39 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-39_kcwslb" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="39" onclick="openLightbox(39)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-40_m6pfl3" alt="Xayla — 40">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 40 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-40_m6pfl3" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid 14 (last) — 2 photos + scroll card -->
+        <div class="portrait-grid">
+          <div class="portrait-item" data-index="40" onclick="openLightbox(40)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-41_rkeayr" alt="Xayla — 41">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 41 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-41_rkeayr" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="portrait-item" data-index="41" onclick="openLightbox(41)">
+            <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LilXaylaWeb-42_zmpbe4" alt="Xayla — 42">
+            <div class="photo-overlay">
+              <div class="photo-num">Photo 42 of 42</div>
+              <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/LilXaylaWeb-42_zmpbe4" target="_blank" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+          <div class="scroll-card" onclick="document.getElementById('download-all').scrollIntoView({behavior:'smooth'})">
+            <span class="scroll-card-label">Scroll Down to Download All</span>
+            <span class="scroll-card-arrow">↓</span>
+          </div>
+        </div>
+
+      </div><!-- /.portrait-carousel-wrap -->
+
+    </div>
+  </section>
+
+  <!-- Neon CTA -->
+  <section class="neon-cta">
+    <div class="neon-sign-wrap">
+      <a href="https://luzbylj.com" target="_blank" rel="noopener" class="neon-sign">Check out the main site</a>
+      <span class="neon-sign-underline"></span>
+    </div>
+    <p class="neon-cta-body">
+      Happy to capture Lil Xayla for you guys!<br><br>
+      Daniel, I'm proud of the Dad man you're becoming. Keep going dude.<br><br>
+      Analyz, welcome to the family!<br><br>
+      So happy to see you guys together!
+    </p>
+    <a href="https://luzbylj.com" target="_blank" rel="noopener" class="neon-cta-btn">
+      Book a session &rarr;
+    </a>
+  </section>
+
+  <div class="download-wrap" id="download-all">
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=1939953845&mode=download&target_format=zip&timestamp=1782273845&signature=21acf8d7a42e277170665947a29ca647294d4719&api_key=713587951621493&public_ids%5B%5D=LilXaylaWeb-10_xmfj2e&public_ids%5B%5D=LilXaylaWeb-11_yaztsf&public_ids%5B%5D=LilXaylaWeb-12_x3wowa&public_ids%5B%5D=LilXaylaWeb-13_nx4dp8&public_ids%5B%5D=LilXaylaWeb-14_iru83i&public_ids%5B%5D=LilXaylaWeb-15_ywhqyr&public_ids%5B%5D=LilXaylaWeb-16_eamfbf&public_ids%5B%5D=LilXaylaWeb-17_p7ktzh&public_ids%5B%5D=LilXaylaWeb-18_rrwtqk&public_ids%5B%5D=LilXaylaWeb-19_w7wmfr&public_ids%5B%5D=LilXaylaWeb-20_pcz9io&public_ids%5B%5D=LilXaylaWeb-21_g43tir&public_ids%5B%5D=LilXaylaWeb-22_rugsye&public_ids%5B%5D=LilXaylaWeb-23_lztzgj&public_ids%5B%5D=LilXaylaWeb-24_nbq8jt&public_ids%5B%5D=LilXaylaWeb-25_vast7p&public_ids%5B%5D=LilXaylaWeb-26_jqbqzv&public_ids%5B%5D=LilXaylaWeb-27_bgqg0i&public_ids%5B%5D=LilXaylaWeb-28_upixua&public_ids%5B%5D=LilXaylaWeb-29_o1anw5&public_ids%5B%5D=LilXaylaWeb-2_m9ovap&public_ids%5B%5D=LilXaylaWeb-30_tqnyk3&public_ids%5B%5D=LilXaylaWeb-31_qjk8tb&public_ids%5B%5D=LilXaylaWeb-32_ipcg08&public_ids%5B%5D=LilXaylaWeb-33_r1yoob&public_ids%5B%5D=LilXaylaWeb-34_fhsz8c&public_ids%5B%5D=LilXaylaWeb-35_yxh0l0&public_ids%5B%5D=LilXaylaWeb-36_cfhbml&public_ids%5B%5D=LilXaylaWeb-37_qlpltf&public_ids%5B%5D=LilXaylaWeb-38_yrkvzi&public_ids%5B%5D=LilXaylaWeb-39_kcwslb&public_ids%5B%5D=LilXaylaWeb-3_nhe1jd&public_ids%5B%5D=LilXaylaWeb-40_m6pfl3&public_ids%5B%5D=LilXaylaWeb-41_rkeayr&public_ids%5B%5D=LilXaylaWeb-42_zmpbe4&public_ids%5B%5D=LilXaylaWeb-4_aqlcpl&public_ids%5B%5D=LilXaylaWeb-5_au7rbt&public_ids%5B%5D=LilXaylaWeb-6_hko34y&public_ids%5B%5D=LilXaylaWeb-7_dlan8p&public_ids%5B%5D=LilXaylaWeb-8_kimg7k&public_ids%5B%5D=LilXaylaWeb-9_johhlk&public_ids%5B%5D=LilXayla_iqiykq" target="_blank" rel="noopener" class="btn-download">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+      Download All Photos
+    </a>
+  </div>
+
+  <div class="download-wrap" style="flex-direction: column; align-items: center; gap: 12px; padding-top: 0; padding-bottom: 80px;">
+    <a href="https://drive.google.com/drive/folders/1zapBkJNxAWILcf0q24874CrI6STqnIFq?usp=sharing" target="_blank" rel="noopener" class="btn-download-fullres">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+      Download Full Res
+    </a>
+    <p class="fullres-note">Full resolution files via Google Drive</p>
+  </div>
+
+  <footer>
+    <p class="footer-copy">&copy; 2026 Luz by LJ · All rights reserved</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&#10005; CLOSE</span>
+    <span class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8592;</span>
+    <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+    <span class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</span>
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+    <span class="swipe-hint" id="swipe-hint">Swipe &nbsp;&#8594;</span>
+  </div>
+
+  <script>
+    // Starfield
+    (function() {
+      const container = document.getElementById('stars');
+      for (let i = 0; i < 200; i++) {
+        const s = document.createElement('div');
+        s.className = 'star';
+        const size = Math.random() < 0.1 ? (Math.random() * 2 + 1.5) : (Math.random() * 1.2 + 0.3);
+        const dur = 2.5 + Math.random() * 5;
+        const delay = Math.random() * 6;
+        const isGlow = Math.random() < 0.2;
+        s.style.cssText = `
+          width:${size}px; height:${size}px;
+          left:${Math.random()*100}vw; top:${Math.random()*100}vh;
+          animation: ${isGlow ? 'twinkle-glow' : 'twinkle'} ${dur}s ${delay}s ease-in-out infinite;
+        `;
+        container.appendChild(s);
+      }
+    })();
+
+    // Lightbox
+    const photos = [
+      { id: 'LilXaylaWeb-21_g43tir',  alt: 'Xayla — 1' },
+      { id: 'LilXayla_iqiykq',        alt: 'Xayla — 2' },
+      { id: 'LilXaylaWeb-2_m9ovap',   alt: 'Xayla — 3' },
+      { id: 'LilXaylaWeb-3_nhe1jd',   alt: 'Xayla — 4' },
+      { id: 'LilXaylaWeb-4_aqlcpl',   alt: 'Xayla — 5' },
+      { id: 'LilXaylaWeb-5_au7rbt',   alt: 'Xayla — 6' },
+      { id: 'LilXaylaWeb-6_hko34y',   alt: 'Xayla — 7' },
+      { id: 'LilXaylaWeb-7_dlan8p',   alt: 'Xayla — 8' },
+      { id: 'LilXaylaWeb-8_kimg7k',   alt: 'Xayla — 9' },
+      { id: 'LilXaylaWeb-9_johhlk',   alt: 'Xayla — 10' },
+      { id: 'LilXaylaWeb-10_xmfj2e',  alt: 'Xayla — 11' },
+      { id: 'LilXaylaWeb-11_yaztsf',  alt: 'Xayla — 12' },
+      { id: 'LilXaylaWeb-12_x3wowa',  alt: 'Xayla — 13' },
+      { id: 'LilXaylaWeb-13_nx4dp8',  alt: 'Xayla — 14' },
+      { id: 'LilXaylaWeb-14_iru83i',  alt: 'Xayla — 15' },
+      { id: 'LilXaylaWeb-15_ywhqyr',  alt: 'Xayla — 16' },
+      { id: 'LilXaylaWeb-16_eamfbf',  alt: 'Xayla — 17' },
+      { id: 'LilXaylaWeb-17_p7ktzh',  alt: 'Xayla — 18' },
+      { id: 'LilXaylaWeb-18_rrwtqk',  alt: 'Xayla — 19' },
+      { id: 'LilXaylaWeb-19_w7wmfr',  alt: 'Xayla — 20' },
+      { id: 'LilXaylaWeb-20_pcz9io',  alt: 'Xayla — 21' },
+      { id: 'LilXaylaWeb-22_rugsye',  alt: 'Xayla — 22' },
+      { id: 'LilXaylaWeb-23_lztzgj',  alt: 'Xayla — 23' },
+      { id: 'LilXaylaWeb-24_nbq8jt',  alt: 'Xayla — 24' },
+      { id: 'LilXaylaWeb-25_vast7p',  alt: 'Xayla — 25' },
+      { id: 'LilXaylaWeb-26_jqbqzv',  alt: 'Xayla — 26' },
+      { id: 'LilXaylaWeb-27_bgqg0i',  alt: 'Xayla — 27' },
+      { id: 'LilXaylaWeb-28_upixua',  alt: 'Xayla — 28' },
+      { id: 'LilXaylaWeb-29_o1anw5',  alt: 'Xayla — 29' },
+      { id: 'LilXaylaWeb-30_tqnyk3',  alt: 'Xayla — 30' },
+      { id: 'LilXaylaWeb-31_qjk8tb',  alt: 'Xayla — 31' },
+      { id: 'LilXaylaWeb-32_ipcg08',  alt: 'Xayla — 32' },
+      { id: 'LilXaylaWeb-33_r1yoob',  alt: 'Xayla — 33' },
+      { id: 'LilXaylaWeb-34_fhsz8c',  alt: 'Xayla — 34' },
+      { id: 'LilXaylaWeb-35_yxh0l0',  alt: 'Xayla — 35' },
+      { id: 'LilXaylaWeb-36_cfhbml',  alt: 'Xayla — 36' },
+      { id: 'LilXaylaWeb-37_qlpltf',  alt: 'Xayla — 37' },
+      { id: 'LilXaylaWeb-38_yrkvzi',  alt: 'Xayla — 38' },
+      { id: 'LilXaylaWeb-39_kcwslb',  alt: 'Xayla — 39' },
+      { id: 'LilXaylaWeb-40_m6pfl3',  alt: 'Xayla — 40' },
+      { id: 'LilXaylaWeb-41_rkeayr',  alt: 'Xayla — 41' },
+      { id: 'LilXaylaWeb-42_zmpbe4',  alt: 'Xayla — 42' },
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      showPhoto();
+      document.getElementById('lightbox').classList.add('open');
+      if (window.innerWidth <= 768) document.getElementById('swipe-hint').classList.add('visible');
+    }
+    function showPhoto() {
+      const p = photos[currentIndex];
+      document.getElementById('lightbox-img').src =
+        'https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/' + p.id;
+      document.getElementById('lightbox-img').alt = p.alt;
+      document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + photos.length;
+    }
+    function lightboxNav(dir) {
+      currentIndex = (currentIndex + dir + photos.length) % photos.length;
+      showPhoto();
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.getElementById('lightbox-img').src = '';
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') lightboxNav(1);
+      if (e.key === 'ArrowLeft') lightboxNav(-1);
+    });
+
+    // Touch swipe in lightbox
+    let touchStartX = 0, touchStartY = 0, isPinch = false, isSwiping = false;
+    const lb = document.getElementById('lightbox');
+    lb.addEventListener('touchstart', e => {
+      if (e.touches.length > 1) { isPinch = true; return; }
+      isPinch = false; isSwiping = false;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    lb.addEventListener('touchmove', e => {
+      if (e.touches.length > 1) { isPinch = true; return; }
+      const dx = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+      if (!isSwiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) isSwiping = true;
+    }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      if (isPinch) { isPinch = false; return; }
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (isSwiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        lightboxNav(dx < 0 ? 1 : -1);
+        document.getElementById('swipe-hint').classList.remove('visible');
+      }
+      isSwiping = false;
+    }, { passive: true });
+
+    // Scroll-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Smart download — Web Share API on iOS, direct download on desktop
+    (function() {
+      const testFile = new File([''], 'test.jpg', { type: 'image/jpeg' });
+      const canShare = navigator.share && navigator.canShare && navigator.canShare({ files: [testFile] });
+      if (!canShare) return;
+
+      document.querySelectorAll('.dl-btn-sm').forEach(btn => {
+        const href = btn.getAttribute('href');
+        const id = href && href.split('/fl_attachment/')[1];
+        if (!id) return;
+
+        btn.removeAttribute('href');
+        btn.removeAttribute('target');
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', async function(e) {
+          e.stopPropagation();
+          const original = btn.innerHTML;
+          btn.textContent = 'Loading...';
+          try {
+            const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${id}`);
+            const blob = await resp.blob();
+            const file = new File([blob], id + '.jpg', { type: blob.type });
+            await navigator.share({ files: [file] });
+          } catch(e) { /* cancelled */ }
+          btn.innerHTML = original;
+        });
+      });
+
+      // Download All — share all at once on iOS
+      const dlAllBtn = document.querySelector('#download-all .btn-download');
+      if (dlAllBtn) {
+        dlAllBtn.removeAttribute('href');
+        dlAllBtn.removeAttribute('target');
+        dlAllBtn.style.cursor = 'pointer';
+        dlAllBtn.addEventListener('click', async function(e) {
+          e.preventDefault();
+          const original = dlAllBtn.innerHTML;
+          dlAllBtn.textContent = 'Loading...';
+          try {
+            const files = await Promise.all(photos.map(async (p, i) => {
+              dlAllBtn.textContent = `Loading... (${i + 1}/${photos.length})`;
+              const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${p.id}`);
+              const blob = await resp.blob();
+              return new File([blob], p.id + '.jpg', { type: blob.type });
+            }));
+            await navigator.share({ files });
+          } catch(e) { /* cancelled */ }
+          dlAllBtn.innerHTML = original;
+        });
+      }
+    })();
+
+    document.querySelectorAll('.hero-photo-wrap, .portrait-item, .scroll-card').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.08) + 's';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
