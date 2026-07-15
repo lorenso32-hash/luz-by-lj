@@ -39,6 +39,17 @@ def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subd
         "    }"
     )
 
+    # mobile scroll-perf fixes: backdrop-filter blur and box-shadow star animations
+    # are both expensive repaint work during scroll on mid-range/older mobile GPUs
+    template = template.replace(
+        "    .carousel-swipe-hint { display: none; }",
+        "    .carousel-swipe-hint { display: none; }\n\n"
+        "    @media (max-width: 600px) {\n"
+        "      nav { backdrop-filter: none; background: rgba(5,1,33,0.95); }\n"
+        "      .star { animation-name: twinkle !important; }\n"
+        "    }"
+    )
+
     # --- head ---
     template = template.replace(
         "<title>Raul Pacheco — Session | Luz by LJ</title>",
