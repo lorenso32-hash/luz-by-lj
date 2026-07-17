@@ -209,7 +209,7 @@
     /* Portrait grids */
     .portrait-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
       margin-bottom: 12px;
     }
@@ -239,7 +239,7 @@
     .scroll-card {
       border-radius: 3px; overflow: hidden;
       position: relative;
-      background: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-26_ibdxcj') center/cover no-repeat;
+      background: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-55_xcqabh') center/cover no-repeat;
       border: 1px solid var(--white-10);
       aspect-ratio: 2 / 3;
       min-height: 0;
@@ -319,10 +319,28 @@
       .star { animation-name: twinkle !important; }
     }
 
-    .portrait-grid .scroll-card:only-child { grid-column: 2; }
-    @media (max-width: 600px) {
-      .portrait-grid .scroll-card:only-child { grid-column: auto; }
+    /* mobile: landscape photos show in full within their grid cell, no crop */
+    .landscape-full { aspect-ratio: 3 / 2; background: var(--navy-light); }
+    .landscape-full img { object-fit: contain; }
+
+    /* desktop: landscape photos instead span the full row width as their own */
+    /* hero-sized block, so they don't visually clash with the portrait grid */
+    @media (min-width: 601px) {
+      .portrait-item.landscape-full { grid-column: 1 / -1; }
+      .portrait-item.landscape-full img { object-fit: cover; }
     }
+
+    .portrait-grid .scroll-card:only-child,
+    .portrait-grid .portrait-item:only-child:not(.landscape-full) {
+      grid-column: 1 / -1; max-width: 50%; margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .portrait-grid .scroll-card:only-child,
+      .portrait-grid .portrait-item:only-child:not(.landscape-full) { grid-column: auto; max-width: none; margin: 0; }
+    }
+
+    .portrait-item.square-full { aspect-ratio: 1 / 1; background: var(--navy-light); }
+    .portrait-item.square-full img { object-fit: contain; }
 
     .download-cta-note {
       font-size: 1.1rem !important;
@@ -350,7 +368,10 @@
       .hero-photo-wrap { margin-bottom: 10px; }
       .hero-photo-wrap img { aspect-ratio: 3 / 2; }
 
-      .photo-overlay { opacity: 1; }
+      .photo-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(5,1,33,0.85) 0%, rgba(5,1,33,0.15) 30%, transparent 55%);
+      }
 
       .rule-accent { display: none; }
       .please-underline { text-decoration: none; }
@@ -526,201 +547,245 @@
       <div class="portrait-carousel-wrap">
 
       <div class="hero-photo-wrap" data-index="0" onclick="openLightbox(0)">
-        <img src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1200,f_auto,q_auto/CaritaAtMarble-26_ibdxcj" alt="Carita — Live @ Marble — 1">
+        <img src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1200,f_auto,q_auto/CaritaAtMarble-55_xcqabh" alt="Carita — Live @ Marble — 1">
         <div class="photo-overlay">
-          <div class="photo-num">Photo 1 of 45</div>
-          <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-26_ibdxcj" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          <div class="photo-num">Photo 1 of 62</div>
+          <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-55_xcqabh" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
         </div>
       </div>
 
+      
+
+      <div style="text-align:center; margin: 56px 0 24px;">
+        <p class="eyebrow" style="margin-bottom:0;">LJ Stylistic</p>
+      </div>
+
       <div class="portrait-grid">
-        <div class="portrait-item" data-index="1" onclick="openLightbox(1)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-9_ucvjp6" alt="Carita — Live @ Marble — 2">
+        <div class="portrait-item square-full" data-index="1" onclick="openLightbox(1)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-40_qsqvnn" alt="Carita — Live @ Marble — 2">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 2 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-9_ucvjp6" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="2" onclick="openLightbox(2)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-4_f3mrrg" alt="Carita — Live @ Marble — 3">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 3 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-4_f3mrrg" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="3" onclick="openLightbox(3)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-38_t0ephw" alt="Carita — Live @ Marble — 4">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 4 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-38_t0ephw" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 2 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-40_qsqvnn" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
-        <div class="portrait-item" data-index="4" onclick="openLightbox(4)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-32_fsx3dp" alt="Carita — Live @ Marble — 5">
+        <div class="portrait-item landscape-full" data-index="2" onclick="openLightbox(2)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-39_hibb7x" alt="Carita — Live @ Marble — 3">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 5 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-32_fsx3dp" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="5" onclick="openLightbox(5)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-75_fgr2cb" alt="Carita — Live @ Marble — 6">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 6 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-75_fgr2cb" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="6" onclick="openLightbox(6)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-13_gc5bux" alt="Carita — Live @ Marble — 7">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 7 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-13_gc5bux" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 3 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-39_hibb7x" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
-        <div class="portrait-item" data-index="7" onclick="openLightbox(7)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-76_duxtxv" alt="Carita — Live @ Marble — 8">
+        <div class="portrait-item landscape-full" data-index="3" onclick="openLightbox(3)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-48_humie6" alt="Carita — Live @ Marble — 4">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 8 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-76_duxtxv" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="8" onclick="openLightbox(8)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-77_pyfzpg" alt="Carita — Live @ Marble — 9">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 9 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-77_pyfzpg" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="9" onclick="openLightbox(9)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-63_oacjzr" alt="Carita — Live @ Marble — 10">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 10 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-63_oacjzr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 4 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-48_humie6" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
-        <div class="portrait-item" data-index="10" onclick="openLightbox(10)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-22_wdwdwa" alt="Carita — Live @ Marble — 11">
+        <div class="portrait-item landscape-full" data-index="4" onclick="openLightbox(4)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-50_ywa5ez" alt="Carita — Live @ Marble — 5">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 11 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-22_wdwdwa" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 5 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-50_ywa5ez" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="5" onclick="openLightbox(5)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-64_jtk9p0" alt="Carita — Live @ Marble — 6">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 6 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-64_jtk9p0" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="6" onclick="openLightbox(6)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-54_sxtg56" alt="Carita — Live @ Marble — 7">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 7 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-54_sxtg56" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="7" onclick="openLightbox(7)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-59_qlqqwq" alt="Carita — Live @ Marble — 8">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 8 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-59_qlqqwq" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="8" onclick="openLightbox(8)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-57_utzqxz" alt="Carita — Live @ Marble — 9">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 9 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-57_utzqxz" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="9" onclick="openLightbox(9)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-52_l4nzjx" alt="Carita — Live @ Marble — 10">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 10 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-52_l4nzjx" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="10" onclick="openLightbox(10)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-82_icj5zb" alt="Carita — Live @ Marble — 11">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 11 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-82_icj5zb" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin: 56px 0 24px;">
+        <p class="eyebrow" style="margin-bottom:0;">Photos Edited by @EnriqueDoes</p>
+      </div>
+
+      <div class="portrait-grid">
         <div class="portrait-item" data-index="11" onclick="openLightbox(11)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-70_pk0nya" alt="Carita — Live @ Marble — 12">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-49_kmmonm" alt="Carita — Live @ Marble — 12">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 12 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-70_pk0nya" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 12 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-49_kmmonm" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
         <div class="portrait-item" data-index="12" onclick="openLightbox(12)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-65_ky1ony" alt="Carita — Live @ Marble — 13">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-53_cyd0af" alt="Carita — Live @ Marble — 13">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 13 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-65_ky1ony" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 13 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-53_cyd0af" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
         <div class="portrait-item" data-index="13" onclick="openLightbox(13)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-69_luowcs" alt="Carita — Live @ Marble — 14">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-60_rh1vhb" alt="Carita — Live @ Marble — 14">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 14 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-69_luowcs" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 14 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-60_rh1vhb" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
         <div class="portrait-item" data-index="14" onclick="openLightbox(14)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-3_svyyr9" alt="Carita — Live @ Marble — 15">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-6_uzmk5u" alt="Carita — Live @ Marble — 15">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 15 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-3_svyyr9" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 15 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-6_uzmk5u" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
-        <div class="portrait-item" data-index="15" onclick="openLightbox(15)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-87_nupipv" alt="Carita — Live @ Marble — 16">
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="15" onclick="openLightbox(15)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-51_rjsjfe" alt="Carita — Live @ Marble — 16">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 16 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-87_nupipv" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 16 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-51_rjsjfe" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
         <div class="portrait-item" data-index="16" onclick="openLightbox(16)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-15_v02twq" alt="Carita — Live @ Marble — 17">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-90_nmhdsa" alt="Carita — Live @ Marble — 17">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 17 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-15_v02twq" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 17 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-90_nmhdsa" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
+      </div>
+
+      <div style="text-align:center; margin: 56px 0 24px;">
+        <p class="eyebrow" style="margin-bottom:0;">All the Rest</p>
+      </div>
+
+      <div class="portrait-grid">
         <div class="portrait-item" data-index="17" onclick="openLightbox(17)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-23_p5cg9h" alt="Carita — Live @ Marble — 18">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-4_f3mrrg" alt="Carita — Live @ Marble — 18">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 18 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-23_p5cg9h" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 18 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-4_f3mrrg" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
         <div class="portrait-item" data-index="18" onclick="openLightbox(18)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-17_g04p8i" alt="Carita — Live @ Marble — 19">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-76_duxtxv" alt="Carita — Live @ Marble — 19">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 19 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-17_g04p8i" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 19 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-76_duxtxv" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
         <div class="portrait-item" data-index="19" onclick="openLightbox(19)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-36_f8zpig" alt="Carita — Live @ Marble — 20">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-77_pyfzpg" alt="Carita — Live @ Marble — 20">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 20 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-36_f8zpig" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 20 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-77_pyfzpg" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
         <div class="portrait-item" data-index="20" onclick="openLightbox(20)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-21_uahqou" alt="Carita — Live @ Marble — 21">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-63_oacjzr" alt="Carita — Live @ Marble — 21">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 21 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-21_uahqou" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="21" onclick="openLightbox(21)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-72_e1hvwf" alt="Carita — Live @ Marble — 22">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 22 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-72_e1hvwf" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 21 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-63_oacjzr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
-        <div class="portrait-item" data-index="22" onclick="openLightbox(22)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-47_f3drdf" alt="Carita — Live @ Marble — 23">
+        <div class="portrait-item" data-index="21" onclick="openLightbox(21)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-3_svyyr9" alt="Carita — Live @ Marble — 22">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 23 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-47_f3drdf" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 22 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-3_svyyr9" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
-        <div class="portrait-item" data-index="23" onclick="openLightbox(23)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-25_oa20nd" alt="Carita — Live @ Marble — 24">
+        <div class="portrait-item" data-index="22" onclick="openLightbox(22)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-87_nupipv" alt="Carita — Live @ Marble — 23">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 24 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-25_oa20nd" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 23 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-87_nupipv" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item" data-index="23" onclick="openLightbox(23)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-15_v02twq" alt="Carita — Live @ Marble — 24">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 24 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-15_v02twq" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
         <div class="portrait-item" data-index="24" onclick="openLightbox(24)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-7_dzjexr" alt="Carita — Live @ Marble — 25">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-36_f8zpig" alt="Carita — Live @ Marble — 25">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 25 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-7_dzjexr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 25 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-36_f8zpig" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
@@ -729,158 +794,352 @@
         <div class="portrait-item" data-index="25" onclick="openLightbox(25)">
           <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-44_gc9kok" alt="Carita — Live @ Marble — 26">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 26 of 45</div>
+            <div class="photo-num">Photo 26 of 62</div>
             <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-44_gc9kok" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
         <div class="portrait-item" data-index="26" onclick="openLightbox(26)">
           <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-30_onklm4" alt="Carita — Live @ Marble — 27">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 27 of 45</div>
+            <div class="photo-num">Photo 27 of 62</div>
             <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-30_onklm4" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="27" onclick="openLightbox(27)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-62_yyq8aa" alt="Carita — Live @ Marble — 28">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 28 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-62_yyq8aa" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
-        <div class="portrait-item" data-index="28" onclick="openLightbox(28)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-33_ocloqo" alt="Carita — Live @ Marble — 29">
+        <div class="portrait-item" data-index="27" onclick="openLightbox(27)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-62_yyq8aa" alt="Carita — Live @ Marble — 28">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 29 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-33_ocloqo" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 28 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-62_yyq8aa" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
-        <div class="portrait-item" data-index="29" onclick="openLightbox(29)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-73_hno2em" alt="Carita — Live @ Marble — 30">
+        <div class="portrait-item" data-index="28" onclick="openLightbox(28)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-20_wfmzag" alt="Carita — Live @ Marble — 29">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 30 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-73_hno2em" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 29 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-20_wfmzag" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item" data-index="29" onclick="openLightbox(29)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-19_d6tgmo" alt="Carita — Live @ Marble — 30">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 30 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-19_d6tgmo" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
         <div class="portrait-item" data-index="30" onclick="openLightbox(30)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-35_gmkqi0" alt="Carita — Live @ Marble — 31">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-79_mhb0pr" alt="Carita — Live @ Marble — 31">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 31 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-35_gmkqi0" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+            <div class="photo-num">Photo 31 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-79_mhb0pr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
         <div class="portrait-item" data-index="31" onclick="openLightbox(31)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-20_wfmzag" alt="Carita — Live @ Marble — 32">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-11_wrix1i" alt="Carita — Live @ Marble — 32">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 32 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-20_wfmzag" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="32" onclick="openLightbox(32)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-29_m2cmzd" alt="Carita — Live @ Marble — 33">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 33 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-29_m2cmzd" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="33" onclick="openLightbox(33)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-19_d6tgmo" alt="Carita — Live @ Marble — 34">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 34 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-19_d6tgmo" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="portrait-grid">
-        <div class="portrait-item" data-index="34" onclick="openLightbox(34)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-31_bsbyqn" alt="Carita — Live @ Marble — 35">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 35 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-31_bsbyqn" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="35" onclick="openLightbox(35)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-71_beelzy" alt="Carita — Live @ Marble — 36">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 36 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-71_beelzy" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="36" onclick="openLightbox(36)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-34_oaqwqa" alt="Carita — Live @ Marble — 37">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 37 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-34_oaqwqa" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="portrait-grid">
-        <div class="portrait-item" data-index="37" onclick="openLightbox(37)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-79_mhb0pr" alt="Carita — Live @ Marble — 38">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 38 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-79_mhb0pr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="38" onclick="openLightbox(38)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-28_k7dwoo" alt="Carita — Live @ Marble — 39">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 39 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-28_k7dwoo" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="39" onclick="openLightbox(39)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-16_o5cuhj" alt="Carita — Live @ Marble — 40">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 40 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-16_o5cuhj" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="portrait-grid">
-        <div class="portrait-item" data-index="40" onclick="openLightbox(40)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-24_tvtrat" alt="Carita — Live @ Marble — 41">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 41 of 45</div>
-            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-24_tvtrat" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
-          </div>
-        </div>
-        <div class="portrait-item" data-index="41" onclick="openLightbox(41)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-11_wrix1i" alt="Carita — Live @ Marble — 42">
-          <div class="photo-overlay">
-            <div class="photo-num">Photo 42 of 45</div>
+            <div class="photo-num">Photo 32 of 62</div>
             <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-11_wrix1i" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
-        <div class="portrait-item" data-index="42" onclick="openLightbox(42)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-27_cjnu9q" alt="Carita — Live @ Marble — 43">
+        <div class="portrait-item" data-index="32" onclick="openLightbox(32)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-27_cjnu9q" alt="Carita — Live @ Marble — 33">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 43 of 45</div>
+            <div class="photo-num">Photo 33 of 62</div>
             <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-27_cjnu9q" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
       </div>
 
       <div class="portrait-grid">
-        <div class="portrait-item" data-index="43" onclick="openLightbox(43)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-12-2_yapyuz" alt="Carita — Live @ Marble — 44">
+        <div class="portrait-item square-full" data-index="33" onclick="openLightbox(33)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-17_g04p8i" alt="Carita — Live @ Marble — 34">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 44 of 45</div>
+            <div class="photo-num">Photo 34 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-17_g04p8i" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item square-full" data-index="34" onclick="openLightbox(34)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-29_m2cmzd" alt="Carita — Live @ Marble — 35">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 35 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-29_m2cmzd" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item square-full" data-index="35" onclick="openLightbox(35)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-28_k7dwoo" alt="Carita — Live @ Marble — 36">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 36 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-28_k7dwoo" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="36" onclick="openLightbox(36)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-26_ibdxcj" alt="Carita — Live @ Marble — 37">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 37 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-26_ibdxcj" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="37" onclick="openLightbox(37)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-9_ucvjp6" alt="Carita — Live @ Marble — 38">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 38 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-9_ucvjp6" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="38" onclick="openLightbox(38)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-38_t0ephw" alt="Carita — Live @ Marble — 39">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 39 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-38_t0ephw" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="39" onclick="openLightbox(39)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-32_fsx3dp" alt="Carita — Live @ Marble — 40">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 40 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-32_fsx3dp" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="40" onclick="openLightbox(40)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-75_fgr2cb" alt="Carita — Live @ Marble — 41">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 41 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-75_fgr2cb" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="41" onclick="openLightbox(41)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-13_gc5bux" alt="Carita — Live @ Marble — 42">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 42 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-13_gc5bux" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="42" onclick="openLightbox(42)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-22_wdwdwa" alt="Carita — Live @ Marble — 43">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 43 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-22_wdwdwa" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="43" onclick="openLightbox(43)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-70_pk0nya" alt="Carita — Live @ Marble — 44">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 44 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-70_pk0nya" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="44" onclick="openLightbox(44)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-65_ky1ony" alt="Carita — Live @ Marble — 45">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 45 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-65_ky1ony" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="45" onclick="openLightbox(45)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-69_luowcs" alt="Carita — Live @ Marble — 46">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 46 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-69_luowcs" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="46" onclick="openLightbox(46)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-23_p5cg9h" alt="Carita — Live @ Marble — 47">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 47 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-23_p5cg9h" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="47" onclick="openLightbox(47)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-21_uahqou" alt="Carita — Live @ Marble — 48">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 48 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-21_uahqou" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="48" onclick="openLightbox(48)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-72_e1hvwf" alt="Carita — Live @ Marble — 49">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 49 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-72_e1hvwf" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="49" onclick="openLightbox(49)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-47_f3drdf" alt="Carita — Live @ Marble — 50">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 50 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-47_f3drdf" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="50" onclick="openLightbox(50)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-25_oa20nd" alt="Carita — Live @ Marble — 51">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 51 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-25_oa20nd" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="51" onclick="openLightbox(51)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-7_dzjexr" alt="Carita — Live @ Marble — 52">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 52 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-7_dzjexr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="52" onclick="openLightbox(52)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-33_ocloqo" alt="Carita — Live @ Marble — 53">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 53 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-33_ocloqo" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="53" onclick="openLightbox(53)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-73_hno2em" alt="Carita — Live @ Marble — 54">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 54 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-73_hno2em" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="54" onclick="openLightbox(54)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-35_gmkqi0" alt="Carita — Live @ Marble — 55">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 55 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-35_gmkqi0" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="55" onclick="openLightbox(55)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-31_bsbyqn" alt="Carita — Live @ Marble — 56">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 56 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-31_bsbyqn" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="56" onclick="openLightbox(56)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-71_beelzy" alt="Carita — Live @ Marble — 57">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 57 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-71_beelzy" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="57" onclick="openLightbox(57)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-34_oaqwqa" alt="Carita — Live @ Marble — 58">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 58 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-34_oaqwqa" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="58" onclick="openLightbox(58)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-16_o5cuhj" alt="Carita — Live @ Marble — 59">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 59 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-16_o5cuhj" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="59" onclick="openLightbox(59)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-24_tvtrat" alt="Carita — Live @ Marble — 60">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 60 of 62</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-24_tvtrat" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="60" onclick="openLightbox(60)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-12-2_yapyuz" alt="Carita — Live @ Marble — 61">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 61 of 62</div>
             <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-12-2_yapyuz" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
-        <div class="portrait-item" data-index="44" onclick="openLightbox(44)">
-          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-92-2_svpox1" alt="Carita — Live @ Marble — 45">
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="61" onclick="openLightbox(61)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/CaritaAtMarble-92-2_svpox1" alt="Carita — Live @ Marble — 62">
           <div class="photo-overlay">
-            <div class="photo-num">Photo 45 of 45</div>
+            <div class="photo-num">Photo 62 of 62</div>
             <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/CaritaAtMarble-92-2_svpox1" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
           </div>
         </div>
@@ -909,7 +1168,7 @@
   </section>
 
   <div class="download-wrap" id="download-all">
-    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=1847162502&mode=download&public_ids%5B%5D=CaritaAtMarble-26_ibdxcj&public_ids%5B%5D=CaritaAtMarble-9_ucvjp6&public_ids%5B%5D=CaritaAtMarble-4_f3mrrg&public_ids%5B%5D=CaritaAtMarble-38_t0ephw&public_ids%5B%5D=CaritaAtMarble-32_fsx3dp&public_ids%5B%5D=CaritaAtMarble-75_fgr2cb&public_ids%5B%5D=CaritaAtMarble-13_gc5bux&public_ids%5B%5D=CaritaAtMarble-76_duxtxv&public_ids%5B%5D=CaritaAtMarble-77_pyfzpg&public_ids%5B%5D=CaritaAtMarble-63_oacjzr&public_ids%5B%5D=CaritaAtMarble-22_wdwdwa&public_ids%5B%5D=CaritaAtMarble-70_pk0nya&public_ids%5B%5D=CaritaAtMarble-65_ky1ony&public_ids%5B%5D=CaritaAtMarble-69_luowcs&public_ids%5B%5D=CaritaAtMarble-3_svyyr9&public_ids%5B%5D=CaritaAtMarble-87_nupipv&public_ids%5B%5D=CaritaAtMarble-15_v02twq&public_ids%5B%5D=CaritaAtMarble-23_p5cg9h&public_ids%5B%5D=CaritaAtMarble-17_g04p8i&public_ids%5B%5D=CaritaAtMarble-36_f8zpig&public_ids%5B%5D=CaritaAtMarble-21_uahqou&public_ids%5B%5D=CaritaAtMarble-72_e1hvwf&public_ids%5B%5D=CaritaAtMarble-47_f3drdf&public_ids%5B%5D=CaritaAtMarble-25_oa20nd&public_ids%5B%5D=CaritaAtMarble-7_dzjexr&public_ids%5B%5D=CaritaAtMarble-44_gc9kok&public_ids%5B%5D=CaritaAtMarble-30_onklm4&public_ids%5B%5D=CaritaAtMarble-62_yyq8aa&public_ids%5B%5D=CaritaAtMarble-33_ocloqo&public_ids%5B%5D=CaritaAtMarble-73_hno2em&public_ids%5B%5D=CaritaAtMarble-35_gmkqi0&public_ids%5B%5D=CaritaAtMarble-20_wfmzag&public_ids%5B%5D=CaritaAtMarble-29_m2cmzd&public_ids%5B%5D=CaritaAtMarble-19_d6tgmo&public_ids%5B%5D=CaritaAtMarble-31_bsbyqn&public_ids%5B%5D=CaritaAtMarble-71_beelzy&public_ids%5B%5D=CaritaAtMarble-34_oaqwqa&public_ids%5B%5D=CaritaAtMarble-79_mhb0pr&public_ids%5B%5D=CaritaAtMarble-28_k7dwoo&public_ids%5B%5D=CaritaAtMarble-16_o5cuhj&public_ids%5B%5D=CaritaAtMarble-24_tvtrat&public_ids%5B%5D=CaritaAtMarble-11_wrix1i&public_ids%5B%5D=CaritaAtMarble-27_cjnu9q&public_ids%5B%5D=CaritaAtMarble-12-2_yapyuz&public_ids%5B%5D=CaritaAtMarble-92-2_svpox1&target_format=zip&target_public_id=Carita_Live_At_Marble_LuzByLJ&timestamp=1784094820&signature=fc36f07b3df75362f74f6c782ded5c3087c82056&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download">
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=1847162502&mode=download&public_ids%5B%5D=CaritaAtMarble-55_xcqabh&public_ids%5B%5D=CaritaAtMarble-39_hibb7x&public_ids%5B%5D=CaritaAtMarble-40_qsqvnn&public_ids%5B%5D=CaritaAtMarble-48_humie6&public_ids%5B%5D=CaritaAtMarble-50_ywa5ez&public_ids%5B%5D=CaritaAtMarble-64_jtk9p0&public_ids%5B%5D=CaritaAtMarble-54_sxtg56&public_ids%5B%5D=CaritaAtMarble-59_qlqqwq&public_ids%5B%5D=CaritaAtMarble-57_utzqxz&public_ids%5B%5D=CaritaAtMarble-52_l4nzjx&public_ids%5B%5D=CaritaAtMarble-82_icj5zb&public_ids%5B%5D=CaritaAtMarble-49_kmmonm&public_ids%5B%5D=CaritaAtMarble-51_rjsjfe&public_ids%5B%5D=CaritaAtMarble-53_cyd0af&public_ids%5B%5D=CaritaAtMarble-60_rh1vhb&public_ids%5B%5D=CaritaAtMarble-6_uzmk5u&public_ids%5B%5D=CaritaAtMarble-90_nmhdsa&public_ids%5B%5D=CaritaAtMarble-26_ibdxcj&public_ids%5B%5D=CaritaAtMarble-9_ucvjp6&public_ids%5B%5D=CaritaAtMarble-4_f3mrrg&public_ids%5B%5D=CaritaAtMarble-38_t0ephw&public_ids%5B%5D=CaritaAtMarble-32_fsx3dp&public_ids%5B%5D=CaritaAtMarble-75_fgr2cb&public_ids%5B%5D=CaritaAtMarble-13_gc5bux&public_ids%5B%5D=CaritaAtMarble-76_duxtxv&public_ids%5B%5D=CaritaAtMarble-77_pyfzpg&public_ids%5B%5D=CaritaAtMarble-63_oacjzr&public_ids%5B%5D=CaritaAtMarble-22_wdwdwa&public_ids%5B%5D=CaritaAtMarble-70_pk0nya&public_ids%5B%5D=CaritaAtMarble-65_ky1ony&public_ids%5B%5D=CaritaAtMarble-69_luowcs&public_ids%5B%5D=CaritaAtMarble-3_svyyr9&public_ids%5B%5D=CaritaAtMarble-87_nupipv&public_ids%5B%5D=CaritaAtMarble-15_v02twq&public_ids%5B%5D=CaritaAtMarble-23_p5cg9h&public_ids%5B%5D=CaritaAtMarble-36_f8zpig&public_ids%5B%5D=CaritaAtMarble-21_uahqou&public_ids%5B%5D=CaritaAtMarble-72_e1hvwf&public_ids%5B%5D=CaritaAtMarble-47_f3drdf&public_ids%5B%5D=CaritaAtMarble-25_oa20nd&public_ids%5B%5D=CaritaAtMarble-7_dzjexr&public_ids%5B%5D=CaritaAtMarble-44_gc9kok&public_ids%5B%5D=CaritaAtMarble-30_onklm4&public_ids%5B%5D=CaritaAtMarble-62_yyq8aa&public_ids%5B%5D=CaritaAtMarble-33_ocloqo&public_ids%5B%5D=CaritaAtMarble-73_hno2em&public_ids%5B%5D=CaritaAtMarble-35_gmkqi0&public_ids%5B%5D=CaritaAtMarble-20_wfmzag&public_ids%5B%5D=CaritaAtMarble-19_d6tgmo&public_ids%5B%5D=CaritaAtMarble-31_bsbyqn&public_ids%5B%5D=CaritaAtMarble-71_beelzy&public_ids%5B%5D=CaritaAtMarble-34_oaqwqa&public_ids%5B%5D=CaritaAtMarble-79_mhb0pr&public_ids%5B%5D=CaritaAtMarble-16_o5cuhj&public_ids%5B%5D=CaritaAtMarble-24_tvtrat&public_ids%5B%5D=CaritaAtMarble-11_wrix1i&public_ids%5B%5D=CaritaAtMarble-27_cjnu9q&public_ids%5B%5D=CaritaAtMarble-12-2_yapyuz&public_ids%5B%5D=CaritaAtMarble-92-2_svpox1&public_ids%5B%5D=CaritaAtMarble-17_g04p8i&public_ids%5B%5D=CaritaAtMarble-29_m2cmzd&public_ids%5B%5D=CaritaAtMarble-28_k7dwoo&target_format=zip&target_public_id=Carita_Live_At_Marble_LuzByLJ&timestamp=1784261712&signature=e771cc501ef6f8c6fae0952dbf2a0c488273cd95&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
       Download All Photos
     </a>
@@ -951,51 +1210,68 @@
 
     // Lightbox
     const photos = [
-      { id: 'CaritaAtMarble-26_ibdxcj', alt: 'Carita — Live @ Marble — 1' },
-      { id: 'CaritaAtMarble-9_ucvjp6', alt: 'Carita — Live @ Marble — 2' },
-      { id: 'CaritaAtMarble-4_f3mrrg', alt: 'Carita — Live @ Marble — 3' },
-      { id: 'CaritaAtMarble-38_t0ephw', alt: 'Carita — Live @ Marble — 4' },
-      { id: 'CaritaAtMarble-32_fsx3dp', alt: 'Carita — Live @ Marble — 5' },
-      { id: 'CaritaAtMarble-75_fgr2cb', alt: 'Carita — Live @ Marble — 6' },
-      { id: 'CaritaAtMarble-13_gc5bux', alt: 'Carita — Live @ Marble — 7' },
-      { id: 'CaritaAtMarble-76_duxtxv', alt: 'Carita — Live @ Marble — 8' },
-      { id: 'CaritaAtMarble-77_pyfzpg', alt: 'Carita — Live @ Marble — 9' },
-      { id: 'CaritaAtMarble-63_oacjzr', alt: 'Carita — Live @ Marble — 10' },
-      { id: 'CaritaAtMarble-22_wdwdwa', alt: 'Carita — Live @ Marble — 11' },
-      { id: 'CaritaAtMarble-70_pk0nya', alt: 'Carita — Live @ Marble — 12' },
-      { id: 'CaritaAtMarble-65_ky1ony', alt: 'Carita — Live @ Marble — 13' },
-      { id: 'CaritaAtMarble-69_luowcs', alt: 'Carita — Live @ Marble — 14' },
-      { id: 'CaritaAtMarble-3_svyyr9', alt: 'Carita — Live @ Marble — 15' },
-      { id: 'CaritaAtMarble-87_nupipv', alt: 'Carita — Live @ Marble — 16' },
-      { id: 'CaritaAtMarble-15_v02twq', alt: 'Carita — Live @ Marble — 17' },
-      { id: 'CaritaAtMarble-23_p5cg9h', alt: 'Carita — Live @ Marble — 18' },
-      { id: 'CaritaAtMarble-17_g04p8i', alt: 'Carita — Live @ Marble — 19' },
-      { id: 'CaritaAtMarble-36_f8zpig', alt: 'Carita — Live @ Marble — 20' },
-      { id: 'CaritaAtMarble-21_uahqou', alt: 'Carita — Live @ Marble — 21' },
-      { id: 'CaritaAtMarble-72_e1hvwf', alt: 'Carita — Live @ Marble — 22' },
-      { id: 'CaritaAtMarble-47_f3drdf', alt: 'Carita — Live @ Marble — 23' },
-      { id: 'CaritaAtMarble-25_oa20nd', alt: 'Carita — Live @ Marble — 24' },
-      { id: 'CaritaAtMarble-7_dzjexr', alt: 'Carita — Live @ Marble — 25' },
+      { id: 'CaritaAtMarble-55_xcqabh', alt: 'Carita — Live @ Marble — 1' },
+      { id: 'CaritaAtMarble-40_qsqvnn', alt: 'Carita — Live @ Marble — 2' },
+      { id: 'CaritaAtMarble-39_hibb7x', alt: 'Carita — Live @ Marble — 3' },
+      { id: 'CaritaAtMarble-48_humie6', alt: 'Carita — Live @ Marble — 4' },
+      { id: 'CaritaAtMarble-50_ywa5ez', alt: 'Carita — Live @ Marble — 5' },
+      { id: 'CaritaAtMarble-64_jtk9p0', alt: 'Carita — Live @ Marble — 6' },
+      { id: 'CaritaAtMarble-54_sxtg56', alt: 'Carita — Live @ Marble — 7' },
+      { id: 'CaritaAtMarble-59_qlqqwq', alt: 'Carita — Live @ Marble — 8' },
+      { id: 'CaritaAtMarble-57_utzqxz', alt: 'Carita — Live @ Marble — 9' },
+      { id: 'CaritaAtMarble-52_l4nzjx', alt: 'Carita — Live @ Marble — 10' },
+      { id: 'CaritaAtMarble-82_icj5zb', alt: 'Carita — Live @ Marble — 11' },
+      { id: 'CaritaAtMarble-49_kmmonm', alt: 'Carita — Live @ Marble — 12' },
+      { id: 'CaritaAtMarble-53_cyd0af', alt: 'Carita — Live @ Marble — 13' },
+      { id: 'CaritaAtMarble-60_rh1vhb', alt: 'Carita — Live @ Marble — 14' },
+      { id: 'CaritaAtMarble-6_uzmk5u', alt: 'Carita — Live @ Marble — 15' },
+      { id: 'CaritaAtMarble-51_rjsjfe', alt: 'Carita — Live @ Marble — 16' },
+      { id: 'CaritaAtMarble-90_nmhdsa', alt: 'Carita — Live @ Marble — 17' },
+      { id: 'CaritaAtMarble-4_f3mrrg', alt: 'Carita — Live @ Marble — 18' },
+      { id: 'CaritaAtMarble-76_duxtxv', alt: 'Carita — Live @ Marble — 19' },
+      { id: 'CaritaAtMarble-77_pyfzpg', alt: 'Carita — Live @ Marble — 20' },
+      { id: 'CaritaAtMarble-63_oacjzr', alt: 'Carita — Live @ Marble — 21' },
+      { id: 'CaritaAtMarble-3_svyyr9', alt: 'Carita — Live @ Marble — 22' },
+      { id: 'CaritaAtMarble-87_nupipv', alt: 'Carita — Live @ Marble — 23' },
+      { id: 'CaritaAtMarble-15_v02twq', alt: 'Carita — Live @ Marble — 24' },
+      { id: 'CaritaAtMarble-36_f8zpig', alt: 'Carita — Live @ Marble — 25' },
       { id: 'CaritaAtMarble-44_gc9kok', alt: 'Carita — Live @ Marble — 26' },
       { id: 'CaritaAtMarble-30_onklm4', alt: 'Carita — Live @ Marble — 27' },
       { id: 'CaritaAtMarble-62_yyq8aa', alt: 'Carita — Live @ Marble — 28' },
-      { id: 'CaritaAtMarble-33_ocloqo', alt: 'Carita — Live @ Marble — 29' },
-      { id: 'CaritaAtMarble-73_hno2em', alt: 'Carita — Live @ Marble — 30' },
-      { id: 'CaritaAtMarble-35_gmkqi0', alt: 'Carita — Live @ Marble — 31' },
-      { id: 'CaritaAtMarble-20_wfmzag', alt: 'Carita — Live @ Marble — 32' },
-      { id: 'CaritaAtMarble-29_m2cmzd', alt: 'Carita — Live @ Marble — 33' },
-      { id: 'CaritaAtMarble-19_d6tgmo', alt: 'Carita — Live @ Marble — 34' },
-      { id: 'CaritaAtMarble-31_bsbyqn', alt: 'Carita — Live @ Marble — 35' },
-      { id: 'CaritaAtMarble-71_beelzy', alt: 'Carita — Live @ Marble — 36' },
-      { id: 'CaritaAtMarble-34_oaqwqa', alt: 'Carita — Live @ Marble — 37' },
-      { id: 'CaritaAtMarble-79_mhb0pr', alt: 'Carita — Live @ Marble — 38' },
-      { id: 'CaritaAtMarble-28_k7dwoo', alt: 'Carita — Live @ Marble — 39' },
-      { id: 'CaritaAtMarble-16_o5cuhj', alt: 'Carita — Live @ Marble — 40' },
-      { id: 'CaritaAtMarble-24_tvtrat', alt: 'Carita — Live @ Marble — 41' },
-      { id: 'CaritaAtMarble-11_wrix1i', alt: 'Carita — Live @ Marble — 42' },
-      { id: 'CaritaAtMarble-27_cjnu9q', alt: 'Carita — Live @ Marble — 43' },
-      { id: 'CaritaAtMarble-12-2_yapyuz', alt: 'Carita — Live @ Marble — 44' },
-      { id: 'CaritaAtMarble-92-2_svpox1', alt: 'Carita — Live @ Marble — 45' }
+      { id: 'CaritaAtMarble-20_wfmzag', alt: 'Carita — Live @ Marble — 29' },
+      { id: 'CaritaAtMarble-19_d6tgmo', alt: 'Carita — Live @ Marble — 30' },
+      { id: 'CaritaAtMarble-79_mhb0pr', alt: 'Carita — Live @ Marble — 31' },
+      { id: 'CaritaAtMarble-11_wrix1i', alt: 'Carita — Live @ Marble — 32' },
+      { id: 'CaritaAtMarble-27_cjnu9q', alt: 'Carita — Live @ Marble — 33' },
+      { id: 'CaritaAtMarble-17_g04p8i', alt: 'Carita — Live @ Marble — 34' },
+      { id: 'CaritaAtMarble-29_m2cmzd', alt: 'Carita — Live @ Marble — 35' },
+      { id: 'CaritaAtMarble-28_k7dwoo', alt: 'Carita — Live @ Marble — 36' },
+      { id: 'CaritaAtMarble-26_ibdxcj', alt: 'Carita — Live @ Marble — 37' },
+      { id: 'CaritaAtMarble-9_ucvjp6', alt: 'Carita — Live @ Marble — 38' },
+      { id: 'CaritaAtMarble-38_t0ephw', alt: 'Carita — Live @ Marble — 39' },
+      { id: 'CaritaAtMarble-32_fsx3dp', alt: 'Carita — Live @ Marble — 40' },
+      { id: 'CaritaAtMarble-75_fgr2cb', alt: 'Carita — Live @ Marble — 41' },
+      { id: 'CaritaAtMarble-13_gc5bux', alt: 'Carita — Live @ Marble — 42' },
+      { id: 'CaritaAtMarble-22_wdwdwa', alt: 'Carita — Live @ Marble — 43' },
+      { id: 'CaritaAtMarble-70_pk0nya', alt: 'Carita — Live @ Marble — 44' },
+      { id: 'CaritaAtMarble-65_ky1ony', alt: 'Carita — Live @ Marble — 45' },
+      { id: 'CaritaAtMarble-69_luowcs', alt: 'Carita — Live @ Marble — 46' },
+      { id: 'CaritaAtMarble-23_p5cg9h', alt: 'Carita — Live @ Marble — 47' },
+      { id: 'CaritaAtMarble-21_uahqou', alt: 'Carita — Live @ Marble — 48' },
+      { id: 'CaritaAtMarble-72_e1hvwf', alt: 'Carita — Live @ Marble — 49' },
+      { id: 'CaritaAtMarble-47_f3drdf', alt: 'Carita — Live @ Marble — 50' },
+      { id: 'CaritaAtMarble-25_oa20nd', alt: 'Carita — Live @ Marble — 51' },
+      { id: 'CaritaAtMarble-7_dzjexr', alt: 'Carita — Live @ Marble — 52' },
+      { id: 'CaritaAtMarble-33_ocloqo', alt: 'Carita — Live @ Marble — 53' },
+      { id: 'CaritaAtMarble-73_hno2em', alt: 'Carita — Live @ Marble — 54' },
+      { id: 'CaritaAtMarble-35_gmkqi0', alt: 'Carita — Live @ Marble — 55' },
+      { id: 'CaritaAtMarble-31_bsbyqn', alt: 'Carita — Live @ Marble — 56' },
+      { id: 'CaritaAtMarble-71_beelzy', alt: 'Carita — Live @ Marble — 57' },
+      { id: 'CaritaAtMarble-34_oaqwqa', alt: 'Carita — Live @ Marble — 58' },
+      { id: 'CaritaAtMarble-16_o5cuhj', alt: 'Carita — Live @ Marble — 59' },
+      { id: 'CaritaAtMarble-24_tvtrat', alt: 'Carita — Live @ Marble — 60' },
+      { id: 'CaritaAtMarble-12-2_yapyuz', alt: 'Carita — Live @ Marble — 61' },
+      { id: 'CaritaAtMarble-92-2_svpox1', alt: 'Carita — Live @ Marble — 62' }
     ];
     let currentIndex = 0;
 
@@ -1099,6 +1375,7 @@
       // Download All — share all photos at once on iOS
       const dlAllBtn = document.querySelector('#download-all .btn-download');
       if (dlAllBtn) {
+        dlAllBtn.dataset.zipHref = dlAllBtn.getAttribute('href');
         dlAllBtn.removeAttribute('href');
         dlAllBtn.removeAttribute('target');
         dlAllBtn.style.cursor = 'pointer';
@@ -1114,7 +1391,9 @@
               return new File([blob], p.id + '.jpg', { type: blob.type });
             }));
             await navigator.share({ files });
-          } catch(e) { /* cancelled */ }
+          } catch(e) {
+            if (e.name !== 'AbortError') window.location.href = dlAllBtn.dataset.zipHref;
+          }
           dlAllBtn.innerHTML = original;
         });
       }
