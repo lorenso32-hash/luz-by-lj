@@ -151,9 +151,16 @@
 
     /* DOWNLOAD BUTTON */
     .download-wrap {
-      display: flex; justify-content: center;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
       position: relative; z-index: 1;
       padding: 0 0 60px;
+    }
+    .download-wrap-note {
+      text-align: center;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      margin: -4px 0 6px;
     }
     .btn-download {
       display: inline-flex; align-items: center; gap: 10px;
@@ -1168,9 +1175,22 @@
   </section>
 
   <div class="download-wrap" id="download-all">
-    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=1847162502&mode=download&public_ids%5B%5D=CaritaAtMarble-55_xcqabh&public_ids%5B%5D=CaritaAtMarble-39_hibb7x&public_ids%5B%5D=CaritaAtMarble-40_qsqvnn&public_ids%5B%5D=CaritaAtMarble-48_humie6&public_ids%5B%5D=CaritaAtMarble-50_ywa5ez&public_ids%5B%5D=CaritaAtMarble-64_jtk9p0&public_ids%5B%5D=CaritaAtMarble-54_sxtg56&public_ids%5B%5D=CaritaAtMarble-59_qlqqwq&public_ids%5B%5D=CaritaAtMarble-57_utzqxz&public_ids%5B%5D=CaritaAtMarble-52_l4nzjx&public_ids%5B%5D=CaritaAtMarble-82_icj5zb&public_ids%5B%5D=CaritaAtMarble-49_kmmonm&public_ids%5B%5D=CaritaAtMarble-51_rjsjfe&public_ids%5B%5D=CaritaAtMarble-53_cyd0af&public_ids%5B%5D=CaritaAtMarble-60_rh1vhb&public_ids%5B%5D=CaritaAtMarble-6_uzmk5u&public_ids%5B%5D=CaritaAtMarble-90_nmhdsa&public_ids%5B%5D=CaritaAtMarble-26_ibdxcj&public_ids%5B%5D=CaritaAtMarble-9_ucvjp6&public_ids%5B%5D=CaritaAtMarble-4_f3mrrg&public_ids%5B%5D=CaritaAtMarble-38_t0ephw&public_ids%5B%5D=CaritaAtMarble-32_fsx3dp&public_ids%5B%5D=CaritaAtMarble-75_fgr2cb&public_ids%5B%5D=CaritaAtMarble-13_gc5bux&public_ids%5B%5D=CaritaAtMarble-76_duxtxv&public_ids%5B%5D=CaritaAtMarble-77_pyfzpg&public_ids%5B%5D=CaritaAtMarble-63_oacjzr&public_ids%5B%5D=CaritaAtMarble-22_wdwdwa&public_ids%5B%5D=CaritaAtMarble-70_pk0nya&public_ids%5B%5D=CaritaAtMarble-65_ky1ony&public_ids%5B%5D=CaritaAtMarble-69_luowcs&public_ids%5B%5D=CaritaAtMarble-3_svyyr9&public_ids%5B%5D=CaritaAtMarble-87_nupipv&public_ids%5B%5D=CaritaAtMarble-15_v02twq&public_ids%5B%5D=CaritaAtMarble-23_p5cg9h&public_ids%5B%5D=CaritaAtMarble-36_f8zpig&public_ids%5B%5D=CaritaAtMarble-21_uahqou&public_ids%5B%5D=CaritaAtMarble-72_e1hvwf&public_ids%5B%5D=CaritaAtMarble-47_f3drdf&public_ids%5B%5D=CaritaAtMarble-25_oa20nd&public_ids%5B%5D=CaritaAtMarble-7_dzjexr&public_ids%5B%5D=CaritaAtMarble-44_gc9kok&public_ids%5B%5D=CaritaAtMarble-30_onklm4&public_ids%5B%5D=CaritaAtMarble-62_yyq8aa&public_ids%5B%5D=CaritaAtMarble-33_ocloqo&public_ids%5B%5D=CaritaAtMarble-73_hno2em&public_ids%5B%5D=CaritaAtMarble-35_gmkqi0&public_ids%5B%5D=CaritaAtMarble-20_wfmzag&public_ids%5B%5D=CaritaAtMarble-19_d6tgmo&public_ids%5B%5D=CaritaAtMarble-31_bsbyqn&public_ids%5B%5D=CaritaAtMarble-71_beelzy&public_ids%5B%5D=CaritaAtMarble-34_oaqwqa&public_ids%5B%5D=CaritaAtMarble-79_mhb0pr&public_ids%5B%5D=CaritaAtMarble-16_o5cuhj&public_ids%5B%5D=CaritaAtMarble-24_tvtrat&public_ids%5B%5D=CaritaAtMarble-11_wrix1i&public_ids%5B%5D=CaritaAtMarble-27_cjnu9q&public_ids%5B%5D=CaritaAtMarble-12-2_yapyuz&public_ids%5B%5D=CaritaAtMarble-92-2_svpox1&public_ids%5B%5D=CaritaAtMarble-17_g04p8i&public_ids%5B%5D=CaritaAtMarble-29_m2cmzd&public_ids%5B%5D=CaritaAtMarble-28_k7dwoo&target_format=zip&target_public_id=Carita_Live_At_Marble_LuzByLJ&timestamp=1784261712&signature=e771cc501ef6f8c6fae0952dbf2a0c488273cd95&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download">
+    <p class="download-wrap-note">Gallery is split into 4 parts to keep each download working reliably.</p>
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=9999999999&mode=download&public_ids%5B%5D=CaritaAtMarble-55_xcqabh&public_ids%5B%5D=CaritaAtMarble-40_qsqvnn&public_ids%5B%5D=CaritaAtMarble-39_hibb7x&public_ids%5B%5D=CaritaAtMarble-48_humie6&public_ids%5B%5D=CaritaAtMarble-50_ywa5ez&public_ids%5B%5D=CaritaAtMarble-64_jtk9p0&public_ids%5B%5D=CaritaAtMarble-54_sxtg56&public_ids%5B%5D=CaritaAtMarble-59_qlqqwq&public_ids%5B%5D=CaritaAtMarble-57_utzqxz&public_ids%5B%5D=CaritaAtMarble-52_l4nzjx&public_ids%5B%5D=CaritaAtMarble-82_icj5zb&target_format=zip&target_public_id=Carita_Live_At_Marble_LuzByLJ_Part1&timestamp=1784334015&signature=ddde43636557e1e35e87e9b14a764aaab060cefe&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download" data-part="1" data-ids="CaritaAtMarble-55_xcqabh,CaritaAtMarble-40_qsqvnn,CaritaAtMarble-39_hibb7x,CaritaAtMarble-48_humie6,CaritaAtMarble-50_ywa5ez,CaritaAtMarble-64_jtk9p0,CaritaAtMarble-54_sxtg56,CaritaAtMarble-59_qlqqwq,CaritaAtMarble-57_utzqxz,CaritaAtMarble-52_l4nzjx,CaritaAtMarble-82_icj5zb">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
-      Download All Photos
+      Download All &mdash; Part 1 of 4
+    </a>
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=9999999999&mode=download&public_ids%5B%5D=CaritaAtMarble-49_kmmonm&public_ids%5B%5D=CaritaAtMarble-53_cyd0af&public_ids%5B%5D=CaritaAtMarble-60_rh1vhb&public_ids%5B%5D=CaritaAtMarble-6_uzmk5u&public_ids%5B%5D=CaritaAtMarble-51_rjsjfe&public_ids%5B%5D=CaritaAtMarble-90_nmhdsa&public_ids%5B%5D=CaritaAtMarble-4_f3mrrg&public_ids%5B%5D=CaritaAtMarble-76_duxtxv&public_ids%5B%5D=CaritaAtMarble-77_pyfzpg&public_ids%5B%5D=CaritaAtMarble-63_oacjzr&public_ids%5B%5D=CaritaAtMarble-3_svyyr9&public_ids%5B%5D=CaritaAtMarble-87_nupipv&public_ids%5B%5D=CaritaAtMarble-15_v02twq&public_ids%5B%5D=CaritaAtMarble-36_f8zpig&public_ids%5B%5D=CaritaAtMarble-44_gc9kok&public_ids%5B%5D=CaritaAtMarble-30_onklm4&public_ids%5B%5D=CaritaAtMarble-62_yyq8aa&public_ids%5B%5D=CaritaAtMarble-20_wfmzag&target_format=zip&target_public_id=Carita_Live_At_Marble_LuzByLJ_Part2&timestamp=1784334015&signature=9471bdb7349b5e2b75c98bb6d016ce7f64624cce&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download" data-part="2" data-ids="CaritaAtMarble-49_kmmonm,CaritaAtMarble-53_cyd0af,CaritaAtMarble-60_rh1vhb,CaritaAtMarble-6_uzmk5u,CaritaAtMarble-51_rjsjfe,CaritaAtMarble-90_nmhdsa,CaritaAtMarble-4_f3mrrg,CaritaAtMarble-76_duxtxv,CaritaAtMarble-77_pyfzpg,CaritaAtMarble-63_oacjzr,CaritaAtMarble-3_svyyr9,CaritaAtMarble-87_nupipv,CaritaAtMarble-15_v02twq,CaritaAtMarble-36_f8zpig,CaritaAtMarble-44_gc9kok,CaritaAtMarble-30_onklm4,CaritaAtMarble-62_yyq8aa,CaritaAtMarble-20_wfmzag">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+      Download All &mdash; Part 2 of 4
+    </a>
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=9999999999&mode=download&public_ids%5B%5D=CaritaAtMarble-19_d6tgmo&public_ids%5B%5D=CaritaAtMarble-79_mhb0pr&public_ids%5B%5D=CaritaAtMarble-11_wrix1i&public_ids%5B%5D=CaritaAtMarble-27_cjnu9q&public_ids%5B%5D=CaritaAtMarble-17_g04p8i&public_ids%5B%5D=CaritaAtMarble-29_m2cmzd&public_ids%5B%5D=CaritaAtMarble-28_k7dwoo&public_ids%5B%5D=CaritaAtMarble-26_ibdxcj&public_ids%5B%5D=CaritaAtMarble-9_ucvjp6&public_ids%5B%5D=CaritaAtMarble-38_t0ephw&public_ids%5B%5D=CaritaAtMarble-32_fsx3dp&public_ids%5B%5D=CaritaAtMarble-75_fgr2cb&public_ids%5B%5D=CaritaAtMarble-13_gc5bux&public_ids%5B%5D=CaritaAtMarble-22_wdwdwa&public_ids%5B%5D=CaritaAtMarble-70_pk0nya&public_ids%5B%5D=CaritaAtMarble-65_ky1ony&public_ids%5B%5D=CaritaAtMarble-69_luowcs&public_ids%5B%5D=CaritaAtMarble-23_p5cg9h&target_format=zip&target_public_id=Carita_Live_At_Marble_LuzByLJ_Part3&timestamp=1784334015&signature=dbe4cc7e1ab4e3340a90245fa15ed35bd02a9ee0&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download" data-part="3" data-ids="CaritaAtMarble-19_d6tgmo,CaritaAtMarble-79_mhb0pr,CaritaAtMarble-11_wrix1i,CaritaAtMarble-27_cjnu9q,CaritaAtMarble-17_g04p8i,CaritaAtMarble-29_m2cmzd,CaritaAtMarble-28_k7dwoo,CaritaAtMarble-26_ibdxcj,CaritaAtMarble-9_ucvjp6,CaritaAtMarble-38_t0ephw,CaritaAtMarble-32_fsx3dp,CaritaAtMarble-75_fgr2cb,CaritaAtMarble-13_gc5bux,CaritaAtMarble-22_wdwdwa,CaritaAtMarble-70_pk0nya,CaritaAtMarble-65_ky1ony,CaritaAtMarble-69_luowcs,CaritaAtMarble-23_p5cg9h">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+      Download All &mdash; Part 3 of 4
+    </a>
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=9999999999&mode=download&public_ids%5B%5D=CaritaAtMarble-21_uahqou&public_ids%5B%5D=CaritaAtMarble-72_e1hvwf&public_ids%5B%5D=CaritaAtMarble-47_f3drdf&public_ids%5B%5D=CaritaAtMarble-25_oa20nd&public_ids%5B%5D=CaritaAtMarble-7_dzjexr&public_ids%5B%5D=CaritaAtMarble-33_ocloqo&public_ids%5B%5D=CaritaAtMarble-73_hno2em&public_ids%5B%5D=CaritaAtMarble-35_gmkqi0&public_ids%5B%5D=CaritaAtMarble-31_bsbyqn&public_ids%5B%5D=CaritaAtMarble-71_beelzy&public_ids%5B%5D=CaritaAtMarble-34_oaqwqa&public_ids%5B%5D=CaritaAtMarble-16_o5cuhj&public_ids%5B%5D=CaritaAtMarble-24_tvtrat&public_ids%5B%5D=CaritaAtMarble-12-2_yapyuz&public_ids%5B%5D=CaritaAtMarble-92-2_svpox1&target_format=zip&target_public_id=Carita_Live_At_Marble_LuzByLJ_Part4&timestamp=1784334015&signature=7965bddfedb6674f30e8f0bfa9fb4035d62f3955&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download" data-part="4" data-ids="CaritaAtMarble-21_uahqou,CaritaAtMarble-72_e1hvwf,CaritaAtMarble-47_f3drdf,CaritaAtMarble-25_oa20nd,CaritaAtMarble-7_dzjexr,CaritaAtMarble-33_ocloqo,CaritaAtMarble-73_hno2em,CaritaAtMarble-35_gmkqi0,CaritaAtMarble-31_bsbyqn,CaritaAtMarble-71_beelzy,CaritaAtMarble-34_oaqwqa,CaritaAtMarble-16_o5cuhj,CaritaAtMarble-24_tvtrat,CaritaAtMarble-12-2_yapyuz,CaritaAtMarble-92-2_svpox1">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+      Download All &mdash; Part 4 of 4
     </a>
   </div>
 
@@ -1372,9 +1392,11 @@
         });
       });
 
-      // Download All — share all photos at once on iOS
-      const dlAllBtn = document.querySelector('#download-all .btn-download');
-      if (dlAllBtn) {
+      // Download All — each part shares just its own photo subset on iOS
+      // (kept in sync with the zip's own part boundaries, so this never has
+      // to fetch more photos at once than a single zip part already holds)
+      document.querySelectorAll('#download-all .btn-download').forEach(function(dlAllBtn) {
+        const partIds = (dlAllBtn.dataset.ids || '').split(',').filter(Boolean);
         dlAllBtn.dataset.zipHref = dlAllBtn.getAttribute('href');
         dlAllBtn.removeAttribute('href');
         dlAllBtn.removeAttribute('target');
@@ -1384,11 +1406,11 @@
           const original = dlAllBtn.innerHTML;
           dlAllBtn.textContent = 'Loading...';
           try {
-            const files = await Promise.all(photos.map(async (p, i) => {
-              dlAllBtn.textContent = `Loading... (${i + 1}/${photos.length})`;
-              const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${p.id}`);
+            const files = await Promise.all(partIds.map(async (id, i) => {
+              dlAllBtn.textContent = `Loading... (${i + 1}/${partIds.length})`;
+              const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${id}`);
               const blob = await resp.blob();
-              return new File([blob], p.id + '.jpg', { type: blob.type });
+              return new File([blob], id + '.jpg', { type: blob.type });
             }));
             await navigator.share({ files });
           } catch(e) {
@@ -1396,7 +1418,7 @@
           }
           dlAllBtn.innerHTML = original;
         });
-      }
+      });
     })();
 
     // Carousel swipe hint — fade on first scroll
