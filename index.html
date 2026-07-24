@@ -512,7 +512,6 @@
       display: flex; align-items: flex-end;
       padding: 20px;
     }
-    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
     .gallery-item-label {
       font-family: var(--font-display);
       font-size: 12px; letter-spacing: 3px;
@@ -1222,6 +1221,7 @@
       filter: brightness(0.92);
     }
     .band-item:hover img { filter: brightness(1); }
+    .band-item.landscape img { object-fit: contain !important; background: rgba(5,1,33,0.6); }
     .band-item .gallery-item-overlay {
       position: absolute; inset: 0;
       background: rgba(5,1,33,0.5);
@@ -1229,7 +1229,6 @@
       padding: 12px;
       opacity: 0; transition: opacity 0.3s;
     }
-    .band-item:hover .gallery-item-overlay { opacity: 1; }
     @media (max-width: 900px) { .band-grid { grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 560px) { .band-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; } }
 
@@ -2009,7 +2008,7 @@
       <h2 class="section-heading">At the Show</h2>
       <div class="rule-accent"></div>
       <div class="band-grid levi-desktop-grid">
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-15_trdvqv')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-15_trdvqv')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-15_trdvqv" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
@@ -2029,7 +2028,7 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-10_psszkw" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-12_lpeefw')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-12_lpeefw')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-12_lpeefw" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
@@ -2057,15 +2056,15 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-22_mkdtnv" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-23_nw1yw3')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-23_nw1yw3')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-23_nw1yw3" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-24_bsegmg')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-24_bsegmg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-24_bsegmg" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-25_zmz6ih')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-25_zmz6ih')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-25_zmz6ih" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
@@ -2077,11 +2076,11 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-3_zsbbvm" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-4_o0y8gt')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-4_o0y8gt')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-4_o0y8gt" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-5_icxhyc')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-5_icxhyc')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-5_icxhyc" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
@@ -2089,7 +2088,7 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-6_av4kzh" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-7_n9ndzk')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-7_n9ndzk')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-7_n9ndzk" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
@@ -2097,7 +2096,7 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-8_jzqs68" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-9_twebdx')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-9_twebdx')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/RaulPacheco1-9_twebdx" alt="Raul Pacheco">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
         </div>
@@ -2112,29 +2111,29 @@
         <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
         <div class="tap-hint">Tap · Full Res</div>
         <div class="live-mobile-grid levi-mobile-grid">
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-15_trdvqv')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-15_trdvqv" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-15_trdvqv')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-15_trdvqv" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-16_suon2s')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-16_suon2s" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-19_hodauw')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-19_hodauw" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-13_oratcl')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-13_oratcl" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-10_psszkw')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-10_psszkw" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-12_lpeefw')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-12_lpeefw" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-12_lpeefw')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-12_lpeefw" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-14_rwfsuu')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-14_rwfsuu" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-17_ahy2q5')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-17_ahy2q5" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-18_laypd1')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-18_laypd1" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-20_kktdi9')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-20_kktdi9" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-21_mekgcr')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-21_mekgcr" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-22_mkdtnv')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-22_mkdtnv" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-23_nw1yw3')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-23_nw1yw3" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-24_bsegmg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-24_bsegmg" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-25_zmz6ih')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-25_zmz6ih" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-23_nw1yw3')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-23_nw1yw3" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-24_bsegmg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-24_bsegmg" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-25_zmz6ih')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-25_zmz6ih" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-2_fitd1s')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-2_fitd1s" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-3_zsbbvm')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-3_zsbbvm" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-4_o0y8gt')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-4_o0y8gt" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-5_icxhyc')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-5_icxhyc" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-4_o0y8gt')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-4_o0y8gt" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-5_icxhyc')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-5_icxhyc" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-6_av4kzh')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-6_av4kzh" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-7_n9ndzk')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-7_n9ndzk" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-7_n9ndzk')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-7_n9ndzk" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-8_jzqs68')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-8_jzqs68" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1-9_twebdx')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-9_twebdx" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('RaulPacheco1-9_twebdx')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1-9_twebdx" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('RaulPacheco1_lj8ur7')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/RaulPacheco1_lj8ur7" alt="Raul Pacheco" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div></div>
         </div>
       </div>
@@ -2146,7 +2145,7 @@
     <div style="position:relative; background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/Untitled-26_pn6ah3.jpg'); background-size: cover; background-position: center; background-attachment: fixed; padding: 0 0 80px 0;"><div style="position:absolute;inset:0;background:rgba(5,1,33,0.75);z-index:0;"></div>
     <div class="container" style="position:relative;z-index:1;">
       <div class="band-grid levi-desktop-grid">
-        <div class="band-item" onclick="openLightboxFromBand('LeviPlayingBackground_qziqvz.jpg')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('LeviPlayingBackground_qziqvz.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
@@ -2154,7 +2153,7 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Untitled-3_myzmfq.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('Untitled-5_maaxqq.jpg')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-5_maaxqq.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Untitled-5_maaxqq.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
@@ -2194,7 +2193,7 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Untitled-22_frsqvr.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('Untitled-24_mzppox.jpg')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-24_mzppox.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Untitled-24_mzppox.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
@@ -2202,15 +2201,15 @@
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Untitled-25_c1tfiz.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('Untitled-26_pn6ah3.jpg')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-26_pn6ah3.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Untitled-26_pn6ah3.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('Untitled-29_tmc2nw.jpg')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-29_tmc2nw.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Untitled-29_tmc2nw.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('Untitled-30_doqzxm.jpg')">
+        <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-30_doqzxm.jpg')">
           <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/Untitled-30_doqzxm.jpg" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
@@ -2233,9 +2232,9 @@
         <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
         <div class="tap-hint">Tap · Full Res</div>
         <div class="live-mobile-grid levi-mobile-grid">
-          <div class="band-item" onclick="openLightboxFromBand('LeviPlayingBackground_qziqvz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('LeviPlayingBackground_qziqvz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-3_myzmfq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-3_myzmfq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-5_maaxqq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-5_maaxqq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-5_maaxqq.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-5_maaxqq.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-6_zksuji.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-6_zksuji.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-8_vazriz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-8_vazriz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-9_niicct.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-9_niicct.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
@@ -2245,11 +2244,11 @@
           <div class="band-item" onclick="openLightboxFromBand('Untitled-19_fgf8vy.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-19_fgf8vy.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-20_b5o25n.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-20_b5o25n.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-22_frsqvr.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-22_frsqvr.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-24_mzppox.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-24_mzppox.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-24_mzppox.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-24_mzppox.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-25_c1tfiz.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-25_c1tfiz.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-26_pn6ah3.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-26_pn6ah3.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-29_tmc2nw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-29_tmc2nw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
-          <div class="band-item" onclick="openLightboxFromBand('Untitled-30_doqzxm.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-30_doqzxm.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-26_pn6ah3.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-26_pn6ah3.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-29_tmc2nw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-29_tmc2nw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
+          <div class="band-item landscape" onclick="openLightboxFromBand('Untitled-30_doqzxm.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-30_doqzxm.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-33_wxrqgw.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-33_wxrqgw.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-34_bfxx5d.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-34_bfxx5d.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
           <div class="band-item" onclick="openLightboxFromBand('Untitled-35_ddugmy.jpg')"><img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/Untitled-35_ddugmy.jpg" alt="Live show" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div></div>
@@ -2259,51 +2258,47 @@
     </div>
     </div>
 
-    <!-- Leah block -->
+    <!-- Carita @ Marble block -->
     <div style="position:relative; background-image: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/LeviPlayingBackground_qziqvz.jpg'); background-size: cover; background-position: center; background-attachment: fixed; padding: 0 0 80px 0;"><div style="position:absolute;inset:0;background:rgba(5,1,33,0.75);z-index:0;"></div>
     <div class="container" style="position:relative;z-index:1;">
       <div class="band-carousel-wrap">
       <div class="swipe-hint">Swipe &nbsp;&#8594;</div>
       <div class="tap-hint">Tap · Full Res</div>
       <div class="band-grid">
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-2.jpg" alt="Live show">
+        <div class="band-item landscape" onclick="openLightboxFromBand('CaritaAtMarble-24_tvtrat')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-24_tvtrat" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-5.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-5.jpg" alt="Live show">
+        <div class="band-item landscape" onclick="openLightboxFromBand('CaritaAtMarble-54_sxtg56')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-54_sxtg56" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-
-
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live-8.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live-8.jpg" alt="Live show">
+        <div class="band-item" onclick="openLightboxFromBand('CaritaAtMarble-15_v02twq')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-15_v02twq" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/Leah Live 2-2.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/Leah Live 2-2.jpg" alt="Live show">
+        <div class="band-item landscape" onclick="openLightboxFromBand('CaritaAtMarble-59_qlqqwq')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-59_qlqqwq" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive3.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive3.jpg" alt="Live show">
+        <div class="band-item landscape" onclick="openLightboxFromBand('CaritaAtMarble-34_oaqwqa')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-34_oaqwqa" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive4.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive4.jpg" alt="Live show">
+        <div class="band-item" onclick="openLightboxFromBand('CaritaAtMarble-30_onklm4')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-30_onklm4" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive5.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive5.jpg" alt="Live show">
+        <div class="band-item" onclick="openLightboxFromBand('CaritaAtMarble-20_wfmzag')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-20_wfmzag" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive7.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive7.jpg" alt="Live show">
+        <div class="band-item landscape" onclick="openLightboxFromBand('CaritaAtMarble-12-2_yapyuz')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-12-2_yapyuz" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
-        <div class="band-item" onclick="openLightboxFromBand('photos/leah-live/LeahLive8.jpg')">
-          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/photos/leah-live/LeahLive8.jpg" alt="Live show">
+        <div class="band-item landscape" onclick="openLightboxFromBand('CaritaAtMarble-82_icj5zb')">
+          <img loading="lazy" src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1000,f_auto,q_auto/CaritaAtMarble-82_icj5zb" alt="Live show">
           <div class="gallery-item-overlay"><span class="gallery-item-label">Live</span></div>
         </div>
 
