@@ -13,8 +13,9 @@ def cld(public_id, transform):
     return f"{BASE}/{transform}/{public_id}"
 
 def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subdir=True,
-          closer_id=None, second_hero_id=None, scroll_card_bg_id=None, sections=None,
-          landscape_ids=None, square_ids=None, manual_swaps=None):
+          closer_id=None, second_hero_id=None, third_hero_id=None, scroll_card_bg_id=None,
+          sections=None, landscape_ids=None, square_ids=None, manual_swaps=None,
+          flat_order=False):
     """
     sections: optional list of {"label": str, "ids": [public_id, ...]} rendered after the
     main grid, each with its own header. The scroll-card lands in the last group overall
@@ -27,6 +28,9 @@ def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subd
     manual_swaps: optional list of (pos_a, pos_b) 1-indexed *final* positions (hero = 1)
     to force-swap after the automatic portrait/landscape grouping — an explicit override
     for when the user wants two specific slots swapped regardless of orientation grouping.
+    flat_order: if True, grid_ids is rendered exactly as given (no portrait/landscape
+    regrouping) in one continuous grid — use when the caller needs landscape and
+    portrait photos interleaved in a specific custom sequence.
     """
     template = Path("Raul.html").read_text()
     prefix = "../" if subdir else ""
@@ -43,11 +47,12 @@ def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subd
         landscapes = [i for i in ids if i in landscape_ids]
         return portraits + landscapes, len(portraits)
 
-    grid_ids, _grid_split = by_orientation(grid_ids)
+    if not flat_order:
+        grid_ids, _grid_split = by_orientation(grid_ids)
     for s in sections:
         s["ids"], s["_split"] = by_orientation(s["ids"])
 
-    base_offset = 1 + (1 if second_hero_id else 0)
+    base_offset = 1 + (1 if second_hero_id else 0) + (1 if third_hero_id else 0)
 
     if manual_swaps:
         # map every id-list that contributes to the final rendered order, in order,
@@ -74,7 +79,7 @@ def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subd
             c_a[i_a], c_b[i_b] = c_b[i_b], c_a[i_a]
 
     section_ids = [pid for s in sections for pid in s["ids"]]
-    all_ids = [hero_id] + ([second_hero_id] if second_hero_id else []) + grid_ids + section_ids + ([closer_id] if closer_id else [])
+    all_ids = [hero_id] + ([second_hero_id] if second_hero_id else []) + ([third_hero_id] if third_hero_id else []) + grid_ids + section_ids + ([closer_id] if closer_id else [])
     total = len(all_ids)
 
     # portrait photos in rows of 2 instead of 3 — bigger, and avoids a lone portrait
@@ -190,6 +195,19 @@ def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subd
         </div>
       </div>'''
 
+    third_hero_html = ''
+    if third_hero_id:
+        third_idx = 1 + (1 if second_hero_id else 0)
+        third_hero_html = f'''
+
+      <div class="hero-photo-wrap" data-index="{third_idx}" onclick="openLightbox({third_idx})">
+        <img data-src="{cld(third_hero_id, "w_1200,f_auto,q_auto")}" alt="{page_title} — {third_idx + 1}">
+        <div class="photo-overlay">
+          <div class="photo-num">Photo {third_idx + 1} of {total}</div>
+          {dl_btn(third_hero_id)}
+        </div>
+      </div>'''
+
     def render_grid(ids, start_num, add_scroll_card, cols):
         rows = []
         idx = 1
@@ -222,6 +240,34 @@ def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subd
             idx += cols
         return rows
 
+    def render_flat(ids, start_num, add_scroll_card):
+        """Renders ids in exactly the given order, one continuous grid — landscape
+        items still get the full-width CSS treatment via their own class, and the
+        browser's grid auto-flow handles the row breaks, so custom interleaved
+        orders (unlike render_group) don't get split into portrait/landscape groups."""
+        items = []
+        for j, pid in enumerate(ids):
+            photo_num = start_num + j
+            if pid in landscape_ids:
+                extra_class = ' landscape-full'
+            elif pid in square_ids:
+                extra_class = ' square-full'
+            else:
+                extra_class = ''
+            items.append(f'''<div class="portrait-item{extra_class}" data-index="{photo_num}" onclick="openLightbox({photo_num})">
+          <img data-src="{cld(pid, "w_600,f_auto,q_auto")}" alt="{page_title} — {photo_num + 1}">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo {photo_num + 1} of {total}</div>
+            {dl_btn(pid)}
+          </div>
+        </div>''')
+        if add_scroll_card:
+            items.append('''<div class="scroll-card" onclick="document.getElementById('download-all').scrollIntoView({behavior:'smooth'})">
+          <span class="scroll-card-label">Scroll Down to Download All</span>
+          <span class="scroll-card-arrow">↓</span>
+        </div>''')
+        return ['<div class="portrait-grid">\n        ' + '\n        '.join(items) + '\n      </div>']
+
     def render_group(ids, start_num, add_scroll_card, split_at):
         """Renders a group's portraits (2/row) followed by its landscapes (1/row,
         full-width) — split_at marks where the landscapes begin in `ids`."""
@@ -230,7 +276,10 @@ def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subd
         rows += render_grid(landscapes, start_num + len(portraits), add_scroll_card=add_scroll_card, cols=1)
         return rows
 
-    grids_html = render_group(grid_ids, base_offset, add_scroll_card=not sections, split_at=_grid_split)
+    if flat_order:
+        grids_html = render_flat(grid_ids, base_offset, add_scroll_card=not sections)
+    else:
+        grids_html = render_group(grid_ids, base_offset, add_scroll_card=not sections, split_at=_grid_split)
 
     sections_html = ''
     running_start = base_offset + len(grid_ids)
@@ -256,7 +305,7 @@ def build(title, page_title, hero_id, grid_ids, download_all_url, out_path, subd
         </div>
       </div>'''
 
-    body_block = hero_html + second_hero_html + '\n\n      ' + '\n\n      '.join(grids_html) + sections_html + closer_html
+    body_block = hero_html + second_hero_html + third_hero_html + '\n\n      ' + '\n\n      '.join(grids_html) + sections_html + closer_html
 
     template = re.sub(
         r'<!-- Hero -->.*?<!-- /\.portrait-carousel-wrap -->',

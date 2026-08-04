@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Box Canyon Barbies | Luz by LJ</title>
+
+  <link rel="icon" type="image/png" href="Luz By LJ Logo 2.png">
+
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #050121;
+      --navy-mid:   #080230;
+      --navy-light: #0d0535;
+      --pink:       #E21056;
+      --pink-glow:  rgba(226, 16, 86, 0.35);
+      --teal:       #00B4CC;
+      --teal-glow:  rgba(0, 180, 204, 0.35);
+      --white:      #FFFFFF;
+      --white-80:   rgba(255,255,255,0.80);
+      --white-60:   rgba(255,255,255,0.60);
+      --white-20:   rgba(255,255,255,0.20);
+      --white-10:   rgba(255,255,255,0.10);
+      --white-06:   rgba(255,255,255,0.06);
+
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif:   'Playfair Display', serif;
+      --font-body:    'Inter', sans-serif;
+
+      --max-w:  1100px;
+      --pad-x:  40px;
+      --nav-h:  68px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+      animation: pagefade 0.45s ease;
+    }
+    @keyframes pagefade { from { opacity:0; } to { opacity:1; } }
+
+    .milky-way {
+      position: fixed;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(
+        108deg,
+        transparent 0%, transparent 28%,
+        rgba(160,130,255,0.018) 35%,
+        rgba(200,175,255,0.045) 43%,
+        rgba(220,200,255,0.055) 50%,
+        rgba(200,175,255,0.045) 57%,
+        rgba(160,130,255,0.018) 64%,
+        transparent 71%, transparent 100%
+      );
+    }
+    .star {
+      position: fixed; border-radius: 50%; background: white;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.05; } 50% { opacity: 0.75; }
+    }
+    @keyframes twinkle-glow {
+      0%, 100% { opacity: 0.08; box-shadow: none; }
+      50% { opacity: 0.95; box-shadow: 0 0 5px 2px rgba(200,185,255,0.45); }
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(5,1,33,0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid var(--white-10);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x);
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 36px; display: block; }
+    .nav-main-btn {
+      font-family: var(--font-display);
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      text-decoration: none; color: var(--white-60);
+      border: 1px solid var(--white-20); padding: 7px 16px; border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-main-btn:hover { color: var(--teal); border-color: var(--teal); }
+
+    /* HEADER */
+    .page-header {
+      padding: 140px 0 50px;
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: 26px; letter-spacing: 6px;
+      color: var(--teal); text-transform: uppercase;
+      margin-bottom: 12px;
+      animation: eyebrow-shimmer 3s ease-in-out infinite;
+    }
+    @keyframes eyebrow-shimmer {
+      0%, 100% { text-shadow: 0 0 4px rgba(0,180,204,0.3), 0 0 8px rgba(0,180,204,0.1); opacity: 0.7; }
+      50% { text-shadow: 0 0 16px rgba(0,180,204,1), 0 0 36px rgba(0,180,204,0.7), 0 0 64px rgba(0,180,204,0.3); opacity: 1; }
+    }
+    .page-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700; line-height: 1.1; margin-bottom: 16px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.25);
+    }
+    .rule-accent {
+      width: 56px; height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--teal));
+      margin: 0 auto 28px;
+    }
+    .page-subtitle {
+      font-size: 1.15rem;
+      color: var(--white-80);
+      letter-spacing: 0.5px;
+      max-width: 540px;
+      margin: 0 auto;
+      animation: subtitle-glow 3s ease-in-out infinite;
+    }
+    @keyframes subtitle-glow {
+      0%, 100% { text-shadow: 0 0 6px rgba(226,16,86,0.3), 0 0 12px rgba(226,16,86,0.1); }
+      50% { text-shadow: 0 0 14px rgba(226,16,86,0.8), 0 0 30px rgba(226,16,86,0.4), 0 0 50px rgba(226,16,86,0.15); }
+    }
+
+    /* DOWNLOAD BUTTON */
+    .download-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      position: relative; z-index: 1;
+      padding: 0 0 60px;
+    }
+    .download-wrap-note {
+      text-align: center;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      margin: -4px 0 6px;
+    }
+    .btn-download {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 17px 44px;
+      font-family: var(--font-display);
+      font-size: 17px; letter-spacing: 3px;
+      text-decoration: none; border-radius: 2px;
+      background: var(--pink); color: var(--white);
+      transition: all 0.25s ease;
+    }
+    .btn-download:hover {
+      background: #ff1a6a;
+      box-shadow: 0 0 24px 6px var(--pink-glow), 0 0 48px 12px rgba(226,16,86,0.15);
+      transform: translateY(-1px);
+    }
+    .btn-download svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* PHOTOS */
+    .photos-section {
+      padding: 0 0 0;
+      position: relative; z-index: 1;
+    }
+
+    .download-note {
+      text-align: center;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+
+    /* Hero landscape */
+    .hero-photo-wrap {
+      margin-bottom: 12px;
+      cursor: pointer;
+      border-radius: 3px; overflow: hidden;
+      background: var(--navy-light);
+      position: relative;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+    }
+    .hero-photo-wrap.in-view { opacity: 1; transform: translateY(0); }
+    .hero-photo-wrap:hover {
+      box-shadow: 0 0 0 1px var(--pink-glow), 0 8px 32px rgba(226,16,86,0.15);
+    }
+    .hero-photo-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      aspect-ratio: 3 / 2;
+      transition: transform 0.4s ease;
+    }
+    .hero-photo-wrap:hover img { transform: scale(1.02); }
+
+    /* Portrait grids */
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .portrait-grid:last-child { margin-bottom: 0; }
+
+    .portrait-item {
+      cursor: pointer;
+      border-radius: 3px; overflow: hidden;
+      background: var(--navy-light);
+      aspect-ratio: 2 / 3;
+      position: relative;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+    }
+    .portrait-item.in-view { opacity: 1; transform: translateY(0); }
+    .portrait-item:hover {
+      box-shadow: 0 0 0 1px var(--pink-glow), 0 8px 32px rgba(226,16,86,0.15);
+      transform: translateY(-3px);
+    }
+    .portrait-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .portrait-item:hover img { transform: scale(1.04); }
+
+    /* Scroll card */
+    .scroll-card {
+      border-radius: 3px; overflow: hidden;
+      position: relative;
+      background: url('https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies2_xme2dn') center/cover no-repeat;
+      border: 1px solid var(--white-10);
+      aspect-ratio: 2 / 3;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      padding-bottom: 28px;
+      cursor: pointer;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .scroll-card.in-view { opacity: 1; transform: translateY(0); }
+    .scroll-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(5,1,33,0.62);
+      z-index: 0;
+    }
+    .scroll-card-label, .scroll-card-arrow { position: relative; z-index: 1; }
+    .scroll-card-label {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--white);
+      text-align: center;
+      padding: 0 16px;
+      animation: neon-flicker 4s ease-in-out infinite;
+    }
+    .scroll-card-arrow {
+      font-size: 2rem;
+      color: var(--pink);
+      text-shadow: 0 0 8px #E21056, 0 0 20px #E21056;
+      animation: bounce-down 1.8s ease-in-out infinite;
+    }
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0);    opacity: 0.7; }
+      50%       { transform: translateY(10px); opacity: 1;   }
+    }
+
+    /* Shared overlay */
+    .photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(5,1,33,0.9) 0%, rgba(5,1,33,0.4) 55%, transparent 100%);
+      opacity: 0; transition: opacity 0.3s ease;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 14px;
+    }
+    .hero-photo-wrap .photo-overlay {
+      background: linear-gradient(to top, rgba(5,1,33,0.8) 0%, rgba(5,1,33,0.3) 50%, transparent 100%);
+      padding: 18px;
+    }
+    .hero-photo-wrap:hover .photo-overlay,
+    .portrait-item:hover .photo-overlay { opacity: 1; }
+
+    .photo-num {
+      font-family: var(--font-body);
+      font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--white-60); margin-bottom: 8px;
+    }
+    .dl-btn-sm {
+      display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+      padding: 7px 12px;
+      font-family: var(--font-body); font-size: 0.58rem; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      text-decoration: none; border: 1px solid; transition: background 0.2s, color 0.2s;
+      color: var(--pink); border-color: var(--pink); background: rgba(226,16,86,0.1);
+    }
+    .dl-btn-sm:hover { background: var(--pink); color: var(--white); }
+    .dl-btn-sm svg { width: 9px; height: 9px; flex-shrink: 0; }
+
+    .carousel-swipe-hint { display: none; }
+
+    @media (max-width: 600px) {
+      nav { backdrop-filter: none; background: rgba(5,1,33,0.95); }
+      .star { animation-name: twinkle !important; }
+    }
+
+    /* mobile: landscape photos show in full within their grid cell, no crop */
+    .landscape-full { aspect-ratio: 3 / 2; background: var(--navy-light); }
+    .landscape-full img { object-fit: contain; }
+
+    /* desktop: landscape photos instead span the full row width as their own */
+    /* hero-sized block, so they don't visually clash with the portrait grid */
+    @media (min-width: 601px) {
+      .portrait-item.landscape-full { grid-column: 1 / -1; }
+      .portrait-item.landscape-full img { object-fit: cover; }
+    }
+
+    .portrait-grid .scroll-card:only-child,
+    .portrait-grid .portrait-item:only-child:not(.landscape-full) {
+      grid-column: 1 / -1; max-width: 50%; margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .portrait-grid .scroll-card:only-child,
+      .portrait-grid .portrait-item:only-child:not(.landscape-full) { grid-column: auto; max-width: none; margin: 0; }
+    }
+
+    .portrait-item.square-full { aspect-ratio: 1 / 1; background: var(--navy-light); }
+    .portrait-item.square-full img { object-fit: contain; }
+
+    .download-cta-note {
+      font-size: 1.1rem !important;
+      font-style: normal !important;
+      font-weight: 500;
+      color: var(--teal) !important;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      animation: dl-cta-pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes dl-cta-pulse {
+      0%, 100% { text-shadow: 0 0 4px rgba(0,180,204,0.3), 0 0 10px rgba(0,180,204,0.1); opacity: 0.7; }
+      50% { text-shadow: 0 0 12px rgba(0,180,204,1), 0 0 28px rgba(0,180,204,0.7), 0 0 52px rgba(0,180,204,0.3); opacity: 1; }
+    }
+    .please-underline { text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 600px) {
+      :root { --pad-x: 20px; }
+
+      nav { position: static; }
+      .page-header { padding-top: 40px; }
+
+      .photos-section { padding-bottom: 32px; }
+
+      .hero-photo-wrap { margin-bottom: 10px; }
+      .hero-photo-wrap img { aspect-ratio: 3 / 2; }
+
+      .photo-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(5,1,33,0.85) 0%, rgba(5,1,33,0.15) 30%, transparent 55%);
+      }
+
+      .rule-accent { display: none; }
+      .please-underline { text-decoration: none; }
+
+      .portrait-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .neon-cta { padding-top: 36px; }
+    }
+
+    /* NEON CTA */
+    .neon-cta {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 60px 0 32px;
+    }
+    .neon-sign-wrap {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .neon-sign {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: block;
+      color: var(--white);
+      animation: neon-flicker 4s ease-in-out infinite;
+      border: 2px solid transparent;
+      padding: 8px 20px;
+      border-radius: 3px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .neon-sign:hover {
+      border-color: var(--pink);
+      box-shadow:
+        0 0 3px 1px #E21056,
+        0 0 8px 2px #E21056,
+        0 0 20px 4px rgba(226,16,86,0.4),
+        0 0 40px 8px rgba(226,16,86,0.15),
+        inset 0 0 8px 1px rgba(226,16,86,0.06);
+    }
+    @keyframes neon-flicker {
+      0%   { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+      4%   { text-shadow: none; opacity: 0.85; }
+      6%   { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+      70%  { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+      72%  { text-shadow: 0 0 4px #fff, 0 0 8px #E21056; opacity: 0.9; }
+      74%  { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+      100% { text-shadow: 0 0 7px #fff, 0 0 14px #fff, 0 0 28px #E21056, 0 0 56px #E21056, 0 0 90px #E21056; opacity: 1; }
+    }
+    .neon-sign-underline {
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--pink), var(--teal), transparent);
+      margin-top: 10px;
+      animation: neon-line-pulse 4s ease-in-out infinite;
+    }
+    @keyframes neon-line-pulse {
+      0%, 100% { opacity: 0.7; box-shadow: 0 0 8px var(--pink); }
+      50%       { opacity: 1;   box-shadow: 0 0 18px var(--pink), 0 0 36px var(--teal); }
+    }
+    .neon-cta-body {
+      max-width: 480px;
+      margin: 0 auto 36px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--white-80);
+      line-height: 1.8;
+    }
+    .neon-cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-display);
+      font-size: 17px; letter-spacing: 4px; text-transform: uppercase;
+      text-decoration: none;
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      padding: 16px 40px;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+    .neon-cta-btn:hover {
+      background: var(--teal);
+      color: var(--navy);
+      box-shadow: 0 0 20px 4px var(--teal-glow), 0 0 40px 8px rgba(0,180,204,0.12);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 0; text-align: center;
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--white-10);
+    }
+    .footer-copy { font-size: 0.78rem; color: var(--white-60); letter-spacing: 1px; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(3,0,20,0.97);
+      z-index: 200; align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 92vw; max-height: 92vh;
+      object-fit: contain; border-radius: 2px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+    .lightbox-close {
+      position: absolute; top: 20px; right: 24px;
+      font-family: var(--font-display); font-size: 13px; letter-spacing: 3px;
+      cursor: pointer; color: var(--white-60); transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--pink); }
+    .lightbox-nav {
+      position: absolute; font-size: 28px; cursor: pointer;
+      color: var(--white-60); transition: color 0.2s;
+      padding: 20px; user-select: none;
+    }
+    .lightbox-nav:hover { color: var(--teal); }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+    .lightbox-counter {
+      position: absolute; bottom: 20px;
+      font-family: var(--font-display); font-size: 13px; letter-spacing: 3px;
+      color: var(--white-60);
+    }
+    .swipe-hint {
+      position: absolute; bottom: 52px; right: 24px;
+      font-family: var(--font-display); font-size: 36px; letter-spacing: 3px;
+      color: #fff; pointer-events: none;
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .swipe-hint.visible {
+      animation: swipe-glow-pulse 1.6s ease-in-out infinite;
+      opacity: 0.75;
+    }
+    @keyframes swipe-glow-pulse {
+      0%, 100% { text-shadow: 0 0 8px #E21056, 0 0 20px #E21056, 0 0 40px #E21056aa; opacity: 0.75; }
+      50%       { text-shadow: 0 0 14px #ff3a7a, 0 0 35px #E21056, 0 0 70px #E21056, 0 0 100px #E21056cc; opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="stars"></div>
+  <div class="milky-way"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="Luz By LJ Logo 2.png" alt="Luz by LJ"></a>
+      <a href="https://luzbylj.com" target="_blank" rel="noopener" class="nav-main-btn">Main Site</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <p class="eyebrow">Your Gallery</p>
+    <h1 class="page-title">Box Canyon Barbies</h1>
+    <div class="rule-accent"></div>
+  </div>
+
+  <section class="photos-section">
+    <div class="container">
+
+      <p class="download-note download-cta-note">Scroll to the bottom of the page for a "Download All" button.</p>
+      <p class="download-note">(These downloads are optimized for social media/web. Full resolution files available upon request.)</p>
+
+      <div class="portrait-carousel-wrap">
+
+      <div class="hero-photo-wrap" data-index="0" onclick="openLightbox(0)">
+        <img src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1200,f_auto,q_auto/BCBarbies2_xme2dn" alt="Box Canyon Barbies — 1">
+        <div class="photo-overlay">
+          <div class="photo-num">Photo 1 of 44</div>
+          <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies2_xme2dn" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap" data-index="1" onclick="openLightbox(1)">
+        <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1200,f_auto,q_auto/BoxCanyonBarbies1-59_z5wmfg" alt="Box Canyon Barbies — 2">
+        <div class="photo-overlay">
+          <div class="photo-num">Photo 2 of 44</div>
+          <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BoxCanyonBarbies1-59_z5wmfg" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap" data-index="2" onclick="openLightbox(2)">
+        <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_1200,f_auto,q_auto/BoxCanyonBarbies1-58_2_qyyq5b" alt="Box Canyon Barbies — 3">
+        <div class="photo-overlay">
+          <div class="photo-num">Photo 3 of 44</div>
+          <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BoxCanyonBarbies1-58_2_qyyq5b" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-item landscape-full" data-index="3" onclick="openLightbox(3)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesB_W_zba9ol" alt="Box Canyon Barbies — 4">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 4 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesB_W_zba9ol" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item landscape-full" data-index="4" onclick="openLightbox(4)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-4_qr2grp" alt="Box Canyon Barbies — 5">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 5 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-4_qr2grp" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item landscape-full" data-index="5" onclick="openLightbox(5)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesB_W-2_wrgdx9" alt="Box Canyon Barbies — 6">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 6 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesB_W-2_wrgdx9" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item landscape-full" data-index="6" onclick="openLightbox(6)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies_akqarr" alt="Box Canyon Barbies — 7">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 7 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies_akqarr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item landscape-full" data-index="7" onclick="openLightbox(7)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-5-2_ntnn9c" alt="Box Canyon Barbies — 8">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 8 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-5-2_ntnn9c" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="8" onclick="openLightbox(8)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-26_rq2zly" alt="Box Canyon Barbies — 9">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 9 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-26_rq2zly" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="9" onclick="openLightbox(9)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-6_t703lr" alt="Box Canyon Barbies — 10">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 10 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-6_t703lr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="10" onclick="openLightbox(10)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-11_nfhowz" alt="Box Canyon Barbies — 11">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 11 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-11_nfhowz" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="11" onclick="openLightbox(11)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-19_awfgnj" alt="Box Canyon Barbies — 12">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 12 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-19_awfgnj" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="12" onclick="openLightbox(12)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz-7_vf3fxg" alt="Box Canyon Barbies — 13">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 13 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz-7_vf3fxg" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="13" onclick="openLightbox(13)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-10_i5ovgl" alt="Box Canyon Barbies — 14">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 14 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-10_i5ovgl" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="14" onclick="openLightbox(14)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-27_pkooax" alt="Box Canyon Barbies — 15">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 15 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-27_pkooax" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item landscape-full" data-index="15" onclick="openLightbox(15)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-4-2_luszga" alt="Box Canyon Barbies — 16">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 16 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-4-2_luszga" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item landscape-full" data-index="16" onclick="openLightbox(16)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-5_nrxpou" alt="Box Canyon Barbies — 17">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 17 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-5_nrxpou" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="17" onclick="openLightbox(17)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz-5_zsxdqj" alt="Box Canyon Barbies — 18">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 18 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz-5_zsxdqj" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="18" onclick="openLightbox(18)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-16_gmg76f" alt="Box Canyon Barbies — 19">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 19 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-16_gmg76f" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="19" onclick="openLightbox(19)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-8_wiksbn" alt="Box Canyon Barbies — 20">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 20 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-8_wiksbn" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="20" onclick="openLightbox(20)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-21_g7preo" alt="Box Canyon Barbies — 21">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 21 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-21_g7preo" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="21" onclick="openLightbox(21)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-23_igvvru" alt="Box Canyon Barbies — 22">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 22 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-23_igvvru" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="22" onclick="openLightbox(22)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-7_aw1ciw" alt="Box Canyon Barbies — 23">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 23 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-7_aw1ciw" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="23" onclick="openLightbox(23)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz-4_zpn9un" alt="Box Canyon Barbies — 24">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 24 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz-4_zpn9un" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="24" onclick="openLightbox(24)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz_dsq4ll" alt="Box Canyon Barbies — 25">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 25 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz_dsq4ll" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="25" onclick="openLightbox(25)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-28_g162ng" alt="Box Canyon Barbies — 26">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 26 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-28_g162ng" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="26" onclick="openLightbox(26)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-13_kugqtv" alt="Box Canyon Barbies — 27">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 27 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-13_kugqtv" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="27" onclick="openLightbox(27)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-15_nstzgy" alt="Box Canyon Barbies — 28">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 28 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-15_nstzgy" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="28" onclick="openLightbox(28)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-25_zto3sf" alt="Box Canyon Barbies — 29">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 29 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-25_zto3sf" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="29" onclick="openLightbox(29)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-20_iilhp3" alt="Box Canyon Barbies — 30">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 30 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-20_iilhp3" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="30" onclick="openLightbox(30)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-17_k4egnp" alt="Box Canyon Barbies — 31">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 31 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-17_k4egnp" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="31" onclick="openLightbox(31)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz-2_lekisb" alt="Box Canyon Barbies — 32">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 32 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz-2_lekisb" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item landscape-full" data-index="32" onclick="openLightbox(32)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesB_W-4_scekma" alt="Box Canyon Barbies — 33">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 33 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesB_W-4_scekma" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="33" onclick="openLightbox(33)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz-8_jgefuk" alt="Box Canyon Barbies — 34">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 34 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz-8_jgefuk" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="34" onclick="openLightbox(34)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-9_kcioqd" alt="Box Canyon Barbies — 35">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 35 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-9_kcioqd" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="35" onclick="openLightbox(35)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-22_ffjdpv" alt="Box Canyon Barbies — 36">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 36 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-22_ffjdpv" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="36" onclick="openLightbox(36)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-18_hpbxbr" alt="Box Canyon Barbies — 37">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 37 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-18_hpbxbr" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="37" onclick="openLightbox(37)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-12_s2zoyh" alt="Box Canyon Barbies — 38">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 38 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-12_s2zoyh" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="38" onclick="openLightbox(38)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz-6_vkxflo" alt="Box Canyon Barbies — 39">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 39 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz-6_vkxflo" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="39" onclick="openLightbox(39)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz-3_s21mcq" alt="Box Canyon Barbies — 40">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 40 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz-3_s21mcq" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="40" onclick="openLightbox(40)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-24_gyskvz" alt="Box Canyon Barbies — 41">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 41 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-24_gyskvz" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item landscape-full" data-index="41" onclick="openLightbox(41)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesB_W-2h_wfci2f" alt="Box Canyon Barbies — 42">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 42 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesB_W-2h_wfci2f" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="42" onclick="openLightbox(42)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbies-14_pphjrp" alt="Box Canyon Barbies — 43">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 43 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbies-14_pphjrp" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="portrait-item" data-index="43" onclick="openLightbox(43)">
+          <img data-src="https://res.cloudinary.com/diitxd6ou/image/upload/w_600,f_auto,q_auto/BCBarbiesGonz-9_w64uee" alt="Box Canyon Barbies — 44">
+          <div class="photo-overlay">
+            <div class="photo-num">Photo 44 of 44</div>
+            <a class="dl-btn-sm" href="https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/BCBarbiesGonz-9_w64uee" target="_blank" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a>
+          </div>
+        </div>
+        <div class="scroll-card" onclick="document.getElementById('download-all').scrollIntoView({behavior:'smooth'})">
+          <span class="scroll-card-label">Scroll Down to Download All</span>
+          <span class="scroll-card-arrow">↓</span>
+        </div>
+      </div>
+
+        <div id="carousel-swipe-hint" class="carousel-swipe-hint">Swipe &nbsp;&#8594;</div>
+      </div><!-- /.portrait-carousel-wrap -->
+
+    </div>
+  </section>
+
+  <!-- Neon CTA -->
+  <section class="neon-cta">
+    <div class="neon-sign-wrap">
+      <a href="https://luzbylj.com" target="_blank" rel="noopener" class="neon-sign">Check out the main site</a>
+      <span class="neon-sign-underline"></span>
+    </div>
+
+    <a href="https://luzbylj.com" target="_blank" rel="noopener" class="neon-cta-btn">
+      Book a session &rarr;
+    </a>
+  </section>
+
+  <div class="download-wrap" id="download-all">
+    <p class="download-wrap-note">Gallery is split into 2 parts to keep each download working reliably.</p>
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=9999999999&mode=download&public_ids%5B%5D=BoxCanyonBarbies1-58_2_qyyq5b&public_ids%5B%5D=BoxCanyonBarbies1-59_z5wmfg&public_ids%5B%5D=BCBarbiesB_W_zba9ol&public_ids%5B%5D=BCBarbies2_xme2dn&public_ids%5B%5D=BCBarbiesB_W-2_wrgdx9&public_ids%5B%5D=BCBarbies-4-2_luszga&public_ids%5B%5D=BCBarbies-4_qr2grp&public_ids%5B%5D=BCBarbiesGonz_dsq4ll&public_ids%5B%5D=BCBarbies-5-2_ntnn9c&public_ids%5B%5D=BCBarbiesGonz-9_w64uee&public_ids%5B%5D=BCBarbiesGonz-8_jgefuk&public_ids%5B%5D=BCBarbies-13_kugqtv&public_ids%5B%5D=BCBarbiesB_W-4_scekma&public_ids%5B%5D=BCBarbiesB_W-2h_wfci2f&public_ids%5B%5D=BCBarbies_akqarr&public_ids%5B%5D=BCBarbies-14_pphjrp&public_ids%5B%5D=BCBarbies-27_pkooax&public_ids%5B%5D=BCBarbies-20_iilhp3&target_format=zip&target_public_id=BoxCanyonBarbies_LuzByLJ_Part1&timestamp=1785811921&signature=68fb5213577ff10be7e5c8fa29b2d48e380d42ff&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download" data-part="1" data-ids="BoxCanyonBarbies1-58_2_qyyq5b,BoxCanyonBarbies1-59_z5wmfg,BCBarbiesB_W_zba9ol,BCBarbies2_xme2dn,BCBarbiesB_W-2_wrgdx9,BCBarbies-4-2_luszga,BCBarbies-4_qr2grp,BCBarbiesGonz_dsq4ll,BCBarbies-5-2_ntnn9c,BCBarbiesGonz-9_w64uee,BCBarbiesGonz-8_jgefuk,BCBarbies-13_kugqtv,BCBarbiesB_W-4_scekma,BCBarbiesB_W-2h_wfci2f,BCBarbies_akqarr,BCBarbies-14_pphjrp,BCBarbies-27_pkooax,BCBarbies-20_iilhp3">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+      Download All &mdash; Part 1 of 2
+    </a>
+    <a href="https://api.cloudinary.com/v1_1/diitxd6ou/image/generate_archive?expires_at=9999999999&mode=download&public_ids%5B%5D=BCBarbiesGonz-6_vkxflo&public_ids%5B%5D=BCBarbies-24_gyskvz&public_ids%5B%5D=BCBarbiesGonz-5_zsxdqj&public_ids%5B%5D=BCBarbiesGonz-7_vf3fxg&public_ids%5B%5D=BCBarbies-5_nrxpou&public_ids%5B%5D=BCBarbies-16_gmg76f&public_ids%5B%5D=BCBarbies-15_nstzgy&public_ids%5B%5D=BCBarbies-23_igvvru&public_ids%5B%5D=BCBarbies-25_zto3sf&public_ids%5B%5D=BCBarbies-12_s2zoyh&public_ids%5B%5D=BCBarbies-28_g162ng&public_ids%5B%5D=BCBarbies-11_nfhowz&public_ids%5B%5D=BCBarbiesGonz-4_zpn9un&public_ids%5B%5D=BCBarbies-9_kcioqd&public_ids%5B%5D=BCBarbiesGonz-2_lekisb&public_ids%5B%5D=BCBarbies-8_wiksbn&public_ids%5B%5D=BCBarbies-6_t703lr&public_ids%5B%5D=BCBarbiesGonz-3_s21mcq&public_ids%5B%5D=BCBarbies-7_aw1ciw&public_ids%5B%5D=BCBarbies-10_i5ovgl&public_ids%5B%5D=BCBarbies-22_ffjdpv&public_ids%5B%5D=BCBarbies-19_awfgnj&public_ids%5B%5D=BCBarbies-26_rq2zly&public_ids%5B%5D=BCBarbies-21_g7preo&public_ids%5B%5D=BCBarbies-18_hpbxbr&public_ids%5B%5D=BCBarbies-17_k4egnp&target_format=zip&target_public_id=BoxCanyonBarbies_LuzByLJ_Part2&timestamp=1785811921&signature=96eb7a31265b4d9bcc7f153c5cd255b773c92717&api_key=713587951621493" target="_blank" rel="noopener" class="btn-download" data-part="2" data-ids="BCBarbiesGonz-6_vkxflo,BCBarbies-24_gyskvz,BCBarbiesGonz-5_zsxdqj,BCBarbiesGonz-7_vf3fxg,BCBarbies-5_nrxpou,BCBarbies-16_gmg76f,BCBarbies-15_nstzgy,BCBarbies-23_igvvru,BCBarbies-25_zto3sf,BCBarbies-12_s2zoyh,BCBarbies-28_g162ng,BCBarbies-11_nfhowz,BCBarbiesGonz-4_zpn9un,BCBarbies-9_kcioqd,BCBarbiesGonz-2_lekisb,BCBarbies-8_wiksbn,BCBarbies-6_t703lr,BCBarbiesGonz-3_s21mcq,BCBarbies-7_aw1ciw,BCBarbies-10_i5ovgl,BCBarbies-22_ffjdpv,BCBarbies-19_awfgnj,BCBarbies-26_rq2zly,BCBarbies-21_g7preo,BCBarbies-18_hpbxbr,BCBarbies-17_k4egnp">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+      Download All &mdash; Part 2 of 2
+    </a>
+  </div>
+
+  <footer>
+    <p class="footer-copy">&copy; 2026 Luz by LJ · All rights reserved</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">✕ CLOSE</span>
+    <span class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8592;</span>
+    <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+    <span class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8594;</span>
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+    <span class="swipe-hint" id="swipe-hint">Swipe &nbsp;&#8594;</span>
+  </div>
+
+  <script>
+    // Starfield
+    (function() {
+      const container = document.getElementById('stars');
+      for (let i = 0; i < 200; i++) {
+        const s = document.createElement('div');
+        s.className = 'star';
+        const size = Math.random() < 0.1 ? (Math.random() * 2 + 1.5) : (Math.random() * 1.2 + 0.3);
+        const dur = 2.5 + Math.random() * 5;
+        const delay = Math.random() * 6;
+        const isGlow = Math.random() < 0.2;
+        s.style.cssText = `
+          width:${size}px; height:${size}px;
+          left:${Math.random()*100}vw; top:${Math.random()*100}vh;
+          animation: ${isGlow ? 'twinkle-glow' : 'twinkle'} ${dur}s ${delay}s ease-in-out infinite;
+        `;
+        container.appendChild(s);
+      }
+    })();
+
+    // Lightbox
+    const photos = [
+      { id: 'BCBarbies2_xme2dn', alt: 'Box Canyon Barbies — 1' },
+      { id: 'BoxCanyonBarbies1-59_z5wmfg', alt: 'Box Canyon Barbies — 2' },
+      { id: 'BoxCanyonBarbies1-58_2_qyyq5b', alt: 'Box Canyon Barbies — 3' },
+      { id: 'BCBarbiesB_W_zba9ol', alt: 'Box Canyon Barbies — 4' },
+      { id: 'BCBarbies-4_qr2grp', alt: 'Box Canyon Barbies — 5' },
+      { id: 'BCBarbiesB_W-2_wrgdx9', alt: 'Box Canyon Barbies — 6' },
+      { id: 'BCBarbies_akqarr', alt: 'Box Canyon Barbies — 7' },
+      { id: 'BCBarbies-5-2_ntnn9c', alt: 'Box Canyon Barbies — 8' },
+      { id: 'BCBarbies-26_rq2zly', alt: 'Box Canyon Barbies — 9' },
+      { id: 'BCBarbies-6_t703lr', alt: 'Box Canyon Barbies — 10' },
+      { id: 'BCBarbies-11_nfhowz', alt: 'Box Canyon Barbies — 11' },
+      { id: 'BCBarbies-19_awfgnj', alt: 'Box Canyon Barbies — 12' },
+      { id: 'BCBarbiesGonz-7_vf3fxg', alt: 'Box Canyon Barbies — 13' },
+      { id: 'BCBarbies-10_i5ovgl', alt: 'Box Canyon Barbies — 14' },
+      { id: 'BCBarbies-27_pkooax', alt: 'Box Canyon Barbies — 15' },
+      { id: 'BCBarbies-4-2_luszga', alt: 'Box Canyon Barbies — 16' },
+      { id: 'BCBarbies-5_nrxpou', alt: 'Box Canyon Barbies — 17' },
+      { id: 'BCBarbiesGonz-5_zsxdqj', alt: 'Box Canyon Barbies — 18' },
+      { id: 'BCBarbies-16_gmg76f', alt: 'Box Canyon Barbies — 19' },
+      { id: 'BCBarbies-8_wiksbn', alt: 'Box Canyon Barbies — 20' },
+      { id: 'BCBarbies-21_g7preo', alt: 'Box Canyon Barbies — 21' },
+      { id: 'BCBarbies-23_igvvru', alt: 'Box Canyon Barbies — 22' },
+      { id: 'BCBarbies-7_aw1ciw', alt: 'Box Canyon Barbies — 23' },
+      { id: 'BCBarbiesGonz-4_zpn9un', alt: 'Box Canyon Barbies — 24' },
+      { id: 'BCBarbiesGonz_dsq4ll', alt: 'Box Canyon Barbies — 25' },
+      { id: 'BCBarbies-28_g162ng', alt: 'Box Canyon Barbies — 26' },
+      { id: 'BCBarbies-13_kugqtv', alt: 'Box Canyon Barbies — 27' },
+      { id: 'BCBarbies-15_nstzgy', alt: 'Box Canyon Barbies — 28' },
+      { id: 'BCBarbies-25_zto3sf', alt: 'Box Canyon Barbies — 29' },
+      { id: 'BCBarbies-20_iilhp3', alt: 'Box Canyon Barbies — 30' },
+      { id: 'BCBarbies-17_k4egnp', alt: 'Box Canyon Barbies — 31' },
+      { id: 'BCBarbiesGonz-2_lekisb', alt: 'Box Canyon Barbies — 32' },
+      { id: 'BCBarbiesB_W-4_scekma', alt: 'Box Canyon Barbies — 33' },
+      { id: 'BCBarbiesGonz-8_jgefuk', alt: 'Box Canyon Barbies — 34' },
+      { id: 'BCBarbies-9_kcioqd', alt: 'Box Canyon Barbies — 35' },
+      { id: 'BCBarbies-22_ffjdpv', alt: 'Box Canyon Barbies — 36' },
+      { id: 'BCBarbies-18_hpbxbr', alt: 'Box Canyon Barbies — 37' },
+      { id: 'BCBarbies-12_s2zoyh', alt: 'Box Canyon Barbies — 38' },
+      { id: 'BCBarbiesGonz-6_vkxflo', alt: 'Box Canyon Barbies — 39' },
+      { id: 'BCBarbiesGonz-3_s21mcq', alt: 'Box Canyon Barbies — 40' },
+      { id: 'BCBarbies-24_gyskvz', alt: 'Box Canyon Barbies — 41' },
+      { id: 'BCBarbiesB_W-2h_wfci2f', alt: 'Box Canyon Barbies — 42' },
+      { id: 'BCBarbies-14_pphjrp', alt: 'Box Canyon Barbies — 43' },
+      { id: 'BCBarbiesGonz-9_w64uee', alt: 'Box Canyon Barbies — 44' }
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      showPhoto();
+      document.getElementById('lightbox').classList.add('open');
+      if (window.innerWidth <= 768) document.getElementById('swipe-hint').classList.add('visible');
+    }
+    function showPhoto() {
+      const p = photos[currentIndex];
+      document.getElementById('lightbox-img').src =
+        'https://res.cloudinary.com/diitxd6ou/image/upload/w_1920,f_auto,q_auto/' + p.id;
+      document.getElementById('lightbox-img').alt = p.alt;
+      document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + photos.length;
+    }
+    function lightboxNav(dir) {
+      currentIndex = (currentIndex + dir + photos.length) % photos.length;
+      showPhoto();
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.getElementById('lightbox-img').src = '';
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') lightboxNav(1);
+      if (e.key === 'ArrowLeft') lightboxNav(-1);
+    });
+
+    // Touch swipe
+    let touchStartX = 0, touchStartY = 0, isPinch = false, isSwiping = false;
+    const lb = document.getElementById('lightbox');
+    lb.addEventListener('touchstart', e => {
+      if (e.touches.length > 1) { isPinch = true; return; }
+      isPinch = false; isSwiping = false;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    lb.addEventListener('touchmove', e => {
+      if (e.touches.length > 1) { isPinch = true; return; }
+      const dx = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+      if (!isSwiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) isSwiping = true;
+    }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      if (isPinch) { isPinch = false; return; }
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (isSwiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        lightboxNav(dx < 0 ? 1 : -1);
+        document.getElementById('swipe-hint').classList.remove('visible');
+      }
+      isSwiping = false;
+    }, { passive: true });
+
+    // Scroll-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Smart download — Web Share API on iOS, direct download on desktop
+    (function() {
+      const testFile = new File([''], 'test.jpg', { type: 'image/jpeg' });
+      const canShare = navigator.share && navigator.canShare && navigator.canShare({ files: [testFile] });
+      if (!canShare) return;
+
+      document.querySelectorAll('.dl-btn-sm').forEach(btn => {
+        const href = btn.getAttribute('href');
+        const id = href && href.split('/fl_attachment/')[1];
+        if (!id) return;
+
+        btn.removeAttribute('href');
+        btn.removeAttribute('target');
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', async function(e) {
+          e.stopPropagation();
+          const original = btn.innerHTML;
+          btn.textContent = 'Loading...';
+          try {
+            const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${id}`);
+            const blob = await resp.blob();
+            const file = new File([blob], id + '.jpg', { type: blob.type });
+            await navigator.share({ files: [file] });
+          } catch(e) { /* cancelled */ }
+          btn.innerHTML = original;
+        });
+      });
+
+      // Download All — share all photos at once on iOS
+      document.querySelectorAll('#download-all .btn-download').forEach(function(dlAllBtn) {
+        const partIds = (dlAllBtn.dataset.ids || '').split(',').filter(Boolean);
+        dlAllBtn.dataset.zipHref = dlAllBtn.getAttribute('href');
+        dlAllBtn.removeAttribute('href');
+        dlAllBtn.removeAttribute('target');
+        dlAllBtn.style.cursor = 'pointer';
+        dlAllBtn.addEventListener('click', async function(e) {
+          e.preventDefault();
+          const original = dlAllBtn.innerHTML;
+          dlAllBtn.textContent = 'Loading...';
+          try {
+            const files = await Promise.all(partIds.map(async (id, i) => {
+              dlAllBtn.textContent = `Loading... (${i + 1}/${partIds.length})`;
+              const resp = await fetch(`https://res.cloudinary.com/diitxd6ou/image/upload/fl_attachment/${id}`);
+              const blob = await resp.blob();
+              return new File([blob], id + '.jpg', { type: blob.type });
+            }));
+            await navigator.share({ files });
+          } catch(e) {
+            if (e.name !== 'AbortError') window.location.href = dlAllBtn.dataset.zipHref;
+          }
+          dlAllBtn.innerHTML = original;
+        });
+      });
+    })();
+
+    // Carousel swipe hint — fade on first scroll
+    const carouselWrap = document.querySelector('.portrait-carousel-wrap');
+    const carouselHint = document.getElementById('carousel-swipe-hint');
+    if (carouselWrap && carouselHint) {
+      carouselWrap.addEventListener('scroll', function() {
+        carouselHint.style.opacity = '0';
+      }, { passive: true, once: true });
+    }
+
+    document.querySelectorAll('.hero-photo-wrap, .portrait-item, .scroll-card').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.08) + 's';
+      observer.observe(el);
+    });
+
+  
+    // Lazy-load images ahead of viewport so they're ready before you scroll to them
+    const lazyImgs = document.querySelectorAll('img[data-src]');
+    const lazyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+          lazyObserver.unobserve(img);
+        }
+      });
+    }, { rootMargin: '800px 0px' });
+    lazyImgs.forEach(img => lazyObserver.observe(img));
+  </script>
+
+</body>
+</html>
